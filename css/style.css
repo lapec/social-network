@@ -1,0 +1,44 @@
+body {
+	margin: 0;
+}
+main {
+    font-family: 'Comfortaa', cursive;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+    width: 60%;
+    font-size: 1.8em;
+    display: block;
+    float: left;
+}
+aside {
+    width: 30%;
+    text-align: left;
+    display: inline-block;
+    margin-top: 50px;
+    font-family: 'Comfortaa', cursive;
+}
+aside form input {
+	font-size: 15px;
+    padding:3px;
+    margin: 3px;
+    border: 1px #E9EBEE solid;
+    border-radius: 5px;
+}
+aside form input:focus {
+    outline: none;
+	box-shadow: 0 0 0.3pt 0.4pt #4267B2;
+
+}
+nav {
+	background: #4267B2;
+	min-height: 50px;
+    font-family: 'Comfortaa', cursive;
+}
+
+#navContent {
+	margin: auto;
+    padding: 10px;
+    padding-top:15px;
+    color: #fff;
+}
