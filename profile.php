@@ -6,7 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 <body>
-    <?php include "navbar.php"; ?>
+    <?php include "sections/navbar.php"; ?>
     <main>
     	<img src="img/user.jpg"><br>
                 <?php if(isset($_POST['login']) && !empty($_POST['username'])){

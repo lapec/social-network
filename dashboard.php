@@ -6,7 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 <body>
-	<?php include "navbar.php"; ?>
+	<?php include "sections/navbar.php"; ?>
 	<div align="center" id="insertPost">
 	    <img src="img/profile.gif"/>
 	    <input type="text" placeholder="Whats on your mind ?"/>
