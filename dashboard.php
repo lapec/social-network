@@ -1,5 +1,11 @@
 <?php include "config/db_config.php"; ?>
 <?php
+session_start();
+if (!isset($_SESSION['user']) || !$_SESSION['user']) {
+  header('Location: index.php');
+}
+?>
+<?php
 $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 
 // Check connection
@@ -64,7 +70,6 @@ $result = $conn->query($sql);
            <br><div id="like">Like Comment</div>
          </div>
     <?php endwhile; 
-        
         
     } else {
         echo "0 results";
