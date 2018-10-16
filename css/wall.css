@@ -1,6 +1,6 @@
-div{
+/* div{
     border: black solid 1px;
-}
+} */
 
 
 
@@ -14,25 +14,52 @@ div{
 .leftColumn{
     display: flex;
     flex-wrap: wrap;
-    height:200px;
+    flex-direction: column;
     width:49%;
     display:inline-block;
     margin:0 auto;
 }
-.rightColumn{
-    height:200px;
-    width:49%;
-    display:inline-block;
-    margin:0 auto;
-}
+
+
 .profPicture{
     width:45%;
 }
+
+
+
 .userInfo{
+    display:inline-block;
+    margin:0 auto;
+    width:45%;
     background:white;
 }
-.posts{
+.table{
+    margin:0 auto;
+}
+.td{
+    text-align:left;
+    width:49%;
+}
+.imgPost{
+    width:100% em;
+    height: 200px;
+
+}
+
+.rightColumn{
+    flex-direction: column;
+    width:49%;
+    display:inline-block;
+    margin:0 auto;
+}
+
+.invisSpace{
+    margin-top:150px;
+   
+}
+.postSection{
     width:50%;
     background:white;
     margin:0 auto;
+    
 }
