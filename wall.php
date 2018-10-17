@@ -22,8 +22,9 @@ $result = $query->fetch_assoc();
 </head>
 <body>
     <?php include "sections/navbar.php"?>
-
+<!-- glavni kontejner -->
 <div class="pageContainer"> 
+    <!-- leva strana -->
 <div class="leftColumn"> 
     <img class="profPicture" src="img/petprofilepic.png"> 
     <br>
@@ -59,6 +60,7 @@ $result = $query->fetch_assoc();
     <?php endwhile;
     } ?>
 </div>
+<!-- // desna strana -->
     <div class="rightColumn">
     <?php
         $query1 = $conn->query($sql1);
@@ -66,6 +68,9 @@ $result = $query->fetch_assoc();
             while($row = $query1->fetch_assoc()):?>
             
         <div class="posts">
+            <!-- dodaj datum ovde  -->
+            <p class="date">20.11.2018</p>
+            <br>
             <p><?php echo $row["TekstStatusa"] ?></p>
         </div>
         <?php endwhile; 

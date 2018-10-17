@@ -1,7 +1,7 @@
 /* div{
     border: black solid 1px;
-} */
-
+}
+ */
 
 
 .pageContainer{
@@ -62,4 +62,15 @@
     background:white;
     margin:0 auto;
     
+}
+.date{
+    font-size:12px;
+    font-style:none;
+    
+}
+
+.posts{
+    padding: 20px;
+    background:white;
+    margin:30px;
 }
