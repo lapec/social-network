@@ -1,4 +1,5 @@
 <?php include "config/db_config.php"; ?>
+
 <?php
 session_start();
 if (!isset($_SESSION['user']) || !$_SESSION['user']) {
@@ -15,20 +16,15 @@ if ($conn->connect_error) {
 
 // Change character set to utf8
 mysqli_set_charset($conn,"utf8");
-$timestamp = time();
 
-if(isset($_POST['insertPost'])){
-    $statusContent = $_POST['statusContent'];
-    $sqlInsert = "INSERT INTO statusi(TID, KID, TekstStatusa, VremePostavljanja) VALUES (null, 1, '".$statusContent."','".$timestamp."')";
-    $resultInsert = $conn->query($sqlInsert);
-    if ($resultInsert === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sqlInsert . "<br>" . $conn->error."<br>";
-    }
-}
 
-$sql = "SELECT * FROM statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID;";
+$sql = "
+        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika,korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
+        ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
+        LEFT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) UNION 
+        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika, korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
+        ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
+        RIGHT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) ORDER BY v1 DESC;";
 $result = $conn->query($sql);
 
 ?>
@@ -46,14 +42,28 @@ $result = $conn->query($sql);
 </head>
 <body>
 	<?php include "sections/navbar.php"; ?>
-	<div align="center" id="insertPost">
-	    <img src="img/profile.gif"/>
-        <form action="dashboard.php" method="post">
-	      <input type="text" name="statusContent" placeholder="Whats on your mind ?"/>
-	      <input type="submit" name="insertPost" value="Kreiraj post" />
-        </form>
-	</div>
+    <div align="center" id="insertPost">
+        <img src="img/profile.gif"/>
 
+       <form action="uploadimg.php" method="post" enctype="multipart/form-data">
+          <input type="text" name="statusContent" id="onYourMind" placeholder="What's on your mind ?"/>
+
+          <input type="file" name="fileToUpload" id="fileToUpload" placeholder="Odaberi datoteku:"
+        style="visibility: hidden">
+     <div class="btnUpload">
+       <label for="fileToUpload" class="dgm">Odaberi datoteku:</label>
+     </div>
+       <div class="rightSide">
+       <select name="pubSelect" id="pubSelect">
+         <option value="0">Javna</option>
+         <option value="1">Privatna</option>
+       </select>
+
+       <input type="submit" name="insertPost" id="kreirajPost" value="Kreiraj post" />
+       </div>
+       </form>
+
+    </div>
 <?php
     if ($result->num_rows > 0) { 
     // output data of each row
@@ -61,11 +71,15 @@ $result = $conn->query($sql);
     <?php while($row = $result->fetch_assoc()): ?>
        <div align="center" id="printText">
          <div class="row">
-           <img src="img/<?php echo $row['SlikaKorisnika']; ?>">
+          <div class="usrPict">
+            <img src="img/<?php echo $row['SlikaKorisnika']; ?>">
+          </div>
            <span id="fullName">
-               <?php echo $row["Ime"]." ".$row["Prezime"] ?></span>
+               <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span>
+          <div class="outPict"></div>
            <div id="postTxt">
-             <?php echo $row["TekstStatusa"]; ?>
+             <img src="<?php echo $row["LinkIzvoraSlike"];?>">
+             <?php echo $row["TekstStatusa"];?>
            </div>
            <br><div id="like">Like Comment</div>
          </div>
