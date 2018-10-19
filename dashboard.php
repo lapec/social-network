@@ -37,6 +37,7 @@ $result = $conn->query($sql);
 <head>
 	<title>social network</title>
 	<link href="css/dashboard.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
@@ -96,5 +97,6 @@ $result = $conn->query($sql);
     </div>
   </div>
 </div>
+<script src="clickableImage.js"></script>
 </body>
 </html>
