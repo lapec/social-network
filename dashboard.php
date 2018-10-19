@@ -69,6 +69,9 @@ $result = $conn->query($sql);
            <div id="postTxt">
              <?php echo $row["TekstStatusa"]; ?>
            </div>
+           <div class="imgDiv" >
+            <img class="postImg clickableImage" id="<?php echo $row['SID']?>" src="uploads/<?php echo $row['ImeSlike']?>"> <!-- potrebno dodati ovaj PHP id kako bi se pokretala js funkcija --> 
+            </div>
            <br><div id="like">Like Comment</div>
          </div>
     <?php endwhile; 
@@ -80,7 +83,6 @@ $result = $conn->query($sql);
     $conn->close();
 ?>
 
-
 <div id="popupContainer">
   <div id="popupContent">
     <div class="leftColumn" id="photoContainer"></div>
@@ -90,10 +92,10 @@ $result = $conn->query($sql);
       </div>
       <div id="komentar">bla</div>
       <div id="comment" placeholder="Comment">
-        <form action="" method="post">
+        <form action="insertComments.php" method="post">
         <input id="forma" type="text" name="komentar" placeholder=" What's on your mind?" autocomplete="off" /><br/>
+        <button id="submitComment" type="submit">Submit</button>
       </div>
-      <button id="submitComment" type="submit">Submit</button>
     </div>
   </div>
 </div>

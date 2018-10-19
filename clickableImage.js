@@ -8,7 +8,7 @@ var imgClick = function() {
     var imgId = this.id;
     $('#imgComment').html('<img src=img/loading.gif width=40 px>');
     $.ajax({
-        url: 'demo_test.php?slikaID='+imgId, //iskoristiti ovaj ID za drugi php kako bi se povezali komentari sa slikom
+        url: 'imageComments.php?slikaID='+imgId, //iskoristiti ovaj ID za drugi php kako bi se povezali komentari sa slikom
         success: function(result){
             $('#imgComment').html(result);
         },
