@@ -19,10 +19,10 @@ mysqli_set_charset($conn,"utf8");
 
 
 $sql = "
-        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika,korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
+        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika,korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
         ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
         LEFT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) UNION 
-        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika, korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
+        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika, korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
         ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
         RIGHT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) ORDER BY v1 DESC;";
 $result = $conn->query($sql);
@@ -78,8 +78,19 @@ $result = $conn->query($sql);
                <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span>
           <div class="outPict"></div>
            <div id="postTxt">
-             <img src="<?php echo $row["LinkIzvoraSlike"];?>">
-             <?php echo $row["TekstStatusa"];?>
+             <?php 
+            if (($row['JavnaPrivatna'] === 1) || $row['KID'] === $_SESSION['KID']) {
+                  echo '<img src="'.$row['LinkIzvoraSlike'].'">'; 
+
+              } elseif ($row['JavnaPrivatna'] === 0) {
+                  echo '<img src="'.$row['LinkIzvoraSlike'].'">';
+
+              } else {
+                  echo " ";
+              }
+                          
+             echo $row["TekstStatusa"];
+            ?>
            </div>
            <br><div id="like">Like Comment</div>
          </div>
