@@ -82,7 +82,7 @@ $result = $conn->query($sql);
            <div id="postTxt">
              <?php 
             if (($row['JavnaPrivatna'] === 1) || $row['KID'] === $_SESSION['KID']) {
-                  echo '<img src="'.$row['LinkIzvoraSlike'].'">'; 
+                  echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">'; 
 
               } elseif ($row['JavnaPrivatna'] === 0) {
                   echo '<img src="'.$row['LinkIzvoraSlike'].'">';
@@ -94,11 +94,6 @@ $result = $conn->query($sql);
              echo $row["TekstStatusa"];
             ?>
            </div>
-           <div class="imgDiv" >
-            <img class="postImg clickableImage" id="<?php echo $row['SID']?>" src="uploads/<?php echo $row['ImeSlike']?>"> <!-- potrebno dodati ovaj PHP id kako bi se pokretala js funkcija --> 
-            </div>
-           <br><div id="like">Like Comment</div>
-         </div>
     <?php endwhile; 
         
     } else {
