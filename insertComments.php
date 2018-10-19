@@ -6,7 +6,7 @@
 
 $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 
-
+	
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
@@ -14,23 +14,25 @@ $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 	if (isset($_POST['insertPost'])) {
 		$ok = true;
 		$posttext = mysqli_real_escape_string($conn, $_POST['posttext']);
+		$slikaID = mysqli_real_escape_string($conn, $_POST['slikaID']);
 		if (empty($_POST["posttext"])) {
 			$ok = false;
 		} 
 		if ($ok == "true") {
 			$posttime = date("Y-m-d H:i:s");
-			$currentUserID = $_SESSION['currentUserId'];
-			$sql = "INSERT INTO `statusi` (`TID`, `KID`, `TekstStatusa`, `VremePostavljanja`) VALUES (NULL, '$currentUserID', '$posttext', '$posttime')";
+			$currentUserID = $_SESSION['KID'];
+			$sql = "INSERT INTO `komentari_slike` (`SID`, `KID`, `Komentar`, `VremePostavljanja`) VALUES ('$slikaID', '$currentUserID', '$posttext', '$posttime')";
 			if ($conn->query($sql) !== true) {
 				echo "Error: " . $sql . "<br>" . $conn->error . "<br><br>";
 			} else {
-			header('Location: dashboard.php');
+			header('Location: insertComments.php');
 			}
 		}
 	}
-	$sql = "SELECT * FROM statusi AS a INNER JOIN korisnici AS b ON a.KID = b.KID ORDER BY vremePostavljanja DESC";
-	$result = $conn->query($sql);
-
-
 	$conn->close();
 ?>
+
+
+
+
+
