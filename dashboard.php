@@ -19,10 +19,10 @@ mysqli_set_charset($conn,"utf8");
 
 
 $sql = "
-        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika,korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
+        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika,korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.SID,slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
         ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
         LEFT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) UNION 
-        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika, korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
+        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika, korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.SID, slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
         ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
         RIGHT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) ORDER BY v1 DESC;";
 $result = $conn->query($sql);
@@ -73,19 +73,19 @@ $result = $conn->query($sql);
     <?php while($row = $result->fetch_assoc()): ?>
        <div align="center" id="printText">
          <div class="row">
-          <div class="usrPict">
-            <img src="img/<?php echo $row['SlikaKorisnika']; ?>">
-          </div>
+            <div class="usrPict">
+              <img src="img/<?php echo $row['SlikaKorisnika']; ?>">
+           </div>
            <span id="fullName">
                <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span>
-          <div class="outPict"></div>
+           <div class="outPict"></div>
            <div id="postTxt">
              <?php 
             if (($row['JavnaPrivatna'] === 1) || $row['KID'] === $_SESSION['KID']) {
                   echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">'; 
 
               } elseif ($row['JavnaPrivatna'] === 0) {
-                  echo '<img src="'.$row['LinkIzvoraSlike'].'">';
+                  echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">';
 
               } else {
                   echo " ";
@@ -94,6 +94,7 @@ $result = $conn->query($sql);
              echo $row["TekstStatusa"];
             ?>
            </div>
+        </div>
     <?php endwhile; 
         
     } else {

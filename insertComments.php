@@ -21,7 +21,7 @@ $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 		if ($ok == "true") {
 			$posttime = date("Y-m-d H:i:s");
 			$currentUserID = $_SESSION['KID'];
-			$sql = "INSERT INTO `komentari_slike` (`SID`, `KID`, `Komentar`, `VremePostavljanja`) VALUES ('$slikaID', '$currentUserID', '$posttext', '$posttime')";
+			$sql = "INSERT INTO `komentari_slike` (SID, KID, Komentar, VremePostavljanja) VALUES ('".$slikaID."','".$currentUserID."', '".$posttext."','".$posttime."')";
 			if ($conn->query($sql) !== true) {
 				echo "Error: " . $sql . "<br>" . $conn->error . "<br><br>";
 			} else {
