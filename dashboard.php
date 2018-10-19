@@ -85,16 +85,17 @@ $result = $conn->query($sql);
 
 <div id="popupContainer">
   <div id="popupContent">
-    <div class="leftColumn" id="photoContainer"></div>
+    <div class="leftColumn" id="photoContainer" name=""></div>
     <div class="rightColumn">
       <div id="popupTopBar">
         <span id="closePopup">X</span>
       </div>
-      <div id="komentar">bla</div>
-      <div id="comment" placeholder="Comment">
+      <div id="imgComment"></div>
+      <div id="comment">
         <form action="insertComments.php" method="post">
-        <input id="forma" type="text" name="komentar" placeholder=" What's on your mind?" autocomplete="off" /><br/>
-        <button id="submitComment" type="submit">Submit</button>
+        <input id="forma" type="text" name="postComment" placeholder="Comment" autocomplete="off" /><br/>
+        <input type="hidden" id="slikaID" name="slikaID" value="">
+        <button id="submitComment" name="submitComment" type="submit">Submit</button>
       </div>
     </div>
   </div>

@@ -6,6 +6,8 @@ var imgClick = function() {
     popupContainer.style.display = 'flex';
     photoContainer.style.backgroundImage = 'url(' + this.src + ')'
     var imgId = this.id;
+    document.getElementById('slikaID').value = imgId;
+    
     $('#imgComment').html('<img src=img/loading.gif width=40 px>');
     $.ajax({
         url: 'imageComments.php?slikaID='+imgId, //iskoristiti ovaj ID za drugi php kako bi se povezali komentari sa slikom

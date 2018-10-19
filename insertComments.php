@@ -11,11 +11,11 @@ $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	if (isset($_POST['insertPost'])) {
+	if (isset($_POST['submitComment'])) {
 		$ok = true;
-		$posttext = mysqli_real_escape_string($conn, $_POST['posttext']);
+		$posttext = mysqli_real_escape_string($conn, $_POST['postComment']);
 		$slikaID = mysqli_real_escape_string($conn, $_POST['slikaID']);
-		if (empty($_POST["posttext"])) {
+		if (empty($_POST["postComment"])) {
 			$ok = false;
 		} 
 		if ($ok == "true") {
@@ -25,7 +25,7 @@ $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 			if ($conn->query($sql) !== true) {
 				echo "Error: " . $sql . "<br>" . $conn->error . "<br><br>";
 			} else {
-			header('Location: insertComments.php');
+			header('Location: dashboard.php');
 			}
 		}
 	}
