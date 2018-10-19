@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.main-container {
+	width: 100%;
+}
+
+.navigation {
+	display: flex;
+	background-color: #4267B2;
+	height: 60px;
+}
+
+.logo {
+	flex: 1;
+	display: flex;
+}
+
+a {
+	text-decoration: none;
+	padding: 10px 10px 10px 40px;
+}
+
+h1 {
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	/* width: 250px;
+	height: 40px; */
+}
+
+.login {
+	flex: 1;
+}
+
+.username {
+	width: 40%;
+	height: 30px;
+	margin: 15px 2px;
+	padding-left: 10px;
+}
+
+.password {
+	width: 40%;
+	height: 30px;
+	margin: 15px 2px;
+	padding-left: 10px;
+}
+
+.btn {
+	width: 16%;
+	height: 30px;
+	background-color: #365899;
+	color: #fff;
+	border: 0;
+}
+
+.container {
+	display: flex;
+	background-color: #fff;
+	height: 100vh;
+	position: absolute;
+	z-index: -2;
+}
+
+.box1 {
+	flex: 1;
+}
+
+img {
+	width: 100%;
+	border-radius: 50%;
+}
+
+.img1 {
+	width: 500px;
+	height: 500px;
+	margin-top: 90px;
+	margin-left: 90px;
+}
+
+.box2 {
+	flex: 1;
+	margin-top: ;
+}
+
+.img2 {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	margin-top: 43px;
+	z-index: -1;
+}
+
+.card {
+	margin-top: 200px;
+}
+
+.name {
+	width: 40%;
+	height: 30px;
+	margin: 15px 2px;
+	padding-left: 10px;
+}
+
+.lastname {
+	width: 40%;
+	height: 30px;
+	margin: 10px 2px;
+	padding-left: 10px;
+}
+
+.email {
+	width: 81.5%;
+	height: 30px;
+	margin: 10px 2px;
+	padding-left: 10px;
+}
+
+.username2 {
+	width: 40%;
+	height: 30px;
+	margin: 10px 2px;
+	padding-left: 10px;
+}
+
+.password2 {
+	width: 40%;
+	height: 30px;
+	margin: 10px 2px;
+	padding-left: 10px;
+}
+
+.btn2 {
+	width: 81.5%;
+	height: 30px;
+	margin: 10px 2px;
+	background-color: #39B54A;
+	color: #fff;
+}
+
+h3 {
+	font-family: 'Montserrat', sans-serif;
+	color: #00AEEF;
+	font-size: 110px;
+}
+
+p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 24px;
+	padding: 25px;
+}
