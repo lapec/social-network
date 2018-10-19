@@ -33,7 +33,9 @@ $result = $conn->query($sql);
 <head>
 	<title>social network</title>
 	<link href="css/dashboard.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		form {
 			display: inline;
@@ -92,6 +94,9 @@ $result = $conn->query($sql);
              echo $row["TekstStatusa"];
             ?>
            </div>
+           <div class="imgDiv" >
+            <img class="postImg clickableImage" id="<?php echo $row['SID']?>" src="uploads/<?php echo $row['ImeSlike']?>"> <!-- potrebno dodati ovaj PHP id kako bi se pokretala js funkcija --> 
+            </div>
            <br><div id="like">Like Comment</div>
          </div>
     <?php endwhile; 
@@ -102,5 +107,24 @@ $result = $conn->query($sql);
     // zatvaramo konekciju ka bazi
     $conn->close();
 ?>
+
+<div id="popupContainer">
+  <div id="popupContent">
+    <div class="leftColumn" id="photoContainer" name=""></div>
+    <div class="rightColumn">
+      <div id="popupTopBar">
+        <span id="closePopup">X</span>
+      </div>
+      <div id="imgComment"></div>
+      <div id="comment">
+        <form action="insertComments.php" method="post">
+        <input id="forma" type="text" name="postComment" placeholder="Comment" autocomplete="off" /><br/>
+        <input type="hidden" id="slikaID" name="slikaID" value="">
+        <button id="submitComment" name="submitComment" type="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="clickableImage.js"></script>
 </body>
 </html>
