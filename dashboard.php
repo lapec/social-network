@@ -38,6 +38,7 @@ $result = $conn->query($sql);
 	<title>social network</title>
 	<link href="css/dashboard.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		form {
 			display: inline;
@@ -77,5 +78,23 @@ $result = $conn->query($sql);
     // zatvaramo konekciju ka bazi
     $conn->close();
 ?>
+
+
+<div id="popupContainer">
+  <div id="popupContent">
+    <div class="leftColumn" id="photoContainer"></div>
+    <div class="rightColumn">
+      <div id="popupTopBar">
+        <span id="closePopup">X</span>
+      </div>
+      <div id="komentar">bla</div>
+      <div id="comment" placeholder="Comment">
+        <form action="" method="post">
+        <input id="forma" type="text" name="komentar" placeholder=" What's on your mind?" autocomplete="off" /><br/>
+      </div>
+      <button id="submitComment" type="submit">Submit</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
