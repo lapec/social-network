@@ -11,7 +11,7 @@ $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 	}
 
 $slikaID = $_GET['slikaID'];
-$sql = "SELECT * FROM komentari_slike INNER JOIN korisnici ON komentari_slike.KID = korisnici.KID WHERE komentari_slike.SID = '.$slikaID.' ORDER BY VremePostavljanja DESC";
+$sql = "SELECT * FROM komentari_slike INNER JOIN korisnici ON komentari_slike.KID = korisnici.KID WHERE komentari_slike.SID = '".$slikaID."' ORDER BY VremePostavljanja DESC";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) { ?>
