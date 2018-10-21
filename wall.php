@@ -1,13 +1,3 @@
-<?php
-include 'logincode.php';
-include 'config/db_config.php';
-$conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
-// include 'logout.php';
-$sql = "SELECT * FROM slike as A INNER JOIN korisnici AS b ON A.KID = B.KID";
-$sql1 = "SELECT * FROM statusi as A INNER JOIN korisnici AS b ON A.KID = B.KID";
-$query = $conn->query($sql);
-$result = $query->fetch_assoc();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,63 +12,57 @@ $result = $query->fetch_assoc();
 </head>
 <body>
     <?php include "sections/navbar.php"?>
-<!-- glavni kontejner -->
+<!-- Main Container -->
 <div class="pageContainer"> 
-    <!-- leva strana -->
-<div class="leftColumn"> 
-    <img class="profPicture" src="img/petprofilepic.png"> 
-    <br>
-    <br>
-    <div class="userInfo">
-        <table>
-            <tr>
-                <td>Full Name</td>
-                <td><?php echo $result["Ime"]. " " . $result["Prezime"]  ?></td>
-            </tr> 
-            <tr>
-                <td>Username</td>
-                <td><?php echo $result["KorisnickoIme"]?></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><?php echo $result["Email"]?></td>
-            </tr>
-        </table> 
-    </div>
-
-<br>
-<br>
-<?php
-    if($query->num_rows > 0){
-    while($row = $query->fetch_assoc()): ?>
-
-   
-<div class="imgPost">
-<p> <?php echo $row["VremePostavljanja"] ?></p>
-<img src="<?php echo $row["LinkIzvoraSlike"] ?>"/>
-</div>
-    <?php endwhile;
-    } ?>
-</div>
-<!-- // desna strana -->
-    <div class="rightColumn">
-    <?php
-        $query1 = $conn->query($sql1);
-        if($query1->num_rows > 0){
-            while($row = $query1->fetch_assoc()):?>
-            
-        <div class="posts">
-            <!-- dodaj datum ovde  -->
-            <p class="date">20.11.2018</p>
-            <br>
-            <p><?php echo $row["TekstStatusa"] ?></p>
+    <!-- Left column container-->
+    <div class="left column">
+        <div class="profile-image">
+            <img class="profilePic" src="img/petprofilepic.png" alt="">
         </div>
-        <?php endwhile; 
-        };
-    ?>
+        <div class="personal-info">
+            <div class="leftInfo">
+                Full Name<br>
+                Username<br>
+                Email
+            </div>
+            <div class="rightInfo">
+                Johny Smith<br>
+                Johny<br>
+                johny@johny.yu
+            </div>
+        </div>
+        <div class="pictureAndDate">
+            <p> 20.20.2018</p>
+            <img class="image-post" src="img/generic_profile_img.png" alt="">
+        </div>
+
+        <div class="pictureAndDate">
+            <p> 20.20.2018</p>
+            <img class="image-post" src="img/generic_profile_img.png" alt="">
+        </div>
+
     </div>
+    <!--right column container-->
+    <div class="right column">
+        <div class="commentBlock">
+            
+            <div class="comment">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
+            </div>
+            <p class="centered-date">20.20.2020</p>
+        
+        </div>
+        <div class="commentBlock">
+            
+            <div class="comment">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
+            </div>
+            <p class="centered-date">20.20.2020</p>
+        
+        </div>
+
+
+
+    </div>
+
 </div>
-
-
-</body>
-</html>
