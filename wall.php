@@ -7,7 +7,7 @@
     if(!empty($_GET['n'])){
     $n = $_GET['n'];
     }else{
-    $n = 0;
+    header('Location: dashboard.php');
     };
     $conn = mysqli_connect(SERVERNAME,USERNAME,PASSWORD,DBNAME);
     mysqli_set_charset($conn,"utf8");
