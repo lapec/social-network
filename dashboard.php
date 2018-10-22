@@ -97,9 +97,7 @@ $result = $conn->query($sql);
         </div>
     <?php endwhile; 
         
-    } else {
-        echo "0 results";
-    }
+    } 
     // zatvaramo konekciju ka bazi
     $conn->close();
 ?>
