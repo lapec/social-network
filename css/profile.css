@@ -1,0 +1,147 @@
+body{
+	margin: 0;
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+nav {
+	background: #4267B2;
+	min-height: 50px;
+    color: #e0d9d9;
+    padding-top:5px;
+}
+
+nav a img {
+    width: 25px;
+    border-radius: 30px;
+    margin-top: 5px;
+}
+
+.brand {
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.5em;
+}
+
+/* Feeds */
+
+body{
+    background: #F0F3F8;
+    font-family: arial;
+}
+.container {
+display:flex;
+flex-wrap:wrap;
+justify-content: space-around;
+margin:0px auto;
+width: 960px;
+}
+.box {
+    margin:0px auto;
+}
+.row2 {
+    display:flex;
+    justify-content: space-around; 
+    }
+.column {
+    width: 100%;
+    padding: 10px;
+    margin: 10 10 10 10;
+    text-align: center;
+}
+.hiddendiv {
+    background-color: rgb(252, 252, 252);
+    height: 5px;
+}
+.row {
+    text-align: left;
+    color: auto;
+    width: 30%;
+    vertical-align: middle;
+    margin: 10px;
+    padding: 10px;
+}
+#printText .row {
+    background: #FFFFFF;
+}
+#printText .row img {
+    width: 35px;
+    border-radius: 50px;
+    vertical-align: text-top;
+}
+#fullName {
+    margin-left: 10px;
+}
+#insertPost {
+    text-align: left;
+    padding: 5px;
+    background: #fff;
+    width: 31%;
+    height: 80px;
+    margin-left: 50%;
+    margin-bottom: 40px;
+    transform: translate(-50%, -0%);
+}
+#insertPost img {
+    margin-left: 10px;
+    width: 30px;
+    vertical-align: middle;
+}
+#postTxt > img {
+    min-width: 100%;
+    border-radius: 0;
+}
+#insertPost input[type="text"] {
+    border: 1px solid #DFE0E1;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 12px;
+    width: 330px;
+    height: 35px;
+}
+#like {
+    height: 20px;
+    margin-top: 15px;
+    font-size: 9px;
+    color: blue;
+}
+.dropdownbtn {
+   background-color: #39B54A;
+   width: 100%;
+   color: #eee;
+   padding: calc(5px + 0.4vw);
+   font-size: calc(12px + 0.6vw);
+   border: none;
+   cursor: pointer;
+ }
+.input-field {
+    background-color: transparent;
+    padding-left: 5%;
+    border: 0px solid;
+    height: 40px;
+    width: 95%;
+    font-size: 18px;
+    background: white !important;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#vl {
+    border-right: 5px solid white;
+    height: 300px;
+}
+#container{
+    margin-left: 40px;
+    margin-right: 40px;
+
+
+}
+.slika{
+    float: left;
+    width: 60px;
+    height: 100px;
+}
+#centriraj{
+    text-align: ceenter;
+}
