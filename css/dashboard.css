@@ -11,13 +11,11 @@ nav {
     color: #e0d9d9;
     padding-top:5px;
 }
-
 nav a img {
     width: 25px;
     border-radius: 30px;
     margin-top: 5px;
 }
-
 .brand {
     font-family: 'Comfortaa', cursive;
     font-size: 1.5em;
@@ -130,11 +128,7 @@ body{
     height: 50px;
     float: left;
     position: relative;
-    bottom: -4  px;
-
-    
-   
-    
+    bottom: -4  px; 
 }
 
 .dgm {
@@ -144,8 +138,6 @@ body{
     border-radius: 5px;
     font-size: 0.8em;
     background-color: #F0F0F0;
-
-
 }
 
 .rightSide{
@@ -153,13 +145,13 @@ body{
     position: relative;
     top: -20px;
     left: -7px;
-
 }
 
 .allBtn {
     position: relative;
     top: -20px;
 }
+    /* start popupContainer */
 
 #popupContainer {
     display: none;
@@ -168,20 +160,18 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
     padding: 15px;
   }
-
 #popupContent {
     background-color: silver;
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    width: 90%;
+    width: 90vw;
 }
-
 #popupContent > .leftColumn {
     width: 70%;
     height: auto;
@@ -193,7 +183,9 @@ body{
     width: 100%;
     height: auto;
 }
-
+.clickableImage{
+    cursor: pointer;
+}
 #popupContent > .rightColumn {
     flex-grow: 1;
     display: flex;
@@ -203,35 +195,34 @@ body{
     width: 30%;
     position: relative;
 }
-
 .rightColumn > #popupTopBar {
     display: flex;
     justify-content: flex-end;
-    top: 5px;
-    right: 5px;
+    top: -40px;
+    right: -60px;
     position: absolute;
 }
-
 #closePopup {
+    font-size: 30px;
     cursor: pointer;
-    color: silver;
+    color: rgba(260, 260, 260, 0.4);
     padding: 0 6px;
 }
-
+#closePopup:hover {
+    color: rgba(242, 242, 242, 0.9);
+}
 #comment {
     margin-top: auto;
     margin-bottom: 10px;
     font-size: 12px;
 }
-
 #photoContainer {
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
 }
-
-
 #submitComment {
+    cursor: pointer;
     margin-top: 5px;
     background-color: #0f75bc;
     border: none;
@@ -250,12 +241,11 @@ body{
 #komentar{
     flex-grow: 1;
 }
-
 #forma{
     width: 99%;
     height: 30px;
 }
-
 #forma::placeholder {
     font-size: 1.2em;
 }
+    /* END popupContainer */
