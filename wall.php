@@ -56,12 +56,15 @@
         <?php
             if($result->num_rows > 0 ){
                 while($x = $result->fetch_assoc()): ?>
+                        <?php if($x['JavnaPrivatna'] == 1): ?>
                         <div class="pictureAndDate">
                             <p><?php echo $x['VremePostavljanja'] ?></p>
-                            <img class="image-post" src="img/<?php echo $x['LinkIzvoraSlike'] ?>" alt="">
+                            <img class="image-post" src="<?php 
+                                echo $x['LinkIzvoraSlike'];?>" alt="">
                         </div>
             
             <?php
+            endif;
             endwhile;}
         ?>
     </div>

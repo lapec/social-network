@@ -1,11 +1,11 @@
 body{
 	margin: 0;
 }
-.brand a:link, a:visited {
+a:link, a:visited {
     text-decoration: none;
-    color: #FFFff;
+    color: #fff;
 }
-.row a:link, a:visited {
+#printText .row a:link, #printText .row a:visited {
     text-decoration: none;
     color: #0000ff;
 }
@@ -25,6 +25,7 @@ nav a img {
 .brand {
     font-family: 'Comfortaa', cursive;
     font-size: 1.5em;
+    
 }
 
 /* Feeds */
