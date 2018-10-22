@@ -1,3 +1,25 @@
+<?php
+    require_once 'config/db_config.php';
+    session_start();
+    if (!isset($_SESSION['user']) || !$_SESSION['user']) {
+        header('Location: index.php');
+      }
+    if(!empty($_GET['n'])){
+    $n = $_GET['n'];
+    }else{
+    $n = 0;
+    };
+    $conn = mysqli_connect(SERVERNAME,USERNAME,PASSWORD,DBNAME);
+    mysqli_set_charset($conn,"utf8");
+    $sql2 = "SELECT * FROM korisnici WHERE KID = $n";
+    $sql = "SELECT * FROM korisnici AS a INNER JOIN slike AS b ON a.KID = b.KID WHERE a.KID = $n";
+    $sql1 = "SELECT * FROM statusi AS a INNER JOIN korisnici AS b on a.KID = b.KID WHERE a.KID = $n";
+    $result = $conn->query($sql);
+    $result2 = $conn->query($sql2);
+    $row = $result2->fetch_assoc();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +39,7 @@
     <!-- Left column container-->
     <div class="left column">
         <div class="profile-image">
-            <img class="profilePic" src="img/petprofilepic.png" alt="">
+            <img class="profilePic" src="img/<?php echo $row["SlikaKorisnika"] ?>" alt="">
         </div>
         <div class="personal-info">
             <div class="leftInfo">
@@ -26,24 +48,44 @@
                 Email
             </div>
             <div class="rightInfo">
-                Johny Smith<br>
-                Johny<br>
-                johny@johny.yu
+                <?php echo $row['Ime']. ' ' . $row['Prezime'] ?><br>
+                <?php echo $row['KorisnickoIme'] ?><br>
+                <?php echo $row['Email'] ?>
             </div>
         </div>
-        <div class="pictureAndDate">
-            <p> 20.20.2018</p>
-            <img class="image-post" src="img/generic_profile_img.png" alt="">
-        </div>
-
-        <div class="pictureAndDate">
-            <p> 20.20.2018</p>
-            <img class="image-post" src="img/generic_profile_img.png" alt="">
-        </div>
-
+        <?php
+            if($result->num_rows > 0 ){
+                while($x = $result->fetch_assoc()): ?>
+                        <div class="pictureAndDate">
+                            <p><?php echo $x['VremePostavljanja'] ?></p>
+                            <img class="image-post" src="img/<?php echo $x['LinkIzvoraSlike'] ?>" alt="">
+                        </div>
+            
+            <?php
+            endwhile;}
+        ?>
     </div>
     <!--right column container-->
     <div class="right column">
+
+        <?php
+            $result1 = $conn->query($sql1);
+            if($result1->num_rows > 0){
+                while($x = $result1->fetch_assoc()): ?>
+
+                <div class="commentBlock">
+            
+                    <div class="comment">
+                        <p><?php echo $x['TekstStatusa'] ?></p>
+                    </div>
+                        <p class="centered-date"><?php echo $x['VremePostavljanja'] ?></p>
+        
+                </div>
+                <?php    
+                endwhile;}
+        ?>
+
+
         <div class="commentBlock">
             
             <div class="comment">
