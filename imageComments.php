@@ -16,7 +16,7 @@ $sql = "SELECT * FROM komentari_slike INNER JOIN korisnici ON komentari_slike.KI
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) { ?>
 			<div align="center" id="printText">
-				<div class="row">
+				<div class="row" id= "imgComm">
 					<img src="img/<?php echo $row["SlikaKorisnika"] ?>">
 					<span id="fullName"><?php echo htmlspecialchars($row["Ime"]." ".$row["Prezime"]) ?></span>
 					<div class="postTxt" id="postTxt"><?php echo htmlspecialchars($row["Komentar"]) ?></div>
