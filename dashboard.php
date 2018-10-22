@@ -76,8 +76,8 @@ $result = $conn->query($sql);
             <div class="usrPict">
               <img src="img/<?php echo $row['SlikaKorisnika']; ?>">
            </div>
-           <span id="fullName">
-               <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span>
+           <a href="wall.php?n=<?php echo $row["KID"] ?>"><span id="fullName">
+             <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span></a>
            <div class="outPict"></div>
            <div id="postTxt">
              <?php 
@@ -97,9 +97,7 @@ $result = $conn->query($sql);
         </div>
     <?php endwhile; 
         
-    } else {
-        echo "0 results";
-    }
+    } 
     // zatvaramo konekciju ka bazi
     $conn->close();
 ?>

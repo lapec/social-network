@@ -27,3 +27,10 @@ document.getElementById('closePopup').addEventListener('click', function() {
     popupContainer.style.display = 'none';
     $('#imgComment').html('');
 });
+
+$('#submitComment').click(function(event) {    
+    var test = $('#forma').val();
+    if(test.length == 0){
+    event.preventDefault();
+    } 
+});

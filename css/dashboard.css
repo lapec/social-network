@@ -5,6 +5,10 @@ a:link, a:visited {
     text-decoration: none;
     color: #fff;
 }
+#printText .row a:link, #printText .row a:visited {
+    text-decoration: none;
+    color: #0000ff;
+}
 nav {
 	background: #4267B2;
 	min-height: 50px;
@@ -21,6 +25,7 @@ nav a img {
 .brand {
     font-family: 'Comfortaa', cursive;
     font-size: 1.5em;
+    
 }
 
 /* Feeds */
@@ -179,13 +184,16 @@ body{
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    width: 80vw;
+    width: 90%;
 }
 
 #popupContent > .leftColumn {
-    width: 70rem;
+    width: 70%;
+    height: auto;
 }
-
+#imgComm{
+    width: inherit;
+}
 .postImg{
     width: 100%;
     height: auto;
@@ -197,15 +205,15 @@ body{
     flex-direction: column;
     background-color: #f4f6fa;
     padding: 15px;
-    width: 30vw;
+    width: 30%;
     position: relative;
 }
 
 .rightColumn > #popupTopBar {
     display: flex;
     justify-content: flex-end;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
     position: absolute;
 }
 
@@ -216,7 +224,7 @@ body{
 }
 
 #comment {
-    margin-top: 10px;
+    margin-top: auto;
     margin-bottom: 10px;
     font-size: 12px;
 }
@@ -240,7 +248,10 @@ body{
     font-size: 14px;
     width: 50%;
 }
-
+#imgComment{
+    overflow-y: scroll;
+    height: 550px;
+}
 #komentar{
     flex-grow: 1;
 }
