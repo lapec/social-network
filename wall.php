@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/wall.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     
 </head>
 <body>
