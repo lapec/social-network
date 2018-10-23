@@ -30,28 +30,47 @@ body{
     font-family: arial;
 }
 .container {
-display:flex;
-flex-wrap:wrap;
-justify-content: space-around;
 margin:0px auto;
-width: 960px;
 }
-.box {
-    margin:0px auto;
-}
-.row2 {
+.gornjideo {
     display:flex;
     justify-content: space-around; 
     }
-.column {
-    width: 100%;
+.donjideo {
+ display:flex;
+ flex-direction: row;
+
+    }
+.levideo {
+    width: 60%;
     padding: 10px;
-    margin: 10 10 10 10;
+    margin-left: 60px;
     text-align: center;
 }
-.hiddendiv {
+.desnideo {
+    width: 20%;
+    padding: 10px;
+    margin-right: 300px;
+    margin-top: 40px;
+    text-align: center;
+}
+.belalinija {
     background-color: rgb(252, 252, 252);
     height: 5px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.donjilevideo {
+    width: 20%;
+    padding: 10px;
+    margin-left: 200px;
+    text-align: center;
+}
+.donjidesnideo {
+    width: 20%;
+    padding: 10px;
+    margin-right: 120px;
+    text-align: center;
 }
 .row {
     text-align: left;
@@ -113,6 +132,12 @@ width: 960px;
    font-size: calc(12px + 0.6vw);
    border: none;
    cursor: pointer;
+   height: 40px;
+
+ }
+ #imagebutton {
+    width: 200px;
+    margin-top: 15px;
  }
 .input-field {
     background-color: transparent;
@@ -126,10 +151,13 @@ width: 960px;
     flex-direction: column;
 
 }
+.input-size {
+    min-height: 70px;
+}
 
 #vl {
     border-right: 5px solid white;
-    height: 300px;
+    margin-top: 85px;
 }
 #container{
     margin-left: 40px;
@@ -144,4 +172,18 @@ width: 960px;
 }
 #centriraj{
     text-align: ceenter;
+}
+
+.textsuccess {
+    color: limegreen;
+    font-size: 16px;
+}
+
+.textfail {
+    color: red;
+    font-size: 16px;
+}
+.alert {
+    font-style: italic;
+    margin-top: 10px;
 }
