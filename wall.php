@@ -57,7 +57,7 @@
         <?php
             if($result->num_rows > 0 ){
                 while($x = $result->fetch_assoc()): ?>
-                        <?php if($x['JavnaPrivatna'] == 1): ?>
+                        <?php if($x['JavnaPrivatna'] == 0): ?>
                         <div class="pictureAndDate">
                             <p><?php echo $x['VremePostavljanja'] ?></p>
                             <img class="image-post" src="<?php 
