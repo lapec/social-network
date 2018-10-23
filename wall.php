@@ -12,8 +12,8 @@
     $conn = mysqli_connect(SERVERNAME,USERNAME,PASSWORD,DBNAME);
     mysqli_set_charset($conn,"utf8");
     $sql2 = "SELECT * FROM korisnici WHERE KID = $n";
-    $sql = "SELECT * FROM korisnici AS a INNER JOIN slike AS b ON a.KID = b.KID WHERE a.KID = $n";
-    $sql1 = "SELECT * FROM statusi AS a INNER JOIN korisnici AS b on a.KID = b.KID WHERE a.KID = $n";
+    $sql = "SELECT * FROM korisnici AS a INNER JOIN slike AS b ON a.KID = b.KID WHERE a.KID = $n ORDER BY SID DESC";
+    $sql1 = "SELECT * FROM statusi AS a INNER JOIN korisnici AS b on a.KID = b.KID WHERE a.KID = $n ORDER BY TID DESC";
     $result = $conn->query($sql);
     $result2 = $conn->query($sql2);
     $row = $result2->fetch_assoc();
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/wall.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     
 </head>
 <body>
@@ -56,7 +57,7 @@
         <?php
             if($result->num_rows > 0 ){
                 while($x = $result->fetch_assoc()): ?>
-                        <?php if($x['JavnaPrivatna'] == 1): ?>
+                        <?php if($x['JavnaPrivatna'] == 0): ?>
                         <div class="pictureAndDate">
                             <p><?php echo $x['VremePostavljanja'] ?></p>
                             <img class="image-post" src="<?php 
