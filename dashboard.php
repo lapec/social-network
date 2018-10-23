@@ -97,13 +97,12 @@ $result = $conn->query($sql);
         </div>
     <?php endwhile; 
         
-    } else {
-        echo "0 results";
-    }
+    } 
     // zatvaramo konekciju ka bazi
     $conn->close();
 ?>
 
+<!-- START popupContainer  -->
 <div id="popupContainer">
   <div id="popupContent">
     <div class="leftColumn" id="photoContainer" name=""></div>
@@ -121,6 +120,7 @@ $result = $conn->query($sql);
     </div>
   </div>
 </div>
+<!-- END popupContainer  -->
 <script src="clickableImage.js"></script>
 </body>
 </html>
