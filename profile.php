@@ -18,14 +18,14 @@
     ?>
 <div class="container">
     <main class="box">
-
         <div class="row2">
         <div class="column">
     	<img id src="img/<?php echo $userpic; ?>" height="300px" ><br><br>
         <form action="" method="post" enctype="multipart/form-data">
-                <input type="file" name="image" /><br>
-                <input class = "dropdownbtn" type="submit" value="UPLOAD IMAGE" />
-            </form><br>
+            <input type="file" name="image" /><br>
+            <input class = "dropdownbtn" type="submit" value="UPLOAD IMAGE" />
+        </form>
+        <?php echo $imgerror; ?>
         </div>
             
   <div  class="column">
@@ -35,6 +35,7 @@
         <input class="input-field" type="text" name="username" value="<?php echo $username; ?>" autocomplete="off"><br>
         <input type="submit" name="updateuserinfo" value = "UPDATE" class = "dropdownbtn">
     </form>
+    <?php echo $infoerror; ?>
     </div>
     </div>
     <div class="hiddendiv">
@@ -49,6 +50,7 @@
         <?php writePosts(); ?>
         <input type="submit" name="changeposts" value = "UPDATE" class = "dropdownbtn">
     </form>
+    <?php echo $posterror; ?>
 </div>
 </div>
 <div style="text-align: center;" class="column">
@@ -64,7 +66,7 @@
     <br>
         <input type="submit" name="changepassword" value = "UPDATE" class = "dropdownbtn">
     </form>
-    <h4 style="color: red"><?php echo $passerrorverify; ?><?php echo $passerrorconfirm; ?> <span style="color: limegreen"><?php echo $passsuccess; ?></span></h4>
+    <?php echo $passerror; ?>
 </div>
 </div>
     </main>
