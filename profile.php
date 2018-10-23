@@ -18,42 +18,40 @@
     ?>
 <div class="container">
     <main class="box">
-        <div class="row2">
-        <div class="column">
-    	<img id src="img/<?php echo $userpic; ?>" height="300px" ><br><br>
+        <div class="gornjideo">
+        <div class="levideo">
+    	<img id src="img/<?php echo $userpic; ?>" width="auto" height="300px" ><br><br>
         <form action="" method="post" enctype="multipart/form-data">
             <input type="file" name="image" /><br>
-            <input class = "dropdownbtn" type="submit" value="UPLOAD IMAGE" />
+            <input class = "dropdownbtn" id = "imagebutton" type="submit" value="UPLOAD IMAGE" />
         </form>
-        <?php echo $imgerror; ?>
+        <div class="alert"><?php echo $imgerror; ?></div>
         </div>
             
-  <div  class="column">
+  <div  class="desnideo">
         <form action="" method="post">
         <input class="input-field" type="text" name="name" value="<?php echo $name; ?>" autocomplete="off"><br>
         <input class="input-field" type="text" name="lastname" value="<?php echo $lastname; ?>" autocomplete="off"><br>
         <input class="input-field" type="text" name="username" value="<?php echo $username; ?>" autocomplete="off"><br>
         <input type="submit" name="updateuserinfo" value = "UPDATE" class = "dropdownbtn">
     </form>
-    <?php echo $infoerror; ?>
+    <div class="alert"><?php echo $infoerror; ?></div>
     </div>
     </div>
-    <div class="hiddendiv">
+    <div class="belalinija">
     </div>
-    <div class="row2">
-        <div style="align: center;" class="column">
-
+    <div class="donjideo">
+        <div style="align: center;" class="donjilevideo">
         <h4>Izmena postojećih statusa</h4>
         <br>
-        <div id="vl">
         <form action="" method="post">
         <?php writePosts(); ?>
         <input type="submit" name="changeposts" value = "UPDATE" class = "dropdownbtn">
     </form>
-    <?php echo $posterror; ?>
+    <div class="alert"><?php echo $posterror; ?></div>
 </div>
-</div>
-<div style="text-align: center;" class="column">
+<div id="vl"></div>
+<div style="text-align: center;" class="donjidesnideo">
 
     <h4>Promena lozinke</h4>
     <br>
@@ -66,7 +64,7 @@
     <br>
         <input type="submit" name="changepassword" value = "UPDATE" class = "dropdownbtn">
     </form>
-    <?php echo $passerror; ?>
+    <div class="alert"><?php echo $passerror; ?></div>
 </div>
 </div>
     </main>
