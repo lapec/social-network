@@ -74,7 +74,7 @@ $result = $conn->query($sql);
        <div align="center" id="printText">
          <div class="row">
             <div class="usrPict">
-              <img src="img/<?php echo $row['SlikaKorisnika']; ?>">
+              <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
            </div>
            <a href="wall.php?n=<?php echo $row["KID"] ?>"><span id="fullName">
              <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span></a>
@@ -102,7 +102,6 @@ $result = $conn->query($sql);
     $conn->close();
 ?>
 
-<!-- START popupContainer  -->
 <div id="popupContainer">
   <div id="popupContent">
     <div class="leftColumn" id="photoContainer" name=""></div>
@@ -112,15 +111,20 @@ $result = $conn->query($sql);
       </div>
       <div id="imgComment"></div>
       <div id="comment">
-        <form action="insertComments.php" method="post">
-        <input id="forma" type="text" name="postComment" placeholder="Comment" autocomplete="off" /><br/>
-        <input type="hidden" id="slikaID" name="slikaID" value="">
-        <button id="submitComment" name="submitComment" type="submit">Submit</button>
+        <div class="usrImg">
+          <img class="usrImg1" src="img/<?php echo $_SESSION['SlikaKorisnika']; ?>">
+        </div>
+        <div class="usrCom">
+          <form action="insertComments.php" method="post">
+          <input id="forma" type="text" name="postComment" placeholder="Write a comment..." autocomplete="off" /><br/>
+          <input type="hidden" id="slikaID" name="slikaID" value="">
+          <button id="submitComment" name="submitComment" type="submit">Comment</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!-- END popupContainer  -->
 <script src="clickableImage.js"></script>
 </body>
 </html>

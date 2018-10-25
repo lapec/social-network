@@ -18,10 +18,10 @@ $sql = "SELECT * FROM komentari_slike INNER JOIN korisnici ON komentari_slike.KI
 			<div align="center" id="printText">
 				<div class="row" id= "imgComm">
 					<img src="img/<?php echo $row["SlikaKorisnika"] ?>">
-					<span id="fullName"><?php echo htmlspecialchars($row["Ime"]." ".$row["Prezime"]) ?></span>
-					<div class="postTxt" id="postTxt"><?php echo htmlspecialchars($row["Komentar"]) ?></div>
-					<div class="dateTime"><?php echo htmlspecialchars($row["VremePostavljanja"]) ?></div>
-					<br><div id="like"><pre>Like    Comment</pre></div>
+					<span id="fullName"><?php echo htmlspecialchars($row["Ime"]." ".$row["Prezime"]) ?></span><br>
+					<span class="postTxt" id="postTxt"><?php echo htmlspecialchars($row["Komentar"]) ?></span><br>
+					
+					<br><div id="like"><pre>Like Comment</pre></div><span class="dateTime"><?php echo htmlspecialchars($row["VremePostavljanja"]) ?></span>
 				</div>
 			</div>
 		<?php	}
