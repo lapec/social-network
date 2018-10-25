@@ -115,11 +115,9 @@ $result = $conn->query($sql);
           <img class="usrImg1" src="img/<?php echo $_SESSION['SlikaKorisnika']; ?>">
         </div>
         <div class="usrCom">
-          <form action="insertComments.php" method="post">
           <input id="forma" type="text" name="postComment" placeholder="Write a comment..." autocomplete="off" /><br/>
           <input type="hidden" id="slikaID" name="slikaID" value="">
-          <button id="submitComment" name="submitComment" type="submit">Comment</button>
-          </form>
+          <button id="submitComment" name="submitComment" type="submit">Comment</button>        
         </div>
       </div>
     </div>

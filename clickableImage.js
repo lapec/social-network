@@ -41,9 +41,20 @@ document.getElementById('closePopup').addEventListener('click', function() {  //
     $('#imgComment').html('');
     $('body').css('overflow','auto');
 });
-$('#submitComment').click(function(event) {    //stop subbmiting empty post
-    var test = $('#forma').val();
-    if(test.length == 0){
+
+$('#submitComment').click(function(){
+   var comment = $('#forma').val();
+   var SID = $('#slikaID').val();
+   if(comment.length == 0){
     event.preventDefault();
-    } 
+    } else { 
+   $.post("insertComments.php",
+   {
+       postComment: comment,
+       slikaID: SID
+   },
+   function(data, status){
+       $('#imgComment').append(data);
+   });
+   }
 });
