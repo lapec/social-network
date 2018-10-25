@@ -7,6 +7,7 @@
 <html>
 <head>
 	<title>social-network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/profile.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
@@ -17,13 +18,16 @@
     include "profilecode.php";
     ?>
 <div class="container">
-    <main class="box">
+    <div class="content">
+
+    <main>
         <div class="gornjideo">
         <div class="levideo">
     	<img id src="img/<?php echo $userpic; ?>" width="auto" height="300px" ><br><br>
         <form action="" method="post" enctype="multipart/form-data">
-            <input type="file" name="image" /><br>
-            <input class = "dropdownbtn" id = "imagebutton" type="submit" value="UPLOAD IMAGE" />
+            <label for="image"><button type="button" class = "dropdownbtn">ODABERITE SLIKU</button></label>
+            <input type="file" name="image" id = "dugme"/>
+            <input class = "dropdownbtn" id = "imagebutton" type="submit" value="UPLOAD" />
         </form>
         <div class="alert"><?php echo $imgerror; ?></div>
         </div>
@@ -41,7 +45,7 @@
     <div class="belalinija">
     </div>
     <div class="donjideo">
-        <div style="align: center;" class="donjilevideo">
+        <div class="donjilevideo">
         <h4>Izmena postojećih statusa</h4>
         <br>
         <form action="" method="post">
@@ -51,7 +55,7 @@
     <div class="alert"><?php echo $posterror; ?></div>
 </div>
 <div id="vl"></div>
-<div style="text-align: center;" class="donjidesnideo">
+<div class="donjidesnideo">
 
     <h4>Promena lozinke</h4>
     <br>
@@ -69,5 +73,7 @@
 </div>
     </main>
 </div>
+</div>
+
 </body>
 </html>
