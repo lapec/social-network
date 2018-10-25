@@ -11,7 +11,7 @@
 	<link href="css/profile.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
-<body>
+<body> 
     <?php
     include "sections/navbar.php"; 
     include "config/db_config.php";
