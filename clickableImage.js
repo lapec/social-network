@@ -8,7 +8,8 @@ var imgClick = function() {    //this function opens popupContainer
     photoContainer.style.backgroundImage = 'url(' + this.src + ')'
     var imgId = this.id;
     document.getElementById('slikaID').value = imgId;   //taking id from picture and import it to html
-    
+    $('#forma').val('');
+
     $('#imgComment').html('<img src=img/loading.gif width=40 px>'); 
     $.ajax({        //this ajax is for comment load
         url: 'imageComments.php?slikaID='+imgId,
@@ -55,6 +56,7 @@ $('#submitComment').click(function(){
    },
    function(data, status){
        $('#imgComment').append(data);
+       $('#forma').val('');
    });
    }
 });
