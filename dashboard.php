@@ -110,6 +110,7 @@ $result = $conn->query($sql);
         <span id="closePopup">X</span>
       </div>
       <div id="imgComment"></div>
+      <span class="load-more">Load 3 More Comments</span>
       <div id="comment">
         <div class="usrImg">
           <img class="usrImg1" src="img/<?php echo $_SESSION['SlikaKorisnika']; ?>">
@@ -117,7 +118,7 @@ $result = $conn->query($sql);
         <div class="usrCom">
           <input id="forma" type="text" name="postComment" placeholder="Write a comment..." autocomplete="off" /><br/>
           <input type="hidden" id="slikaID" name="slikaID" value="">
-          <button id="submitComment" name="submitComment" type="submit">Comment</button>        
+          <button id="submitComment" name="submitComment" type="submit">Comment</button>
         </div>
       </div>
     </div>
