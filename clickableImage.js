@@ -88,6 +88,7 @@ $('#submitComment').click(function(){
    function(data, status){
        $('#imgComment').prepend(data);
        $('#forma').val('');
+       $imgComment.scrollTop(0);
    });
    }
 });
