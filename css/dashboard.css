@@ -59,6 +59,8 @@ body{
     margin-left: 10px;
     font-family: 'Merriweather Sans', sans-serif;
 }
+
+
 #insertPost {
     text-align: left;
     padding: 5px;
@@ -195,6 +197,7 @@ body{
     justify-content: center;
     align-items: center;
     padding: 15px;
+    overflow-y: scroll;
   }
 
 #popupContent {
@@ -203,11 +206,12 @@ body{
     flex-direction: row;
     align-items: stretch;
     width: 90%;
+    margin-top: 250px;
 }
 
 #popupContent > .leftColumn {
     width: 70%;
-    height: auto;
+    min-height: 300px;
 }
 #imgComm{
     width: inherit;
@@ -268,6 +272,7 @@ body{
     display: inline-block;
     font-size: 14px;
     width: 35%;
+    border-radius: 5px;
 }
 #imgComment{
     overflow-y: scroll;
@@ -277,10 +282,26 @@ body{
     flex-grow: 1;
 }
 
-#forma{
-    width: 99%;
-    height: 30px;
+.usrComm {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
 }
+
+#comment{
+    margin-top: 50px;
+
+}
+
+#forma {
+    height: 30px;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    float: right;
+}
+
+
 
 #forma::placeholder {
     font-size: 1.2em;
@@ -300,16 +321,77 @@ body{
 
 }
 
+
+
 .usrImg {
     width: 47px;
     position: relative;
-    bottom: 15px;
-    margin-right: 5px;
-    
+    bottom: 23px;
+    margin-right: 8px;
+
 }
 
 .usrImg1 {
   -webkit-clip-path: circle(20px at center);
   clip-path: circle(20px at center);
     width: inherit;
+}
+
+#imgComm img{
+    -webkit-clip-path: circle(18px at center);
+  clip-path: circle(18px at center);
+    width: inherit;
+
+}
+
+#imgComm #fullName a:link {
+    color: black;
+}
+
+#imgComm #fullName a:hover {
+    color: #303030;
+    font-weight: bold;
+
+}
+
+
+
+#imgComm #fullName a:active {
+    color: blue;
+}
+
+#imgComm #fullName a:visited {
+    color: grey;
+}
+
+#printText > #imgComm > #fullName{
+
+}
+
+
+
+@media only screen and (max-width: 370px) {
+    #popupContent {
+        display: flex;
+        flex-wrap: wrap;
+        overflow: scroll;
+        position: relative;
+    }
+
+    #popupContent > .leftColumn {
+        width: 100%;
+        min-width: 300px;
+
+    }
+      #popupContent > .rightColumn {
+        width: 100%;       
+    }
+
+    #comment{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    }
+
+    #popupContainer {
+    overflow-y: scroll;
 }
