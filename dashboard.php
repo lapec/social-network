@@ -16,15 +16,13 @@ if ($conn->connect_error) {
 
 // Change character set to utf8
 mysqli_set_charset($conn,"utf8");
-
-
 $sql = "
         SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika,korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.SID,slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
         ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
         LEFT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) UNION 
         SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika, korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.SID, slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
         ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
-        RIGHT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) ORDER BY v1 DESC;";
+        RIGHT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) ORDER BY v2 DESC;";
 $result = $conn->query($sql);
 
 ?>
