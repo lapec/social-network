@@ -73,7 +73,7 @@ $result = $conn->query($sql);
     <?php while($row = $result->fetch_assoc()): ?>
        <div align="center" id="printText">
          <div class="row">
-            <div class="usrPict">
+          <div class="usrPict">
               <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
            </div>
            <a href="wall.php?n=<?php echo $row["KID"] ?>"><span id="fullName">
@@ -116,7 +116,7 @@ $result = $conn->query($sql);
         </div>
         <div class="usrCom">
           <form action="insertComments.php" method="post">
-          <input id="forma" type="text" name="postComment" placeholder="Write a comment..." autocomplete="off" /><br/>
+          <input id="forma" type="text" name="postComment" placeholder="  Write a comment..." autocomplete="off" /><br/>
           <input type="hidden" id="slikaID" name="slikaID" value="">
           <button id="submitComment" name="submitComment" type="submit">Comment</button>
           </form>

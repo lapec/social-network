@@ -17,8 +17,10 @@ $sql = "SELECT * FROM komentari_slike INNER JOIN korisnici ON komentari_slike.KI
 		while($row = $result->fetch_assoc()) { ?>
 			<div align="center" id="printText">
 				<div class="row" id= "imgComm">
-					<img src="img/<?php echo $row["SlikaKorisnika"] ?>">
-					<span id="fullName"><?php echo htmlspecialchars($row["Ime"]." ".$row["Prezime"]) ?></span><br>
+					<a href="wall.php?n=<?php echo $row["KID"] ?>">
+						<img src="img/<?php echo $row["SlikaKorisnika"] ?>">
+					</a>
+					<span id="fullName"><a href="wall.php?n=<?php echo $row["KID"] ?>"><?php echo htmlspecialchars($row["Ime"]." ".$row["Prezime"]) ?></a></span><br>
 					<span class="postTxt" id="postTxt"><?php echo htmlspecialchars($row["Komentar"]) ?></span><br>
 					
 					<br><div id="like"><pre>Like Comment</pre></div><span class="dateTime"><?php echo htmlspecialchars($row["VremePostavljanja"]) ?></span>
