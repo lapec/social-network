@@ -71,37 +71,37 @@ $result = $conn->query($sql);
     // output data of each row
     ?>
     <?php while($row = $result->fetch_assoc()): ?>
-       <div align="center" id="printText">
-         <div class="row">
+      <div align="center" id="printText">
+        <div class="row">
           <div class="usrPict">
-              <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
-           </div>
-           <a href="wall.php?n=<?php echo $row["KID"] ?>"><span id="fullName">
-             <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span></a>
-           <div class="outPict"></div>
-           <div id="postTxt">
-             <?php 
-            if (($row['JavnaPrivatna'] === 1) || $row['KID'] === $_SESSION['KID']) {
-                  echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">'; 
+            <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
+          </div>
+          <a href="wall.php?n=<?php echo $row["KID"] ?>"><span id="fullName">
+          <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span></a>
+          <div class="outPict"></div>
+          <div id="postTxt">
+        <?php 
+          if (($row['JavnaPrivatna'] === 1) || $row['KID'] === $_SESSION['KID']) {
+            echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">'; 
 
-              } elseif ($row['JavnaPrivatna'] === 0) {
-                  echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">';
+          } elseif ($row['JavnaPrivatna'] === 0) {
+            echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">';
 
-              } else {
-                  echo " ";
-              }
-                          
-             echo $row["TekstStatusa"];
-            ?>
-           </div>
+          } else {
+            echo " ";
+          }
+          echo $row["TekstStatusa"];
+      ?>
+          </div>
         </div>
+      </div>
     <?php endwhile; 
-        
-    } 
-    // zatvaramo konekciju ka bazi
-    $conn->close();
-?>
 
+    } 
+      // zatvaramo konekciju ka bazi
+      $conn->close();
+    ?>
+<!-- START popupContainer --> 
 <div id="popupContainer">
   <div id="popupContent">
     <div class="leftColumn" id="photoContainer" name=""></div>
@@ -124,6 +124,7 @@ $result = $conn->query($sql);
     </div>
   </div>
 </div>
+<!-- END popupContainer --> 
 <script src="clickableImage.js"></script>
 </body>
 </html>

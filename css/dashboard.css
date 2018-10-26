@@ -19,17 +19,14 @@ nav {
     color: #e0d9d9;
     padding-top:5px;
 }
-
 nav a img {
     width: 25px;
     border-radius: 30px;
     margin-top: 5px;
 }
-
 .brand {
     font-family: 'Comfortaa', cursive;
-    font-size: 1.5em;
-    
+    font-size: 1.5em;   
 }
 
 /* Feeds */
@@ -52,15 +49,12 @@ body{
 #printText .row img {
     width: 35px;
     border-radius: 50px;
-    vertical-align: text-top;
-    
+    vertical-align: text-top;  
 }
 #fullName {
     margin-left: 10px;
     font-family: 'Merriweather Sans', sans-serif;
 }
-
-
 #insertPost {
     text-align: left;
     padding: 5px;
@@ -70,26 +64,19 @@ body{
     margin-left: 50%;
     margin-bottom: 40px;
     transform: translate(-50%, -0%);
-    position: static;
-    
+    position: static;   
 }
 #insertPost img {
     margin-left: 10px;
     width: 30px;
     vertical-align: middle;
 }
-
 .postTxt {
-
     font-family: 'Quattrocento', serif;
     position: relative;
     top: 10px;
     right: -5px;
-
-
-
 }
-
 #postTxt > img {
     min-width: 100%;
     border-radius: 0;
@@ -109,59 +96,44 @@ body{
     color: blue;
     display: inline-block;
 }
-
 #uploadImage {
     padding: 3px;
     border: 1px solid lightgrey;
     border-radius: 5px;
 }
-
 #uploadImage:hover {
     background-color: grey;
 }
-
 #pubSelect {
     padding: 3px;
     border: 1px solid black;
     border-radius: 5px;
 }
-
 #pubSelect:hover {
     border: 1px solid grey;
 }
-
 #kreirajPost {
     padding: 3px;
     border: 1px solid black;
     border-radius: 5px;
 }
-
 #kreirajPost:hover {
     background-color: grey;
 }
-
 #onYourMind {
     margin: 5px;
 }
-
 .dgm:hover {
     border: 1px solid grey;
     background-color: grey;
 }
-
 .btnUpload {
-
     width: 120px;
     height: 50px;
     float: left;
     position: relative;
-    bottom: -4px;
-
-    
-   
-    
+    bottom: -4px; 
 }
-
 .dgm {
     width: 200px;
     padding: 3px;
@@ -169,23 +141,18 @@ body{
     border-radius: 5px;
     font-size: 0.8em;
     background-color: #F0F0F0;
-
-
 }
-
 .rightSide{
     float: left;
     position: relative;
     top: -20px;
     left: -7px;
-
 }
-
 .allBtn {
     position: relative;
     top: -20px;
 }
-
+/* START popupContainter */
 #popupContainer {
     display: none;
     position: fixed;
@@ -193,13 +160,12 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
     padding: 15px;
     overflow-y: scroll;
-  }
-
+}
 #popupContent {
     background-color: silver;
     display: flex;
@@ -208,7 +174,6 @@ body{
     width: 90%;
     margin-top: 250px;
 }
-
 #popupContent > .leftColumn {
     width: 70%;
     min-height: 300px;
@@ -216,12 +181,13 @@ body{
 #imgComm{
     width: inherit;
 }
+.clickableImage{
+    cursor: pointer;
+}
 .postImg{
     width: 100%;
     height: auto;
 }
-
-
 #popupContent > .rightColumn {
     flex-grow: 1;
     display: flex;
@@ -231,35 +197,40 @@ body{
     width: 30%;
     position: relative;
 }
-
 .rightColumn > #popupTopBar {
     display: flex;
-    justify-content: flex-end;
-    top: 5px;
-    right: 5px;
+    top: 0;
+    right: 0;
     position: absolute;
 }
-
 #closePopup {
+    font-size: 25px;
     cursor: pointer;
     color: silver;
     padding: 0 6px;
 }
-
+#closePopup:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
 #comment {
     margin: auto;
     margin-bottom: 10px;
     font-size: 12px;
 }
-
 #photoContainer {
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
 }
-
-
+.load-more{
+    margin-top: 10px;
+    text-align: left;
+    font-size: 10px;
+    color: #0000ff;
+    cursor: pointer;
+}
 #submitComment {
+    cursor: pointer;
     margin-top: 5px;
     margin-right: 180px;
     margin-left: 0px;
@@ -281,18 +252,14 @@ body{
 #komentar{
     flex-grow: 1;
 }
-
 .usrComm {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
 }
-
 #comment{
     margin-top: 50px;
-
 }
-
 #forma {
     height: 30px;
     width: 100%;
@@ -300,76 +267,50 @@ body{
     margin-bottom: 15px;
     float: right;
 }
-
-
-
 #forma::placeholder {
     font-size: 1.2em;
 }
-
 .dateTime {
-
     font-size: 10px;
     position: relative;
     left: 20px;
     color: lightgrey;
 }
-
 .usrImg, .usrCom {
-
     display: inline-block;
-
 }
-
-
-
 .usrImg {
     width: 47px;
     position: relative;
     bottom: 23px;
     margin-right: 8px;
-
 }
-
 .usrImg1 {
   -webkit-clip-path: circle(20px at center);
   clip-path: circle(20px at center);
     width: inherit;
 }
-
 #imgComm img{
     -webkit-clip-path: circle(18px at center);
-  clip-path: circle(18px at center);
+    clip-path: circle(18px at center);
     width: inherit;
-
 }
-
 #imgComm #fullName a:link {
     color: black;
 }
-
 #imgComm #fullName a:hover {
     color: #303030;
     font-weight: bold;
-
 }
-
-
-
 #imgComm #fullName a:active {
     color: blue;
 }
-
 #imgComm #fullName a:visited {
     color: grey;
 }
+/* #printText > #imgComm > #fullName{
 
-#printText > #imgComm > #fullName{
-
-}
-
-
-
+} */
 @media only screen and (max-width: 370px) {
     #popupContent {
         display: flex;
@@ -377,21 +318,22 @@ body{
         overflow: scroll;
         position: relative;
     }
-
     #popupContent > .leftColumn {
         width: 100%;
         min-width: 300px;
-
     }
       #popupContent > .rightColumn {
         width: 100%;       
     }
-
     #comment{
-    margin-top: 25px;
-    margin-bottom: 25px;
+        margin-top: 25px;
+        margin-bottom: 25px;
     }
-
     #popupContainer {
-    overflow-y: scroll;
+        overflow-y: scroll;
+    }
+    #closePopup{
+        display: none;
+    }
 }
+/* END popupContainter */
