@@ -55,7 +55,7 @@ body{
 .desnideo {
     width: 50%;
     text-align: center;
-    margin: 20px 20px 20px 60px;
+    margin: 20px;
 }
 .belalinija {
     background-color: rgb(252, 252, 252);
@@ -70,6 +70,7 @@ body{
 }
 .donjidesnideo {
     width: 40%;
+    height: auto;
     margin: 20px;
     text-align: center;
 }
@@ -126,49 +127,80 @@ body{
     color: blue;
 }
 
+.userimage {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+}
 .dropdownbtn {
-   background-color: #39B54A;
-   width: 100%;
-   color: #eee;
-   border: none;
-   cursor: pointer;
-   height: 40px;
-
- }
- #imagebutton {
-    width: 200px;
-    margin-top: 15px;
- }
- #dugme {
-    display: none;
- }
+    background-color: #39B54A;
+    width: 100%;
+    color: #eee;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+}
+.browsebtn {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.browsebtn + label {
+    width: 50%;
+    color: #eee;
+    background-color: #39a6b5;
+    display: inline-block;
+    font-size: .75em;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.imgbutton {
+    width: 50%;
+    display: inline-block;
+    float: right;
+}
+.browsebtn:focus + label,
+.browsebtn + label:hover {
+    background-color: #51bac8;
+}
+.dropdownbtn:focus,
+.dropdownbtn:hover {
+    background-color: #51c860;
+}
 .input-field {
     background-color: transparent;
     padding-left: 5%;
     border: 0px solid;
     height: 40px;
     width: 95%;
-    font-size: 18px;
+    font-size: 16px;
     background: white !important;
-    display: flex;
-    flex-direction: column;
-
+    margin-bottom: 10px;
 }
 .input-size {
     min-height: 70px;
 }
-
+textarea {
+    margin-bottom: 10px;
+    min-height: 40px;
+    padding: 10px;
+    resize: none;
+    width: 95%;
+    border: none;
+    font-family: inherit;
+    min-height: 40px;
+}
 #vl {
     width: 5px;
     height: auto;
     background-color: white;
-    margin: 100px 0 0 0;
+    margin: 100px 0 70px 0;
 }
 #container{
     margin-left: 40px;
     margin-right: 40px;
-
-
 }
 .slika{
     float: left;
@@ -176,7 +208,7 @@ body{
     height: 100px;
 }
 #centriraj{
-    text-align: ceenter;
+    text-align: center;
 }
 
 .textsuccess {
