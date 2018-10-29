@@ -110,7 +110,7 @@ $result = $conn->query($sql);
         <span id="closePopup">X</span>
       </div>
       <div id="imgComment"></div>
-      <span class="load-more">Load 3 More Comments</span>
+      <span class="load-more">Load More Comments</span>
       <div id="comment">
         <div class="usrImg">
           <img class="usrImg1" src="img/<?php echo $_SESSION['SlikaKorisnika']; ?>">
