@@ -19,7 +19,7 @@ $date = date("d/m/y H:i:s");
 
 if(isset($_POST['insertPost'])){
     $msg = "";
-    $statusContent = $_POST['statusContent'];
+    $statusContent = mysqli_real_escape_string($conn, strip_tags($_POST['statusContent']));
     $target_dir = "img/".basename($_FILES['fileToUpload']['name']);
     $image = $_FILES['fileToUpload']['name'];
     $pubStat = $_POST['pubSelect'];
@@ -28,12 +28,9 @@ if(isset($_POST['insertPost'])){
     $query2 = "INSERT INTO slike(KID, LinkIzvoraSlike, ImeSlike, VremePostavljanja, JavnaPrivatna, SortID) 
         VALUES (".$_SESSION['KID'].",'".$target_dir."','".$image."','".$date."','".$pubStat."','".$timestamp."');";
     
-    
-    
-        
-  
-  
-    if (isset($_POST['statusContent'])) {
+
+    if (!empty(trim($_POST['statusContent'], " "))) {
+
         $sqlInsert1 = mysqli_query($conn, $query1);
         echo "New record created successfully";
     } else {
@@ -49,8 +46,15 @@ if(isset($_POST['insertPost'])){
          
     } else {
          $msg = "There was a problem uploading image.";
+    } 
+
+} 
+    if ($_FILES['fileToUpload']['name'] == "") {
+
+        $query2 = "INSERT INTO slike(KID, LinkIzvoraSlike, ImeSlike, VremePostavljanja, SortID) 
+        VALUES (".$_SESSION['KID'].",'','','".$date."','".$timestamp."')";
+        $sqlInsert2 = mysqli_query($conn, $query2); 
     }
-}
 }
 var_error_log($_FILES['fileToUpload']['name']);
 header('Location: dashboard.php');

@@ -69,6 +69,7 @@ $result = $conn->query($sql);
     // output data of each row
     ?>
     <?php while($row = $result->fetch_assoc()): ?>
+    <?php if (!empty(trim($row['TekstStatusa'], " ")) || !empty($row['LinkIzvoraSlike'])): ?>
        <div align="center" id="printText">
          <div class="row">
             <div class="usrPict">
@@ -88,12 +89,13 @@ $result = $conn->query($sql);
               } else {
                   echo " ";
               }
-                          
-             echo $row["TekstStatusa"];
+			echo $row["TekstStatusa"];
             ?>
            </div>
         </div>
-    <?php endwhile; 
+	<?php 
+		endif;
+        endwhile; 
         
     } 
     // zatvaramo konekciju ka bazi
