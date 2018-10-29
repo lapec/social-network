@@ -7,6 +7,7 @@
 <html>
 <head>
 	<title>social-network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/profile.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
@@ -17,57 +18,57 @@
     include "profilecode.php";
     ?>
 <div class="container">
-    <main class="box">
-
-        <div class="row2">
-        <div class="column">
-    	<img id src="img/<?php echo $userpic; ?>" height="300px" ><br><br>
+    <div class="content">
+    <main>
+        <div class="gornjideo">
+        <div class="levideo">
+    	<img class="userimage" src="img/<?php echo $userpic; ?>">
         <form action="" method="post" enctype="multipart/form-data">
-                <input type="file" name="image" /><br>
-                <input class = "dropdownbtn" type="submit" value="UPLOAD IMAGE" />
-            </form><br>
+            <input type="file" name="image" id="picker" class="dropdownbtn browsebtn"/>
+            <label for="picker">ODABERITE SLIKU</label>
+            <input class="dropdownbtn imgbutton" type="submit" value="UPLOAD" />
+        </form>
+        <div class="alert"><?php echo $imgerror; ?></div>
         </div>
             
-  <div  class="column">
+  <div  class="desnideo">
         <form action="" method="post">
-        <input class="input-field" type="text" name="name" value="<?php echo $name; ?>" autocomplete="off"><br>
-        <input class="input-field" type="text" name="lastname" value="<?php echo $lastname; ?>" autocomplete="off"><br>
-        <input class="input-field" type="text" name="username" value="<?php echo $username; ?>" autocomplete="off"><br>
+        <input class="input-field" type="text" name="name" value="<?php echo htmlspecialchars($name); ?>" autocomplete="off">
+        <input class="input-field" type="text" name="lastname" value="<?php echo htmlspecialchars($lastname); ?>" autocomplete="off">
+        <input class="input-field" type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" autocomplete="off">
         <input type="submit" name="updateuserinfo" value = "UPDATE" class = "dropdownbtn">
     </form>
+    <div class="alert"><?php echo $infoerror; ?></div>
     </div>
     </div>
-    <div class="hiddendiv">
+    <div class="belalinija">
     </div>
-    <div class="row2">
-        <div style="align: center;" class="column">
-
+    <div class="donjideo">
+        <div class="donjilevideo">
         <h4>Izmena postojećih statusa</h4>
         <br>
-        <div id="vl">
         <form action="" method="post">
         <?php writePosts(); ?>
-        <input type="submit" name="changeposts" value = "UPDATE" class = "dropdownbtn">
+        <input type="submit" name="changeposts" value = "UPDATE" class = "dropdownbtn" <?php echo $hideupdatebutton; ?> >
     </form>
 </div>
-</div>
-<div style="text-align: center;" class="column">
+<div id="vl"></div>
+<div class="donjidesnideo">
 
     <h4>Promena lozinke</h4>
     <br>
     <form action="" method="post">
-        <input class="input-field" type="text" name="currpass" placeholder="Unesite važeću lozinku" autocomplete="off">
-    <br>
-        <input class="input-field" type="text" name="newpass" placeholder="Unesite novu lozinku" autocomplete="off">
-    <br>
-        <input class="input-field" type="text" name="confirmpass" placeholder="Potvrdite novu lozinku" autocomplete="off">
-    <br>
+        <input class="input-field" type="password" name="currpass" placeholder="Unesite važeću lozinku" autocomplete="off"><br>
+        <input class="input-field" type="password" name="newpass" placeholder="Unesite novu lozinku" autocomplete="off"><br>
+        <input class="input-field" type="password" name="confirmpass" placeholder="Potvrdite novu lozinku" autocomplete="off"><br>
         <input type="submit" name="changepassword" value = "UPDATE" class = "dropdownbtn">
     </form>
-    <h4 style="color: red"><?php echo $passerrorverify; ?><?php echo $passerrorconfirm; ?> <span style="color: limegreen"><?php echo $passsuccess; ?></span></h4>
+    <div class="alert"><?php echo $passerror; ?></div>
 </div>
 </div>
     </main>
 </div>
+</div>
+
 </body>
 </html>
