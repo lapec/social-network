@@ -141,6 +141,8 @@ body{
     height: 40px;
 }
 .browsebtn {
+    width: 0.1px;
+    height: 0.1px;
     opacity: 0;
     overflow: hidden;
     position: absolute;
@@ -149,7 +151,7 @@ body{
 .browsebtn + label {
     width: 50%;
     color: #eee;
-    background-color: #39a6b5;
+    background-color: #4267B2;
     display: inline-block;
     font-size: .75em;
     height: 40px;
@@ -224,6 +226,41 @@ textarea {
     font-style: italic;
     margin-top: 10px;
 }
+.ikonica{
+    
+        /*padding: 10px 10px 10px 10px;*/
+        background: #4267B2 ;
+        color: white;
+        width: 40%;
+        height: 40px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 40px;
+      
+}
+.ikonica1{
+    /*padding: 10px 10px 15px 10px;*/
+        background:#4267B2 ;
+        color: white;
+        width: 40%;
+        height: 40px;
+        
+        text-align: center;
+        line-height: 40px;
+        
+
+        
+}
+.unutrasnji-kontejner{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+}
+.ikonica1, .ikonica {
+    font-size: 12px; 
+    font-family: 'Comfortaa', cursive;
+} 
+
 @media only screen and (max-width: 1200px) {
  /* NA EKRANIMA MANJIM OD 1200px PROŠIRUJEMO CONTENT NA CEO EKRAN */
  .content {

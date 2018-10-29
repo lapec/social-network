@@ -33,9 +33,19 @@
             
   <div  class="desnideo">
         <form action="" method="post">
-        <input class="input-field" type="text" name="name" value="<?php echo htmlspecialchars($name); ?>" autocomplete="off">
+        <div class ="unutrasnji-kontejner">
+        <span class ="ikonica">Ime</span>
+        <input class="input-field" type="text" name="name" id="namefield" value="<?php echo htmlspecialchars($name); ?>" autocomplete="off">
+        </div>
+        <div class ="unutrasnji-kontejner">
+        <span class ="ikonica">Prezime</span> 
         <input class="input-field" type="text" name="lastname" value="<?php echo htmlspecialchars($lastname); ?>" autocomplete="off">
+        </div>
+        <div class ="unutrasnji-kontejner">
+        <span class ="ikonica1">Korisničko ime
+                                    </span>
         <input class="input-field" type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" autocomplete="off">
+        </div>
         <input type="submit" name="updateuserinfo" value = "UPDATE" class = "dropdownbtn">
     </form>
     <div class="alert"><?php echo $infoerror; ?></div>
