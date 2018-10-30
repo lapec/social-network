@@ -1,0 +1,95 @@
+.pageContainer{
+    display:flex;
+    flex-direction:row;
+    /* border: 10px solid goldenrod; */
+    min-height:100vh;
+    padding: 3% 8% 0 8%;
+}
+.column{
+    min-height:100vh;
+    flex-direction:column;
+    padding-left:5%;
+    padding-right:5%;
+}
+
+/* ***********************************left side ********************************* */
+.left{
+    /* background-color:gold; */
+    width:45%;
+    margin: 0 6% 0 0;
+}
+
+.profile-image{
+    margin:5%;
+    /* background-color:green; */
+    
+    
+}
+.profilePic{
+    width:90%;
+    height:90%;
+}
+
+.personal-info{
+    padding:5px;
+    display:flex;
+    width:100%;
+    flex-direction:row;
+    background-color:white;
+    margin-bottom:35px;
+}
+.leftInfo{
+    width:50%
+}
+.rightInfo{
+    width:50%;
+}
+
+.pictureAndDate{
+    width:100%;
+    margin:10px 0 50px 10px;
+    
+    
+}
+.pictureAndDate img{
+background-color:white
+}
+.pictureAndDate p{
+    background-color:none;
+    text-align:center;
+}
+
+.image-post{
+width:100%;
+
+/* height:150px; */
+
+}
+
+/* *********************************right side*********************************** */
+.right{
+    width:35%;
+    /* background-color:brown; */
+    margin: 0 0 0 6%;
+    padding-top:18%;
+}
+
+.commentBlock{
+    margin-top:4%;
+    margin-bottom:50px;
+}
+.commentBlock p{
+    margin-top:50px;
+}
+.comment{
+    background-color:white;
+}
+.comment p{
+   
+    
+    padding:7px 45px 30px 7px;
+    text-align:center;
+}
+.centered-date{
+    text-align:center;
+}
