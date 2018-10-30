@@ -37,11 +37,11 @@ require_once('logincode.php');
         <img src="img/2.jpg" alt="social-network" class="img2">
         <div class="card">
         <form action="registercode.php" method='POST'>
-          <input type="text" name="name" placeholder="name" class="name">
-          <input type="text" name="lastname" placeholder="lastname" class="lastname">
-          <input type="text" name="email" placeholder="email" class="email">
-          <input type="text" name="username" placeholder="username" class="username2">
-          <input type="password" name="password" placeholder="password" class="password2">
+          <input type="text" name="name" placeholder="name" class="name" required>
+          <input type="text" name="lastname" placeholder="lastname" class="lastname" required>
+          <input type="email" name="email" placeholder="email" class="email" required>
+          <input type="text" name="username" placeholder="username" class="username2" required>
+          <input type="password" name="password" placeholder="password" class="password2" required>
           <input class="btn2" type="submit" name="login" value="Sign Up" />
           </form>
           <?php if(isset($_COOKIE['invalidUN'])){
