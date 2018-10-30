@@ -1,6 +1,13 @@
 <?php include "config/db_config.php"; ?>
 
 <?php
+function var_error_log( $object=null ){
+  ob_start();                    // start buffer capture
+  var_dump( $object );           // dump the values
+  $contents = ob_get_contents(); // put the buffer into a variable
+  ob_end_clean();                // end capture
+  error_log( $contents );        // log contents of the result of var_dump( $object )
+};
 session_start();
 if (!isset($_SESSION['user']) || !$_SESSION['user']) {
   header('Location: index.php');
@@ -24,7 +31,7 @@ $sql = "
         ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
         RIGHT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) ORDER BY v2 DESC;";
 $result = $conn->query($sql);
-
+var_error_log($_SESSION);
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +50,7 @@ $result = $conn->query($sql);
 <body>
 	<?php include "sections/navbar.php"; ?>
     <div align="center" id="insertPost">
-        <img src="img/profile.gif"/>
+        <img src="img/<?php echo $_SESSION["SlikaKorisnika"] ?>"/>
 
        <form action="uploadimg.php" method="post" enctype="multipart/form-data">
           <input type="text" name="statusContent" id="onYourMind" placeholder="What's on your mind ?"/>
@@ -76,7 +83,8 @@ $result = $conn->query($sql);
               <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
            </div>
            <a href="wall.php?n=<?php echo $row["KID"] ?>"><span id="fullName">
-             <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span></a>
+             <?php echo $row["Ime"]." ".$row["Prezime"];?></span></a>
+            <span><?php echo $row['v2'] ?></span>
            <div class="outPict"></div>
            <div id="postTxt">
              <?php 
