@@ -24,11 +24,10 @@ if (isset($_POST['usernamelg']) && isset($_POST['passwordlg'])) {
 
             header('Location: dashboard.php');
         } else {
-            $message = 'Login failed.';
-            echo "failed";
+            setcookie('loginfail', 'Invalid username/password!', time()+1);
+            header('Location: index.php');
+
         }
-    } else {
-        $message = 'Login failed.';
     }
     mysqli_close($db);
 }

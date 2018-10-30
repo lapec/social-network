@@ -1,6 +1,13 @@
 <?php include "config/db_config.php"; ?>
 
 <?php
+function var_error_log( $object=null ){
+  ob_start();                    // start buffer capture
+  var_dump( $object );           // dump the values
+  $contents = ob_get_contents(); // put the buffer into a variable
+  ob_end_clean();                // end capture
+  error_log( $contents );        // log contents of the result of var_dump( $object )
+};
 session_start();
 if (!isset($_SESSION['user']) || !$_SESSION['user']) {
   header('Location: index.php');
@@ -16,17 +23,15 @@ if ($conn->connect_error) {
 
 // Change character set to utf8
 mysqli_set_charset($conn,"utf8");
-
-
 $sql = "
         SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika,korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.SID,slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
         ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
         LEFT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) UNION 
         SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika, korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.SID, slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
         ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
-        RIGHT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) ORDER BY v1 DESC;";
+        RIGHT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) ORDER BY v2 DESC;";
 $result = $conn->query($sql);
-
+var_error_log($_SESSION);
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +50,7 @@ $result = $conn->query($sql);
 <body>
 	<?php include "sections/navbar.php"; ?>
     <div align="center" id="insertPost">
-        <img src="img/profile.gif"/>
+        <img src="img/<?php echo $_SESSION["SlikaKorisnika"] ?>"/>
 
        <form action="uploadimg.php" method="post" enctype="multipart/form-data">
           <input type="text" name="statusContent" id="onYourMind" placeholder="What's on your mind ?"/>
@@ -71,36 +76,37 @@ $result = $conn->query($sql);
     // output data of each row
     ?>
     <?php while($row = $result->fetch_assoc()): ?>
-      <div align="center" id="printText">
-        <div class="row">
-          <div class="usrPict">
-            <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
-          </div>
-          <a href="wall.php?n=<?php echo $row["KID"] ?>"><span id="fullName">
-          <?php echo $row["Ime"]." ".$row["Prezime"]; ?></span></a>
-          <div class="outPict"></div>
-          <div id="postTxt">
-        <?php 
-          if (($row['JavnaPrivatna'] === 1) || $row['KID'] === $_SESSION['KID']) {
-            echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">'; 
-
-          } elseif ($row['JavnaPrivatna'] === 0) {
-            echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">';
-
-          } else {
-            echo " ";
-          }
-          echo $row["TekstStatusa"];
-      ?>
-          </div>
+    <?php if (!empty(trim($row['TekstStatusa'], " ")) || !empty($row['LinkIzvoraSlike'])): ?>
+       <div align="center" id="printText">
+         <div class="row">
+            <div class="usrPict">
+              <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
+           </div>
+           <a href="wall.php?n=<?php echo $row["KID"] ?>"><span id="fullName">
+             <?php echo $row["Ime"]." ".$row["Prezime"];?></span></a>
+            <span><?php echo $row['v2'] ?></span>
+           <div class="outPict"></div>
+           <div id="postTxt">
+             <?php 
+            if (($row['JavnaPrivatna'] === 1) || $row['KID'] === $_SESSION['KID']) {
+                  echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">'; 
+            } elseif ($row['JavnaPrivatna'] === 0) {
+                echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">';
+              } else {
+                  echo " ";
+              }
+			      echo $row["TekstStatusa"];
+            ?>
+           </div>
         </div>
-      </div>
-    <?php endwhile; 
-
+	<?php 
+		endif;
+        endwhile; 
+        
     } 
-      // zatvaramo konekciju ka bazi
-      $conn->close();
-    ?>
+    // zatvaramo konekciju ka bazi
+    $conn->close();
+?>
 <!-- START popupContainer --> 
 <div id="popupContainer">
   <div id="popupContent">
