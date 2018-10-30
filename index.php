@@ -9,6 +9,7 @@ require_once('logincode.php');
 <head>
   <title>Social Network</title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <!--Main Container-->
@@ -35,7 +36,7 @@ require_once('logincode.php');
         <img src="img/1.jpg" alt="social-network" class="img1">
       </div>
       <div class="box2">
-      <div >
+      <div>
             <?php if(isset($_COOKIE['loginfail'])){
                             echo $_COOKIE['loginfail'];
                           };
@@ -51,14 +52,18 @@ require_once('logincode.php');
           <input type="password" name="password" placeholder="password" class="password2" required>
           <input class="btn2" type="submit" name="login" value="Sign Up" />
           </form>
-          <?php if(isset($_COOKIE['invalidUN'])){
+            <?php if(isset($_COOKIE['invalidUN'])){
                     echo $_COOKIE['invalidUN'];
                   } else {
                 unset($_COOKIE['invalidUN']);
               };?>
-          <h3>welcome</h3>
-          <p>welcome to the lazy-dev network <br> fill the data and join us !</p>
-        </div>
+          </div>
+          <div class="wlcm"> 
+            <div class="hello">
+              <h3>welcome</h3>
+            </div>
+            <p>welcome to the lazy-dev network <br> fill the data and join us !</p>
+          </div>          
       </div>
     </main>
   </div>
