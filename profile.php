@@ -43,8 +43,7 @@
         <input class="input-field" type="text" name="lastname" value="<?php echo htmlspecialchars($lastname); ?>" autocomplete="off">
         </div>
         <div class ="unutrasnji-kontejner">
-        <span class ="ikonica1">Korisničko ime
-                                    </span>
+        <span class ="ikonica1">Korisničko ime</span>
         <input class="input-field" type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" autocomplete="off">
         </div>
         <input type="submit" name="updateuserinfo" value = "UPDATE" class = "dropdownbtn">

@@ -1,5 +1,5 @@
 body{
-	margin: 0;
+    margin: 0;
     padding: 0;
     background: #F0F3F8;
     font-family: arial;
@@ -237,34 +237,25 @@ textarea {
 .ikonica1, .ikonica {
     font-size: 12px; 
     font-family: 'Comfortaa', cursive;
-<<<<<<< HEAD
 }
-=======
-} 
->>>>>>> e292665a2ebb1c25337c23b285d415610bd6b50b
 
 @media only screen and (max-width: 1200px) {
- /* NA EKRANIMA MANJIM OD 1200px PROŠIRUJEMO CONTENT NA CEO EKRAN */
- .content {
-   width: 100%;
- }
+    .content {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 700px) {
- /* NA EKRANIMA MANJIM OD 700px TAKOĐE MENJAMO PRAVAC FLEXA NA GORNJOJ POLOVINI U VERTIKALAN */
- .gornjideo {
-   flex-direction: column;
- }
- /* NA DONJOJ POLOVINI TAKOĐE, ALI U KONTRA SMERU DA BI PROMENA LOZINKE DOŠLA PRE POSTOVA, NJIH IMA VIŠE */
- .donjideo {
-   flex-direction: column-reverse;
- }
- /* PROŠIRUJEMO SVA ČETIRI POLJA NA CEO EKRAN */
- .levideo, .desnideo, .donjilevideo, .donjidesnideo {
-   width: auto;
- }
- /* I SAKRIVAMO DONJI SEPARATOR */
- .vl {
-   display: none;
- }
+    .gornjideo {
+        flex-direction: column;
+    }
+    .donjideo {
+        flex-direction: column-reverse;
+    }
+    .levideo, .desnideo, .donjilevideo, .donjidesnideo {
+        width: auto;
+    }
+    .vl {
+        display: none;
+    }
 }

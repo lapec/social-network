@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 .navbarcontainer {
 	display: flex;
@@ -40,7 +41,7 @@
 }
 .navbtn {
 	margin-left: 20px;
-	width: 80px;
+	padding: 0 10px;
 	height: 30px;
 	background-color: #365899;
 	color: #fff;
@@ -51,10 +52,22 @@
 	background-color: hsl(219, 48%, 50%);
 }
 @media only screen and (max-width: 650px) {
-.navlogo a:link, a:visited {
-	font-size: 1.2em;
+	.navlogo a:link, a:visited {
+		font-size: 1.2em;
+		margin-left: 0;
 	}
-.navuserinfo a:link, a:visited {
-	font-size: 1em;
+	.navuserinfo a:link, a:visited {
+		font-size: 1em;
 	}	
+}
+@media only screen and (max-width: 500px) {
+	#navdisplayname {
+		display: none;
+	}
+	#navlogouttxt {
+		display: none;
+	}
+	.navbtn {
+		margin-left: 0;
+	}
 }

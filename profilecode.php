@@ -76,8 +76,6 @@ if (isset($_POST['updateuserinfo'])) {
 	} else if (!preg_match("/^(?=.*\p{L})[\p{L} .]+$/u",$_POST['name'])) {
         $infoerror .= "<span class='textfail'>Ime može da sadrži samo slova, razmak i tačku</span><br>";
         $ok = false;
-	} else {
-		$name = mysqli_real_escape_string($conn, $_POST['name']);
 	}
 	if (!isset($_POST['lastname']) || $_POST['lastname'] === '') {
 		$ok = false;
@@ -85,8 +83,6 @@ if (isset($_POST['updateuserinfo'])) {
 	} else if (!preg_match("/^(?=.*\p{L})[\p{L} .]+$/u",$_POST['lastname'])) {
         $infoerror .= "<span class='textfail'>Prezime može da sadrži samo slova, razmak i tačku</span><br>";
         $ok = false;
-	} else {
-		$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
 	}
 	if (!isset($_POST['username']) || $_POST['username'] === '') {
 		$ok = false;
@@ -97,19 +93,17 @@ if (isset($_POST['updateuserinfo'])) {
 	} else {
 		$checkuser = $conn->query("SELECT KorisnickoIme FROM korisnici WHERE korisnici.KorisnickoIme = '".$_POST['username']."';");
 	    $row = mysqli_fetch_assoc($checkuser);
-	    if ($row) {
+	    if ($row && $username !== $_POST['username']) {
 	        $infoerror .= "<span class='textfail'>Korisničko ime je zauzeto</span><br>";
 	        $ok = false;
-	    } else {
-	    	$username = mysqli_real_escape_string($conn, $_POST['username']);
 	    }
 	}
-
 	if ($ok) {
+		$name = mysqli_real_escape_string($conn, $_POST['name']);
+		$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+		$username = mysqli_real_escape_string($conn, $_POST['username']);
 		$sql = "UPDATE korisnici SET Ime = '$name', Prezime = '$lastname', KorisnickoIme = '$username' WHERE KID = '$userID';";
 		$infoerror .= "<span class='textsuccess'>Korisnički podaci uspešno promenjeni</span><br>";
-		
-
 		$test = mysqli_query($conn, $sql);
 		if($test === false) {
 			$infoerror .= "Error description: " . mysqli_error($conn);
