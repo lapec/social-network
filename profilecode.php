@@ -49,6 +49,9 @@ if(isset($_FILES['image'])){
 			else {
 			    $imgerror .= "<span class='textfail'>Slika može da bude isključivo u formatu JPG, JPEG, PNG ili GIF</span><br>";
 			}
+			break;
+		default: 
+			$imgerror .= "<span class='textfail'>Nemamo pojma šta se desilo, tim visoko utreniranih majmuna poslat je da izvidi situaciju</span><br>";
 	}
     if($imgerror === "") {
     	move_uploaded_file($file_tmp,"img/" . $file_name);
@@ -73,8 +76,6 @@ if (isset($_POST['updateuserinfo'])) {
 	} else if (!preg_match("/^(?=.*\p{L})[\p{L} .]+$/u",$_POST['name'])) {
         $infoerror .= "<span class='textfail'>Ime može da sadrži samo slova, razmak i tačku</span><br>";
         $ok = false;
-	} else {
-		$name = mysqli_real_escape_string($conn, $_POST['name']);
 	}
 	if (!isset($_POST['lastname']) || $_POST['lastname'] === '') {
 		$ok = false;
@@ -82,8 +83,6 @@ if (isset($_POST['updateuserinfo'])) {
 	} else if (!preg_match("/^(?=.*\p{L})[\p{L} .]+$/u",$_POST['lastname'])) {
         $infoerror .= "<span class='textfail'>Prezime može da sadrži samo slova, razmak i tačku</span><br>";
         $ok = false;
-	} else {
-		$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
 	}
 	if (!isset($_POST['username']) || $_POST['username'] === '') {
 		$ok = false;
@@ -94,20 +93,17 @@ if (isset($_POST['updateuserinfo'])) {
 	} else {
 		$checkuser = $conn->query("SELECT KorisnickoIme FROM korisnici WHERE korisnici.KorisnickoIme = '".$_POST['username']."';");
 	    $row = mysqli_fetch_assoc($checkuser);
-	    if ($row) {
+	    if ($row && $username !== $_POST['username']) {
 	        $infoerror .= "<span class='textfail'>Korisničko ime je zauzeto</span><br>";
 	        $ok = false;
-	    } else {
-	    	$username = mysqli_real_escape_string($conn, $_POST['username']);
 	    }
-		
 	}
-
 	if ($ok) {
+		$name = mysqli_real_escape_string($conn, $_POST['name']);
+		$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+		$username = mysqli_real_escape_string($conn, $_POST['username']);
 		$sql = "UPDATE korisnici SET Ime = '$name', Prezime = '$lastname', KorisnickoIme = '$username' WHERE KID = '$userID';";
 		$infoerror .= "<span class='textsuccess'>Korisnički podaci uspešno promenjeni</span><br>";
-		
-
 		$test = mysqli_query($conn, $sql);
 		if($test === false) {
 			$infoerror .= "Error description: " . mysqli_error($conn);
@@ -125,8 +121,6 @@ if (isset($_POST['changepassword'])) {
 	if (!isset($_POST['currpass']) || $_POST['currpass'] === '') {
 		$passerror .= "<span class='textfail'>Unesite sadašnju lozinku</span><br>";
 		$ok = false;
-	} else {
-		$currpass = mysqli_real_escape_string($conn, $_POST['currpass']);
 	}
 	if (!isset($_POST['newpass']) || $_POST['newpass'] === '') {
 		$passerror .= "<span class='textfail'>Unesite novu lozinku</span><br>";
@@ -134,22 +128,25 @@ if (isset($_POST['changepassword'])) {
 	} else if (!preg_match("/^[a-zA-Z0-9]*$/",$_POST['newpass'])) {
         $passerror .= "<span class='textfail'>Lozinka može da sadrži samo latinična slova i brojeve</span><br>";
         $ok = false;
-	} else {
-		$newpass = mysqli_real_escape_string($conn, $_POST['newpass']);
 	}
 	if (!isset($_POST['confirmpass']) || $_POST['confirmpass'] === '') {
 		$passerror .= "<span class='textfail'>Unesite ponovo novu lozinku</span><br>";
 		$ok = false;
-	} else {
-		$confirmpass = mysqli_real_escape_string($conn, $_POST['confirmpass']);
 	}
 	if ($_POST['newpass'] !== $_POST['confirmpass']) {
 		$passerror = "<span class='textfail'>Nova lozinka se ne slaže</span><br>";
 		$ok = false;
 	}
+	if (password_verify($_POST['currpass'], $passhash)) {
+		$passerror = "<span class='textfail'>Važeća lozinka je neispravna</span><br>";
+		$ok = false;
+	}
 
-	if ($ok && password_verify($_POST['currpass'], $passhash)) {
-		$passhash = password_hash($newpass, PASSWORD_DEFAULT);
+	if ($ok) {
+		$currpass = mysqli_real_escape_string($conn, $_POST['currpass']);
+		$newpass = mysqli_real_escape_string($conn, $_POST['newpass']);
+		$confirmpass = mysqli_real_escape_string($conn, $_POST['confirmpass']);
+
 		$sql = "UPDATE korisnici SET Lozinka = '$passhash' WHERE KID = '$userID';";
 		$passerror .= "<span class='textsuccess'>Lozinka uspešno promenjena</span><br>";
 
@@ -157,8 +154,6 @@ if (isset($_POST['changepassword'])) {
 		if($test === false) {
 			$passerror .= "Error description: " . mysqli_error($conn);
 		}
-	} else {
-		$passerror = "<span class='textfail'>Važeća lozinka je neispravna</span><br>";
 	}
 }
 
@@ -194,7 +189,6 @@ function writePosts() {
 }
 
 	
-
 
 mysqli_close($conn);
 ?>
