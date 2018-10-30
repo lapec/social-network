@@ -9,6 +9,7 @@
 	<title>social-network</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/profile.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 <body>
@@ -24,7 +25,7 @@
         <div class="levideo">
     	<img class="userimage" src="img/<?php echo $userpic; ?>">
         <form action="" method="post" enctype="multipart/form-data">
-            <input type="file" name="image" id="picker" class="dropdownbtn browsebtn"/>
+            <input type="file" name="image" id="picker" class="browsebtn dropdownbtn"/>
             <label for="picker">ODABERITE SLIKU</label>
             <input class="dropdownbtn imgbutton" type="submit" value="UPLOAD" />
         </form>
