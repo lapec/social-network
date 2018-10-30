@@ -1,0 +1,270 @@
+body{
+	margin: 0;
+    padding: 0;
+    background: #F0F3F8;
+    font-family: arial;
+}
+
+/* Feeds */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content {
+    width: 60%;
+}
+.gornjideo {
+    display:flex;
+    flex-direction: row;
+    margin: 20px; 
+    }
+.donjideo {
+    display:flex;
+    flex-direction: row;
+    margin: 20px;
+    }
+.levideo {
+    width: 50%;
+    margin: 20px;
+    text-align: center;
+}
+.desnideo {
+    width: 50%;
+    text-align: center;
+    margin: 20px;
+}
+.belalinija {
+    background-color: rgb(252, 252, 252);
+    height: 5px;
+    width: auto;
+    margin: 0 20px;
+}
+.donjilevideo {
+    width: 60%;
+    margin: 20px;
+    text-align: center;
+}
+.donjidesnideo {
+    width: 40%;
+    height: auto;
+    margin: 20px;
+    text-align: center;
+}
+.row {
+    text-align: left;
+    color: auto;
+    width: 30%;
+    vertical-align: middle;
+    margin: 10px;
+    padding: 10px;
+}
+#printText .row {
+    background: #FFFFFF;
+}
+#printText .row img {
+    width: 35px;
+    border-radius: 50px;
+    vertical-align: text-top;
+}
+#fullName {
+    margin-left: 10px;
+}
+#insertPost {
+    text-align: left;
+    padding: 5px;
+    background: #fff;
+    width: 31%;
+    height: 80px;
+    margin-left: 50%;
+    margin-bottom: 40px;
+    transform: translate(-50%, -0%);
+}
+#insertPost img {
+    margin-left: 10px;
+    width: 30px;
+    vertical-align: middle;
+}
+#postTxt > img {
+    min-width: 100%;
+    border-radius: 0;
+}
+#insertPost input[type="text"] {
+    border: 1px solid #DFE0E1;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 12px;
+    width: 100%;
+    height: 35px;
+}
+#like {
+    height: 20px;
+    margin-top: 15px;
+    font-size: 9px;
+    color: blue;
+}
+
+.userimage {
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+}
+.dropdownbtn {
+    background-color: #39B54A;
+    width: 100%;
+    color: #eee;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+}
+.browsebtn {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.browsebtn + label {
+    width: 50%;
+    color: #eee;
+    background-color: #4267B2;
+    display: inline-block;
+    font-size: .75em;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.imgbutton {
+    width: 50%;
+    display: inline-block;
+    float: right;
+}
+.browsebtn:focus + label,
+.browsebtn + label:hover {
+    background-color: #51bac8;
+}
+.dropdownbtn:focus,
+.dropdownbtn:hover {
+    background-color: #51c860;
+}
+.input-field {
+    background-color: transparent;
+    padding-left: 5%;
+    border: 0px solid;
+    height: 40px;
+    width: 95%;
+    font-size: 16px;
+    background: white !important;
+    margin-bottom: 10px;
+}
+.input-size {
+    min-height: 70px;
+}
+textarea {
+    margin-bottom: 10px;
+    min-height: 40px;
+    padding: 10px;
+    resize: none;
+    width: 95%;
+    border: none;
+    font-family: inherit;
+    min-height: 40px;
+}
+#vl {
+    width: 5px;
+    height: auto;
+    background-color: white;
+    margin: 100px 0 70px 0;
+}
+#container{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.slika{
+    float: left;
+    width: 60px;
+    height: 100px;
+}
+#centriraj{
+    text-align: center;
+}
+
+.textsuccess {
+    color: limegreen;
+    font-size: 16px;
+}
+
+.textfail {
+    color: red;
+    font-size: 16px;
+}
+.alert {
+    font-style: italic;
+    margin-top: 10px;
+}
+.ikonica{
+    
+        /*padding: 10px 10px 10px 10px;*/
+        background: #4267B2 ;
+        color: white;
+        width: 40%;
+        height: 40px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 40px;
+      
+}
+.ikonica1{
+    /*padding: 10px 10px 15px 10px;*/
+        background:#4267B2 ;
+        color: white;
+        width: 40%;
+        height: 40px;
+        
+        text-align: center;
+        line-height: 40px;
+        
+
+        
+}
+.unutrasnji-kontejner{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+}
+.ikonica1, .ikonica {
+    font-size: 12px; 
+    font-family: 'Comfortaa', cursive;
+<<<<<<< HEAD
+}
+=======
+} 
+>>>>>>> e292665a2ebb1c25337c23b285d415610bd6b50b
+
+@media only screen and (max-width: 1200px) {
+ /* NA EKRANIMA MANJIM OD 1200px PROŠIRUJEMO CONTENT NA CEO EKRAN */
+ .content {
+   width: 100%;
+ }
+}
+
+@media only screen and (max-width: 700px) {
+ /* NA EKRANIMA MANJIM OD 700px TAKOĐE MENJAMO PRAVAC FLEXA NA GORNJOJ POLOVINI U VERTIKALAN */
+ .gornjideo {
+   flex-direction: column;
+ }
+ /* NA DONJOJ POLOVINI TAKOĐE, ALI U KONTRA SMERU DA BI PROMENA LOZINKE DOŠLA PRE POSTOVA, NJIH IMA VIŠE */
+ .donjideo {
+   flex-direction: column-reverse;
+ }
+ /* PROŠIRUJEMO SVA ČETIRI POLJA NA CEO EKRAN */
+ .levideo, .desnideo, .donjilevideo, .donjidesnideo {
+   width: auto;
+ }
+ /* I SAKRIVAMO DONJI SEPARATOR */
+ .vl {
+   display: none;
+ }
+}
