@@ -71,42 +71,51 @@
     </div>
     <!--right column container-->
     <div class="right column">
+        <div class="timeline">
 
-        <?php
-            $result1 = $conn->query($sql1);
-            if($result1->num_rows > 0){
-                while($x = $result1->fetch_assoc()): ?>
+            <?php
+                $result1 = $conn->query($sql1);
+                if($result1->num_rows > 0){
+                    while($x = $result1->fetch_assoc()): ?>
 
-                <div class="commentBlock">
+                    <div class="commentBlock">
+                
+                        <div class="comment">
+                            <p><?php echo $x['TekstStatusa'] ?></p>
+                        </div>
+                        <div class="ball">
+                        </div>
+                            <p class="centered-date"><?php echo $x['VremePostavljanja'] ?></p>
             
-                    <div class="comment">
-                        <p><?php echo $x['TekstStatusa'] ?></p>
                     </div>
-                        <p class="centered-date"><?php echo $x['VremePostavljanja'] ?></p>
-        
+                    <?php    
+                    endwhile;}
+            ?>
+
+
+            <div class="commentBlock">
+                
+                <div class="comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
                 </div>
-                <?php    
-                endwhile;}
-        ?>
-
-
-        <div class="commentBlock">
-            
-            <div class="comment">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
+                
+                <div class="ball">
+                </div>
+                <p class="centered-date">20.20.2020</p>
+                
             </div>
-            <p class="centered-date">20.20.2020</p>
-        
-        </div>
-        <div class="commentBlock">
+            <div class="commentBlock">
+                
+                <div class="comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
+                </div>
+                <div class="line"></div>
+                <div class="ball">
+                </div>
+                <p class="centered-date">20.20.2020</p>
             
-            <div class="comment">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
             </div>
-            <p class="centered-date">20.20.2020</p>
-        
-        </div>
-
+         </div>            
 
 
     </div>
