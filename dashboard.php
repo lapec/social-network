@@ -90,14 +90,12 @@ var_error_log($_SESSION);
              <?php 
             if (($row['JavnaPrivatna'] === 1) || $row['KID'] === $_SESSION['KID']) {
                   echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">'; 
-
-              } elseif ($row['JavnaPrivatna'] === 0) {
-                  echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">';
-
+            } elseif ($row['JavnaPrivatna'] === 0) {
+                echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">';
               } else {
                   echo " ";
               }
-			echo $row["TekstStatusa"];
+			      echo $row["TekstStatusa"];
             ?>
            </div>
         </div>
@@ -109,7 +107,7 @@ var_error_log($_SESSION);
     // zatvaramo konekciju ka bazi
     $conn->close();
 ?>
-
+<!-- START popupContainer --> 
 <div id="popupContainer">
   <div id="popupContent">
     <div class="leftColumn" id="photoContainer" name=""></div>
@@ -118,21 +116,21 @@ var_error_log($_SESSION);
         <span id="closePopup">X</span>
       </div>
       <div id="imgComment"></div>
+      <span class="load-more">Load More Comments</span>
       <div id="comment">
         <div class="usrImg">
           <img class="usrImg1" src="img/<?php echo $_SESSION['SlikaKorisnika']; ?>">
         </div>
         <div class="usrCom">
-          <form action="insertComments.php" method="post">
-          <input id="forma" type="text" name="postComment" placeholder="Write a comment..." autocomplete="off" /><br/>
+          <input id="forma" type="text" name="postComment" placeholder="  Write a comment..." autocomplete="off" /><br/>
           <input type="hidden" id="slikaID" name="slikaID" value="">
           <button id="submitComment" name="submitComment" type="submit">Comment</button>
-          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- END popupContainer --> 
 <script src="clickableImage.js"></script>
 </body>
 </html>

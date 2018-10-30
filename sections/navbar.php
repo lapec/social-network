@@ -1,8 +1,12 @@
 <nav>
-  <span class="brand"><a href="dashboard.php">Social-network</a></span>
-  <a href="index.php" style="float:right; margin-right: 5%; margin-top: 12px;">Logout</a>
-  <a href="profile.php" style="float:right; margin-right: 2%;">
-    <img src="img/<?php echo $_SESSION['SlikaKorisnika'];?>" />
-    	<?php echo $_SESSION['lastname']." ".$_SESSION['name']; ?>
-  </a>
+    <div class="navbarcontainer">
+    	<div class="navlogo">
+        	<a href="dashboard.php">Social Network</a>
+      	</div>
+      	<div class="navuserinfo">
+      		<a href="profile.php"><img class="navuserimg" src="img/<?php echo $_SESSION['SlikaKorisnika'];?>" /></a>
+      		<a href="profile.php" id="navdisplayname"><?php echo $_SESSION['lastname']." ".$_SESSION['name']; ?></a>
+      		<a href="index.php"><button class="navbtn"><i class="fa fa-sign-out fa-lg"></i><span id="navlogouttxt"> Logout</span></button></a>
+      	</div>
+    </div>
 </nav>

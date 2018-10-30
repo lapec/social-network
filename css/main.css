@@ -59,6 +59,11 @@ h1 {
 	border: 0;
 }
 
+.btn:hover {
+	background-color: hsl(219, 48%, 50%);
+}
+
+
 .container {
 	display: flex;
 	background-color: #fff;
@@ -141,6 +146,11 @@ img {
 	margin: 10px 2px;
 	background-color: #39B54A;
 	color: #fff;
+	border: 0;
+}
+
+.btn2:hover {
+	background-color: hsl(128, 52%, 57%)
 }
 
 h3 {
