@@ -30,10 +30,17 @@ require_once('logincode.php');
     <!--Main Navigation END-->
 
     <main class="container">
+      
       <div class="box1">
         <img src="img/1.jpg" alt="social-network" class="img1">
       </div>
       <div class="box2">
+      <div >
+            <?php if(isset($_COOKIE['loginfail'])){
+                            echo $_COOKIE['loginfail'];
+                          };
+            ?>
+      </div>
         <img src="img/2.jpg" alt="social-network" class="img2">
         <div class="card">
         <form action="registercode.php" method='POST'>
