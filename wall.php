@@ -90,27 +90,6 @@
                 <?php    
                 endwhile;}
         ?>
-
-
-        <div class="commentBlock">
-            
-            <div class="comment">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
-            </div>
-            <p class="centered-date">20.20.2020</p>
-        
-        </div>
-        <div class="commentBlock">
-            
-            <div class="comment">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
-            </div>
-            <p class="centered-date">20.20.2020</p>
-        
-        </div>
-
-
-
     </div>
 
 </div>
