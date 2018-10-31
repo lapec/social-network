@@ -6,6 +6,10 @@
 	box-sizing: border-box;
 }
 
+input {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .main-container {
 	width: 100%;
 }
@@ -13,17 +17,23 @@
 .navigation {
 	display: flex;
 	background-color: #4267B2;
-	min-height: 60px;
+	height: 60px;
 }
 
 .logo {
 	flex: 1;
 	display: flex;
+  overflow: hidden !important;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo a h1 {
+  margin-left: 10px;
 }
 
 a {
 	text-decoration: none;
-	padding: 10px 10px 10px 40px;
 }
 
 h1 {
@@ -35,6 +45,7 @@ h1 {
 
 .login {
 	flex: 1;
+  overflow: hidden !important;
 }
 
 .username {
@@ -63,11 +74,10 @@ h1 {
 	background-color: hsl(219, 48%, 50%);
 }
 
-
 .container {
 	display: flex;
 	background-color: #fff;
-	height: 100vh;
+	height: auto;
 	position: absolute;
 	z-index: -2;
 }
@@ -75,6 +85,12 @@ h1 {
 .box1 {
 	flex: 1;
 }
+
+.box2 {
+  flex: 1;
+  overflow: hidden !important;
+}
+
 
 img {
 	width: 100%;
@@ -86,11 +102,6 @@ img {
 	height: 500px;
 	margin-top: 90px;
 	margin-left: 90px;
-}
-
-.box2 {
-	flex: 1;
-	margin-top: ;
 }
 
 .img2 {
@@ -162,149 +173,129 @@ h3 {
 p {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 24px;
-	padding: 25px;
+	padding: 0px;
+}
+
+.wlcm p {
+  font-size: 1em;
+  margin-left:20px;
 }
 
 
 @media only screen and (max-width: 1150px) {
     
-    .container {
-    	flex-direction: column;
+  .container {
+  	flex-direction: column;
+  }
 
-    }
+  .box1, .box2 {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: scroll;
+      position: relative;
+  }
 
-    .box1, .box2 {
-        display: flex;
-        flex-wrap: wrap;
-        overflow: scroll;
-        position: relative;
-
-    }
-
-    .box1 {
-        width: 100%;
-        min-width: 10px;
-    	display: none;
-
-    }
-    
-    .box2 {
-        width: 100%; 
-        min-width: 10px;      
-
-    }
-
-    .img1 {
-
-    	position: relative;
-    	top: 15px;
-    	
-    }
-
-    .card {
-
-    	width: 100%;
-    	display: flex;
-    	flex-direction: column;
-    	font-size: 20px;
-    }
-
-    .card input {
-    	font-size: 23px;
-    	padding:10px;
-    	margin-left: 10px;
-    	min-height: 40px;
-    }
-
-     .name {
-    	width: 90%;
-
-    }
-
-     .lastname {
-    	width: 90%;
-    }
-
-    .email {
-    	width: 90%;
-    }
-
-    .username2 {
-    	width: 90%;
-    }
-
-    .password2 {
-    	width: 90%;
-    }
+  .box1 {
+      width: 100%;
+      min-width: 10px;
+  	  display: none;
+  }
   
-  	.btn2 {
-  		width: 90%;
-  	}
+  .box2 {
+      width: 100%; 
+      min-width: 10px;      
+  }
 
-  	.wlcm {
+  .img1 {
+  	position: relative;
+  	top: 15px;
+  }
 
-  		width: 90%;
-  	}
-  	
+  .card {
+  	 width: 100%;
+  	 display: flex;
+  	 flex-direction: column;
+  	 font-size: 20px;
+  }
 
-  	.hello h3 {
+  .card input {
+  	 font-size: 23px;
+  	 padding:10px;
+  	 margin-left: 10px;
+  	 min-height: 40px;
+  }
 
-  		font-size: 55px;
-  		padding-left: 10px;
+   .name {
+  	 width: 90%;
+  }
 
-  	}
+   .lastname {
+  	 width: 90%;
+  }
 
-  	.navigation {
+  .email {
+  	 width: 90%;
+  }
 
-  		flex-direction: column;
-        min-height: 30px;
+  .username2 {
+  	 width: 90%;
+  }
 
+  .password2 {
+  	 width: 90%;
+  }
 
-
-  	}
-
-  	.logo, .login {
-        display: flex;
-        flex-wrap: wrap;
-        overflow: scroll;
-        position: relative;
-
+	.btn2 {
+		  width: 90%;
 	}
 
-	.logo h1 {
+	.wlcm {
+		  width: 90%;
+	}
 
+	.hello h3 {
+		  font-size: 55px;
+		  padding-left: 10px;
+	}
+
+	.navigation {
+		  flex-direction: column;
+      height: auto;
+	}
+
+	.logo, .login {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: scroll;
+      position: relative;
+   }
+
+	.logo h1 {
   		font-size: 25px;
   		text-align: center;
-  		padding-left: 20px;
   		padding-top: 8px;
   	}
 
-
-
-  	.login {
+  .login {
   		width: 100%;
-		display: flex;
+		  display: flex;
     	flex-direction: column;
-
   	}
 
-  	.login input {
+  .login input {
     	font-size: 23px;
     	padding: 10px;
     	margin-left: 10px;
     	min-height: 40px;
-    }
-
-  	.username, .password {
-
+   }
+   
+   .username, .password {
   		width: 90%;
-  	}
+   }
 
-  	.btn {
-
+   .btn {
   		width: 90%;
   		margin-bottom: 10px;
   		margin-left: 10px;
   	}
-
  } 	
