@@ -23,9 +23,11 @@ $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 				$result = $conn->query($sql);
 				if ($result->num_rows > 0) {
 					while($row = $result->fetch_assoc()) { ?>
-						<div align="center" id="printText">
+						<div id="printText">
 							<div class="row" id= "imgComm">
+								<a href="wall.php?n=<?php echo $row["KID"] ?>">
 								<img src="img/<?php echo $row["SlikaKorisnika"] ?>">
+								</a>
 								<span id="fullName"><a href="wall.php?n=<?php echo $row["KID"] ?>"><?php echo htmlspecialchars($row["Ime"]." ".$row["Prezime"]) ?></a></span>
 								<div class="postTxt" id="postTxt"><?php echo htmlspecialchars($row["Komentar"]) ?></div>
 								<div class="dateTime"><?php echo htmlspecialchars($row["VremePostavljanja"]) ?></div>
