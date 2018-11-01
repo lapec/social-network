@@ -2,17 +2,22 @@
 @import url('https://fonts.googleapis.com/css?family=Quattrocento');
 
 body{
+    margin: 0;
+    padding: 0;
     background: #F0F3F8;
     font-family: arial;
-    margin: 0;
 }
 
-/* dashboard posts */
+a:link, a:visited {
+    text-decoration: none;
+    color: #fff;
+}
 
 .dashcontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 /*post box*/
@@ -142,7 +147,7 @@ body{
     flex-flow:column;
 }
 
-#post_fullName {
+#fullName {
     margin-left: 11px;
 }
 
@@ -162,12 +167,8 @@ body{
 #postTxt {
     width:100%;
     padding:5px;
-    text-align: left;
 }
 
-/* VAZNO: ovaj kod pravi koliziju sa kodom za popupContainer
-   uskladiti sve media queries, i pisati ih sve zajedno npr na kraju stranice
-;
 @media only screen and (min-width: 1030px) {
     
     .dashcontent {
@@ -190,141 +191,44 @@ body{
     }
 
 }
-*/
-/* ends css for dashboard posts */
+/*@media only screen and (min-width:500px) {
+    .dashcontent {
+        width: 100%;
+        max-width: 500px;
+    }
 
-.row {
-    text-align: left;
-    color: auto;
-    width: 30%;
-    vertical-align: middle;
-    margin: 10px;
-    padding: 10px;
+    #printText .row {
+        width: 480px;
+    }
+
 }
-#printText .row {
-    background: #FFFFFF;
-}
-#printText .row img {
-    width: 35px;
-    border-radius: 50px;
-    vertical-align: text-top;  
-}
-#fullName {
-    margin-left: 50px;
-    font-family: 'Merriweather Sans', sans-serif;
-    display: block;
-    margin-top: -35px;
-}
-#insertPost {
-    text-align: left;
-    padding: 5px;
-    background: #fff;
-    width: 31%;
-    height: 90px;
-    margin-left: 50%;
-    margin-bottom: 40px;
-    transform: translate(-50%, -0%);
-    position: static;   
-}
-#insertPost img {
-    margin-left: 10px;
-    width: 30px;
-    vertical-align: middle;
-}
-.postTxt {
-    font-family: 'Quattrocento', serif;
-    position: relative;
-    top: 10px;
-    right: -5px;
-}
-#postTxt > img {
-    min-width: 100%;
-    border-radius: 0;
-}
-#insertPost input[type="text"] {
-    border: 1px solid #DFE0E1;
-    padding: 5px;
-    margin-top: 10px;
-    margin-left: 12px;
-    width: 330px;
-    height: 35px;
-}
-#like {
-    height: 20px;
-    margin-top: 15px;
-    font-size: 9px;
-    color: blue;
-    display: inline-block;
-}
-#uploadImage {
-    padding: 3px;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-}
-#uploadImage:hover {
-    background-color: grey;
-}
-#pubSelect {
-    padding: 3px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-#pubSelect:hover {
-    border: 1px solid grey;
-}
-#kreirajPost {
-    padding: 3px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-#kreirajPost:hover {
-    background-color: grey;
-}
-#onYourMind {
-    margin: 5px;
-}
-.dgm:hover {
-    border: 1px solid grey;
-    background-color: grey;
-}
-.btnUpload {
-    width: 120px;
-    height: 50px;
-    float: left;
-    position: relative;
-    bottom: -4px; 
-}
-.dgm {
-    width: 200px;
-    padding: 3px;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 0.8em;
-    background-color: #F0F0F0;
-}
-.rightSide{
-    float: left;
-    position: relative;
-    top: -20px;
-    left: -7px;
-}
-.allBtn {
-    position: relative;
-    top: -20px;
-}
+@media only screen and (min-width: 100px) {
+    .dashinsertpost {
+        width: 96%;
+        margin: 0 0 20px 0;
+       
+    }
+    .dashcontent {
+        width: 100%;
+     }
+     #printText .row {
+        width: 90%;
+        max-width:480px;
+    }
+}*/
+
+/*end post box*/
+
+/* Feeds */
+
+
+
+/*end feeds/*/
+
+
+
 /* START popupContainter */
 
-
-
-#forma {
-    height: 40px;
-    width: 80%;
-    border-radius: 8px;
-    margin: 10px;
-    float: right;
-    resize: none;
-    font-size: 14px;
-}
 #popupContainer {
     display: none;
     position: fixed;
@@ -344,6 +248,7 @@ body{
     flex-direction: row;
     align-items: stretch;
     width: 90%;
+    margin-top: 250px;
 }
 #popupContent > .leftColumn {
     width: 70%;
@@ -384,9 +289,9 @@ body{
     color: rgba(0, 0, 0, 0.7);
 }
 #comment {
+    margin: auto;
     margin-bottom: 10px;
     font-size: 12px;
-    width: 100%;
 }
 #photoContainer {
     background-size: contain;
@@ -395,38 +300,32 @@ body{
 }
 .load-more{
     margin-top: 10px;
-    margin-left: 10px;
     text-align: left;
-    font-size: 12px;
+    font-size: 10px;
     color: #0000ff;
     cursor: pointer;
 }
 #submitComment {
     cursor: pointer;
     margin-top: 5px;
+    margin-right: 180px;
     margin-left: 0px;
     background-color: #0f75bc;
     border: none;
     color: white;
-    padding: 10px 0px 10px 0px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1.2em;
-    width: 30%;
+    font-size: 14px;
+    width: 35%;
     border-radius: 5px;
-    float: right;
-    margin-left: 80px;
-    margin-right: 10px;
-    
-
 }
 #imgComment{
-    overflow-y: auto;
+    overflow-y: scroll;
     height: 550px;
 }
-
-#komentar {
+#komentar{
     flex-grow: 1;
 }
 .usrComm {
@@ -434,72 +333,66 @@ body{
     width: 100%;
     flex-wrap: wrap;
 }
-
-#forma::placeholder {
-    font-size: 1.3em;
-    padding: 6px;
+#comment{
+    margin-top: 50px;
 }
-
+#forma {
+    height: 30px;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    float: right;
+}
+#forma::placeholder {
+    font-size: 1.2em;
+}
 .dateTime {
     font-size: 10px;
     position: relative;
     left: 20px;
     color: lightgrey;
 }
-
 .usrImg, .usrCom {
     display: inline-block;
-    width: 100%;
 }
-
 .usrImg {
     width: 47px;
     position: relative;
-    bottom: 0;
+    bottom: 23px;
     margin-right: 8px;
-    float: left;
-    top: 67px;
-    padding-left: 10px;
 }
-
 .usrImg1 {
   -webkit-clip-path: circle(20px at center);
   clip-path: circle(20px at center);
     width: inherit;
 }
-
 #imgComm img{
     -webkit-clip-path: circle(18px at center);
     clip-path: circle(18px at center);
     width: inherit;
 }
-
 #imgComm #fullName a:link {
-    color: #365899;
-    font-weight: bold;
+    color: black;
 }
-
 #imgComm #fullName a:hover {
-    color: #365899;
+    color: #303030;
     font-weight: bold;
-    text-decoration: underline;
 }
-
 #imgComm #fullName a:active {
-    color: #365899;
+    color: blue;
 }
-
 #imgComm #fullName a:visited {
-    color: #365899;
+    color: grey;
 }
+/* #printText > #imgComm > #fullName{
 
-@media only screen and (max-width: 780px) {
+} */
+@media only screen and (max-width: 370px) {
     #popupContent {
         display: flex;
         flex-wrap: wrap;
         overflow: scroll;
         position: relative;
-        height: 100%;
     }
     #popupContent > .leftColumn {
         width: 100%;
@@ -509,7 +402,7 @@ body{
         width: 100%;       
     }
     #comment{
-        /*margin-top: 25px;*/
+        margin-top: 25px;
         margin-bottom: 25px;
     }
     #popupContainer {
@@ -519,6 +412,4 @@ body{
         display: none;
     }
 }
-
-
 /* END popupContainter */

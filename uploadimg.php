@@ -10,6 +10,8 @@ function var_error_log( $object=null ){
   };
 
 $conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME);
+// Change character set to utf8
+mysqli_set_charset($conn,"utf8");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

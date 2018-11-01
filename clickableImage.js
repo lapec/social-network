@@ -74,6 +74,8 @@ document.getElementById('closePopup').addEventListener('click', function() {  //
     $('body').css('overflow','auto');
 });
 
+/* insert image comment to db via ajax */
+
 $('#submitComment').click(function(){
    var comment = $('#forma').val();
    var SID = $('#slikaID').val();
