@@ -7,21 +7,27 @@ body{
     background: #F0F3F8;
     font-family: arial;
 }
-/*a:link, a:visited {
-    text-decoration: none;
-    color: blue;*/
 
-/*post box*/
+a:link, a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
 .dashcontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
+
+/*post box*/
+
 .dashcontent {
     width: 50%;
     margin-top: 20px;
+      
 }
+
 .dashinsertpost {
     display: flex;
     align-items: flex-start;
@@ -30,29 +36,34 @@ body{
     padding: 2%;
     margin: 0 2% 20px 2%;
 }
+
 .dashinsertpostuserimg {
     width: 80px;
 }
+
 .dashinsertpostuserimg > img {
     width: 60px;
     height: auto;
     object-fit: contain;
 }
+
 .dashbottominsert {
     display: flex;
     justify-content: space-between;
 }
+
 .dashinputform {
     width: 100%;
 }
+
 .dashonyourmind {
     padding: 1%;
     width: 98%;
     min-height: 40px;
-    /*resize: none;*/
     font-family: inherit;
     margin-bottom: 5px;
 }
+
 .dashbtn {
     background-color: #39B54A;
     color: #fff;
@@ -61,6 +72,7 @@ body{
     height: 40px;
     width: 120px;
 }
+
 .dashbrowsebtn {
     width: 0.1px;
     height: 0.1px;
@@ -69,6 +81,7 @@ body{
     position: absolute;
     z-index: -1;
 }
+
 .dashbrowsebtn + label {
     width: 120px;
     color: #fff;
@@ -80,14 +93,17 @@ body{
     cursor: pointer;
     text-align: center;
 }
+
 .dashbrowsebtn:focus + label,
 .dashbrowsebtn + label:hover {
     background-color: #51bac8;
 }
+
 .dashbtn:focus,
 .dashbtn:hover {
     background-color: #51c860;
 }
+
 #pubselect {
     height: 40px;
     border: 2px solid #4267B2;
@@ -95,17 +111,87 @@ body{
     top: 1px;
 }
 
-/*@media only screen and (min-width: 1050px) {
+#printText {
+    width:100%;
+}
+
+#printText .dashboard-post-row a:link, #printText .dashboard-post-row a:visited {
+    text-decoration: none;
+    color: #0000ff;
+}
+
+.dashboard-post-row {
+    display: flex;
+    flex-flow: column;
+    color: auto;
+    background: white;
+    padding: 5px;
+    margin-bottom: 3%;
+    width: 95%;
+   
+    
+}
+
+.dashboard-usr-pict {
+    display: flex;
+}
+
+.dashboard-usr-pict img {
+    width: 30px;
+    height: 40px;
+    object-fit: cover;
+    padding: 2px;
+}
+
+.userNameDiv {
+    flex-flow:column;
+}
+
+#fullName {
+    margin-left: 11px;
+}
+
+.timePost {
+    margin-left: 10px;
+    font-size: 0.7em;
+}
+
+.outPict {
+    width: 100%;
+    padding: 5px;
+}
+.outPict img {
+    width:99%;
+}
+
+#postTxt {
+    width:100%;
+    padding:5px;
+}
+
+@media only screen and (min-width: 1030px) {
+    
     .dashcontent {
-        width: 50%;
-        max-width: 500px;
+        max-width: 530px ;
     }
-    printText .row {
-        max-width: 480px;
+
+    .dashboard-post-row {
+        max-width: 500px;
+        
+    }
+
+@media only screen and (min-width: 530px) and (max-width: 1029px) {
+  
+    .dashcontent {
+        min-width: 530px;
+    }
+
+    .dashboard-post-row {
+        min-width: 500px;
     }
 
 }
-@media only screen and (min-width:500px) {
+/*@media only screen and (min-width:500px) {
     .dashcontent {
         width: 100%;
         max-width: 500px;
@@ -134,52 +220,8 @@ body{
 /*end post box*/
 
 /* Feeds */
-#printText {
-    width:100%;
-}
-.dashboard-post-row {
-    display: flex;
-    flex-flow: column;
-    color: auto;
-    background: white;
-    padding: 5px;
-    margin-bottom: 3%;
-    width: 95%;
-}
 
-.dashboard-usr-pict {
-    display: flex;
 
-    
-}
-.dashboard-usr-pict img {
-    width: 30px;
-    height: 40px;
-    object-fit: cover;
-    padding: 2px;
-}
-
-.userNameDiv {
-    flex-flow:column;
-}
-
-#fullName {
-    margin-left: 11px;
-    color:blue;
-}
-.timePost {
-    margin-left: 10px;
-    font-size: 0.7em;
-}
-
-.outPict {
-    width: 100%;
-    padding: 5px;
-}
-#postTxt {
-    width:100%;
-    padding:5px;
-}
 
 /*end feeds/*/
 
