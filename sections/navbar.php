@@ -1,6 +1,6 @@
 <nav>
     <div class="navbarcontainer">
-    	<div class="navlogo">
+    	  <div class="navlogo">
         	<a href="dashboard.php">Social Network</a>
       	</div>
       	<div class="navuserinfo">
