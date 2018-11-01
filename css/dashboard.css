@@ -3,7 +3,7 @@
 
 
 body{
-    margin: 0;
+	margin: 0;
 }
 
 
@@ -20,8 +20,8 @@ a:link, a:visited {
     color: #0000ff;
 }
 nav {
-    background: #4267B2;
-    min-height: 50px;
+	background: #4267B2;
+	min-height: 50px;
     color: #e0d9d9;
     padding-top:5px;
 }
@@ -58,10 +58,8 @@ body{
     vertical-align: text-top;  
 }
 #fullName {
-    margin-left: 50px;
+    margin-left: 10px;
     font-family: 'Merriweather Sans', sans-serif;
-    display: block;
-    margin-top: -35px;
 }
 #insertPost {
     text-align: left;
@@ -162,14 +160,17 @@ body{
 }
 /* START popupContainter */
 
-
+/*textarea::placeholder {
+    font-size: 70%;
+    color: red;
+}*/
 
 #forma {
-    height: 40px;
-    width: 80%;
+    height: 30px;
+    width: 100%;
     border-radius: 8px;
-    margin: 10px;
-    float: right;
+    margin-bottom: 10px;
+    float: left;
     resize: none;
     font-size: 14px;
 }
@@ -192,6 +193,7 @@ body{
     flex-direction: row;
     align-items: stretch;
     width: 90%;
+    margin-top: 250px;
 }
 #popupContent > .leftColumn {
     width: 70%;
@@ -232,9 +234,9 @@ body{
     color: rgba(0, 0, 0, 0.7);
 }
 #comment {
+    margin: auto;
     margin-bottom: 10px;
     font-size: 12px;
-    width: 100%;
 }
 #photoContainer {
     background-size: contain;
@@ -243,9 +245,8 @@ body{
 }
 .load-more{
     margin-top: 10px;
-    margin-left: 10px;
     text-align: left;
-    font-size: 12px;
+    font-size: 10px;
     color: #0000ff;
     cursor: pointer;
 }
@@ -256,25 +257,19 @@ body{
     background-color: #0f75bc;
     border: none;
     color: white;
-    padding: 10px 0px 10px 0px;
+    padding: 5px 0 5px 0;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1.2em;
-    width: 30%;
+    font-size: 1em;
+    width: 60%;
     border-radius: 5px;
-    float: right;
-    margin-left: 80px;
-    margin-right: 10px;
-    
-
 }
 #imgComment{
     overflow-y: auto;
     height: 550px;
 }
-
-#komentar {
+#komentar{
     flex-grow: 1;
 }
 .usrComm {
@@ -282,13 +277,13 @@ body{
     width: 100%;
     flex-wrap: wrap;
 }
-
-#forma::placeholder {
-    font-size: 1.3em;
-    padding: 6px;
+#comment{
+    margin-top: 50px;
+    width: 100%;
 }
-
-
+#forma::placeholder {
+    font-size: 1.2em;
+}
 .dateTime {
     font-size: 10px;
     position: relative;
@@ -302,11 +297,8 @@ body{
 .usrImg {
     width: 47px;
     position: relative;
-    bottom: 0;
+    bottom: 23px;
     margin-right: 8px;
-    float: left;
-    top: 67px;
-    padding-left: 10px;
 }
 .usrImg1 {
   -webkit-clip-path: circle(20px at center);
@@ -319,29 +311,28 @@ body{
     width: inherit;
 }
 #imgComm #fullName a:link {
-    color: #365899;
-    font-weight: bold;
+    color: black;
 }
 #imgComm #fullName a:hover {
-    color: #365899;
+    color: #303030;
     font-weight: bold;
-    text-decoration: underline;
 }
 #imgComm #fullName a:active {
-    color: #365899;
+    color: blue;
 }
 #imgComm #fullName a:visited {
-    color: #365899;
+    color: grey;
 }
 
+/* #printText > #imgComm > #fullName{
 
+} */
 @media only screen and (max-width: 780px) {
     #popupContent {
         display: flex;
         flex-wrap: wrap;
         overflow: scroll;
         position: relative;
-        height: 100%;
     }
     #popupContent > .leftColumn {
         width: 100%;
@@ -351,7 +342,7 @@ body{
         width: 100%;       
     }
     #comment{
-        /*margin-top: 25px;*/
+        margin-top: 25px;
         margin-bottom: 25px;
     }
     #popupContainer {
@@ -362,5 +353,9 @@ body{
     }
 }
 
-
+/*@media only screen and (max-width: 768px)  {
+    #submitComment, #forma {
+        font-size: 1em;
+    }
+}*/
 /* END popupContainter */
