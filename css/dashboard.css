@@ -8,6 +8,11 @@ body{
     font-family: arial;
 }
 
+
+* {
+    box-sizing: border-box;
+}
+
 a:link, a:visited {
     text-decoration: none;
     color: #fff;
@@ -25,7 +30,13 @@ a:link, a:visited {
 .dashcontent {
     width: 50%;
     margin-top: 20px;
+}
       
+nav {
+    background: #4267B2;
+    min-height: 50px;
+    color: #e0d9d9;
+    padding-top:5px;
 }
 
 .dashinsertpost {
@@ -80,6 +91,13 @@ a:link, a:visited {
     overflow: hidden;
     position: absolute;
     z-index: -1;
+}
+
+#fullName {
+    margin-left: 50px;
+    font-family: 'Merriweather Sans', sans-serif;
+    display: block;
+    margin-top: -35px;
 }
 
 .dashbrowsebtn + label {
@@ -191,41 +209,6 @@ a:link, a:visited {
     }
 
 }
-/*@media only screen and (min-width:500px) {
-    .dashcontent {
-        width: 100%;
-        max-width: 500px;
-    }
-
-    #printText .row {
-        width: 480px;
-    }
-
-}
-@media only screen and (min-width: 100px) {
-    .dashinsertpost {
-        width: 96%;
-        margin: 0 0 20px 0;
-       
-    }
-    .dashcontent {
-        width: 100%;
-     }
-     #printText .row {
-        width: 90%;
-        max-width:480px;
-    }
-}*/
-
-/*end post box*/
-
-/* Feeds */
-
-
-
-/*end feeds/*/
-
-
 
 /* START popupContainter */
 
@@ -248,7 +231,6 @@ a:link, a:visited {
     flex-direction: row;
     align-items: stretch;
     width: 90%;
-    margin-top: 250px;
 }
 #popupContent > .leftColumn {
     width: 70%;
@@ -289,9 +271,9 @@ a:link, a:visited {
     color: rgba(0, 0, 0, 0.7);
 }
 #comment {
-    margin: auto;
     margin-bottom: 10px;
     font-size: 12px;
+    width: 100%;
 }
 #photoContainer {
     background-size: contain;
@@ -300,8 +282,9 @@ a:link, a:visited {
 }
 .load-more{
     margin-top: 10px;
+    margin-left: 10px;
     text-align: left;
-    font-size: 10px;
+    font-size: 12px;
     color: #0000ff;
     cursor: pointer;
 }
@@ -320,22 +303,32 @@ a:link, a:visited {
     font-size: 14px;
     width: 35%;
     border-radius: 5px;
+    float: right;
+    margin-left: 80px;
+    margin-right: 10px;
+    
+
 }
+
 #imgComment{
     overflow-y: scroll;
     height: 550px;
 }
-#komentar{
+
+#komentar {
     flex-grow: 1;
 }
+
 .usrComm {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
 }
+
 #comment{
     margin-top: 50px;
 }
+
 #forma {
     height: 30px;
     width: 100%;
@@ -343,9 +336,12 @@ a:link, a:visited {
     margin-bottom: 15px;
     float: right;
 }
+
 #forma::placeholder {
-    font-size: 1.2em;
+    font-size: 1.3em;
+    padding: 6px;
 }
+
 .dateTime {
     font-size: 10px;
     position: relative;
@@ -358,8 +354,11 @@ a:link, a:visited {
 .usrImg {
     width: 47px;
     position: relative;
-    bottom: 23px;
+    bottom: 0;
     margin-right: 8px;
+    float: left;
+    top: 67px;
+    padding-left: 10px;
 }
 .usrImg1 {
   -webkit-clip-path: circle(20px at center);
@@ -372,27 +371,28 @@ a:link, a:visited {
     width: inherit;
 }
 #imgComm #fullName a:link {
-    color: black;
-}
-#imgComm #fullName a:hover {
-    color: #303030;
+    color: #365899;
     font-weight: bold;
 }
+#imgComm #fullName a:hover {
+    color: #365899;
+    font-weight: bold;
+    text-decoration: underline;
+}
 #imgComm #fullName a:active {
-    color: blue;
+    color: #365899;
 }
 #imgComm #fullName a:visited {
-    color: grey;
+    color: #365899;
 }
-/* #printText > #imgComm > #fullName{
 
-} */
-@media only screen and (max-width: 370px) {
+@media only screen and (max-width: 780px) {
     #popupContent {
         display: flex;
         flex-wrap: wrap;
         overflow: scroll;
         position: relative;
+        height: 100%;
     }
     #popupContent > .leftColumn {
         width: 100%;
@@ -402,7 +402,7 @@ a:link, a:visited {
         width: 100%;       
     }
     #comment{
-        margin-top: 25px;
+        /*margin-top: 25px;*/
         margin-bottom: 25px;
     }
     #popupContainer {
@@ -412,4 +412,5 @@ a:link, a:visited {
         display: none;
     }
 }
+
 /* END popupContainter */
