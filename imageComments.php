@@ -18,7 +18,7 @@ $data = "SELECT * FROM komentari_slike INNER JOIN korisnici ON komentari_slike.K
 $result = $conn->query($data);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) { ?>
-			<div id="printText" class="printText">
+			<div align="center" id="printText">
 				<div class="row" id= "imgComm">
 					<a href="wall.php?n=<?php echo $row["KID"] ?>">
 						<img src="img/<?php echo $row["SlikaKorisnika"] ?>">
