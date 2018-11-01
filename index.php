@@ -8,7 +8,9 @@ require_once('logincode.php');
 <html>
 <head>
   <title>Social Network</title>
+  <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <!--Main Container-->
@@ -30,21 +32,39 @@ require_once('logincode.php');
     <!--Main Navigation END-->
 
     <main class="container">
+      
       <div class="box1">
         <img src="img/1.jpg" alt="social-network" class="img1">
       </div>
       <div class="box2">
+      <div>
+            <?php if(isset($_COOKIE['loginfail'])){
+                            echo $_COOKIE['loginfail'];
+                          };
+            ?>
+      </div>
         <img src="img/2.jpg" alt="social-network" class="img2">
         <div class="card">
-          <input type="text" name="name" placeholder="name" class="name">
-          <input type="text" name="lastname" placeholder="lastname" class="lastname">
-          <input type="text" name="email" placeholder="email" class="email">
-          <input type="text" name="username" placeholder="username" class="username2">
-          <input type="text" name="password" placeholder="password" class="password2">
+        <form action="registercode.php" method='POST'>
+          <input type="text" name="name" placeholder="name" class="name" required>
+          <input type="text" name="lastname" placeholder="lastname" class="lastname" required>
+          <input type="email" name="email" placeholder="email" class="email" required>
+          <input type="text" name="username" placeholder="username" class="username2" required>
+          <input type="password" name="password" placeholder="password" class="password2" required>
           <input class="btn2" type="submit" name="login" value="Sign Up" />
-          <h3>welcome</h3>
-          <p>welcome to the lazy-dev network <br> fill the data and join us !</p>
-        </div>
+          </form>
+            <?php if(isset($_COOKIE['invalidUN'])){
+                    echo $_COOKIE['invalidUN'];
+                  } else {
+                unset($_COOKIE['invalidUN']);
+              };?>
+          </div>
+          <div class="wlcm"> 
+            <div class="hello">
+              <h3>welcome</h3>
+            </div>
+            <p>welcome to the lazy-dev network <br> fill the data and join us !</p>
+          </div>          
       </div>
     </main>
   </div>

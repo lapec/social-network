@@ -27,9 +27,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/wall.css">
+    <link href="css/navbar.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     
 </head>
@@ -88,6 +90,7 @@
                             <p class="centered-date"><?php echo $x['VremePostavljanja'] ?></p>
             
                     </div>
+
                     <?php    
                     endwhile;}
             ?>
@@ -115,9 +118,6 @@
                 <p class="centered-date">20.20.2020</p>
             
             </div>
-         </div>            
-
-
-    </div>
-
-</div>
+         </div>
+     </div>
+ </div>
