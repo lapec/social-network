@@ -344,13 +344,14 @@ body{
     flex-direction: row;
     align-items: stretch;
     width: 90%;
+    height: 80%;
 }
 #popupContent > .leftColumn {
     width: 70%;
     min-height: 300px;
 }
 #imgComm{
-    width: inherit;
+    width: 90%;
 }
 .clickableImage{
     cursor: pointer;
