@@ -2,17 +2,22 @@
 @import url('https://fonts.googleapis.com/css?family=Quattrocento');
 
 body{
+    margin: 0;
+    padding: 0;
     background: #F0F3F8;
     font-family: arial;
-    margin: 0;
 }
 
-/* dashboard posts */
+a:link, a:visited {
+    text-decoration: none;
+    color: #fff;
+}
 
 .dashcontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 /*post box*/
@@ -20,6 +25,8 @@ body{
 .dashcontent {
     width: 50%;
     margin-top: 20px;
+    max-width: 530px;
+
       
 }
 
@@ -30,6 +37,7 @@ body{
     background: #FFF;
     padding: 2%;
     margin: 0 2% 20px 2%;
+    min-width: 405px;
 }
 
 .dashinsertpostuserimg {
@@ -106,11 +114,12 @@ body{
     top: 1px;
 }
 
-#printText {
+#post_printText {
     width:100%;
+    min-width: 435px;
 }
 
-#printText .dashboard-post-row a:link, #printText .dashboard-post-row a:visited {
+#post_printText .dashboard-post-row a:link, #post_printText .dashboard-post-row a:visited {
     text-decoration: none;
     color: #0000ff;
 }
@@ -123,7 +132,7 @@ body{
     padding: 5px;
     margin-bottom: 3%;
     width: 95%;
-   
+    max-width: 500px;
     
 }
 
@@ -142,7 +151,7 @@ body{
     flex-flow:column;
 }
 
-#post_fullName {
+#fullName {
     margin-left: 11px;
 }
 
@@ -159,61 +168,24 @@ body{
     width:99%;
 }
 
-#postTxt {
-    width:100%;
-    padding:5px;
-    text-align: left;
-}
+/*end post box*/
 
-/* VAZNO: ovaj kod pravi koliziju sa kodom za popupContainer
-   uskladiti sve media queries, i pisati ih sve zajedno npr na kraju stranice
-;
-@media only screen and (min-width: 1030px) {
-    
-    .dashcontent {
-        max-width: 530px ;
-    }
 
-    .dashboard-post-row {
-        max-width: 500px;
-        
-    }
+/* START popupContainter */
 
-@media only screen and (min-width: 530px) and (max-width: 1029px) {
-  
-    .dashcontent {
-        min-width: 530px;
-    }
-
-    .dashboard-post-row {
-        min-width: 500px;
-    }
-
-}
-*/
-/* ends css for dashboard posts */
-
-.row {
-    text-align: left;
-    color: auto;
-    width: 30%;
-    vertical-align: middle;
-    margin: 10px;
-    padding: 10px;
-}
 #printText .row {
     background: #FFFFFF;
+    width: 100%;
+   
+
 }
-#printText .row img {
-    width: 35px;
-    border-radius: 50px;
-    vertical-align: text-top;  
-}
+
 #fullName {
-    margin-left: 50px;
     font-family: 'Merriweather Sans', sans-serif;
-    display: block;
-    margin-top: -35px;
+    display: inline-block;
+    left: 50px;
+    position: relative;
+    bottom: 30px;
 }
 #insertPost {
     text-align: left;
@@ -234,8 +206,8 @@ body{
 .postTxt {
     font-family: 'Quattrocento', serif;
     position: relative;
-    top: 10px;
-    right: -5px;
+    top: -10px;
+    word-break: break-word;
 }
 #postTxt > img {
     min-width: 100%;
@@ -314,8 +286,6 @@ body{
 }
 /* START popupContainter */
 
-
-
 #forma {
     height: 40px;
     width: 80%;
@@ -344,14 +314,27 @@ body{
     flex-direction: row;
     align-items: stretch;
     width: 90%;
+    height: 80%;
 }
 #popupContent > .leftColumn {
     width: 70%;
     min-height: 300px;
 }
-#imgComm{
-    width: inherit;
+
+#imgComm {
+    width: 85%;
 }
+
+.imgBox {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    text-align: center;
+    position: relative;
+    right: 0px;
+    overflow: hidden;
+}
+
 .clickableImage{
     cursor: pointer;
 }
@@ -454,24 +437,25 @@ body{
 
 .usrImg {
     width: 47px;
+    height: 47px;
+    overflow: hidden;
     position: relative;
     bottom: 0;
-    margin-right: 8px;
     float: left;
-    top: 67px;
-    padding-left: 10px;
+    top: 58px;
+    margin-left: 20px;
+    border: 1px solid red;
+   -webkit-clip-path: circle(20px at center);
+    clip-path: circle(20px at center);
+    right: 10px;
 }
 
 .usrImg1 {
-  -webkit-clip-path: circle(20px at center);
-  clip-path: circle(20px at center);
-    width: inherit;
+  width: 100%;
 }
 
 #imgComm img{
-    -webkit-clip-path: circle(18px at center);
-    clip-path: circle(18px at center);
-    width: inherit;
+    height: 100%;
 }
 
 #imgComm #fullName a:link {
@@ -492,24 +476,33 @@ body{
 #imgComm #fullName a:visited {
     color: #365899;
 }
+/* END popupContainter */
+
 
 @media only screen and (max-width: 780px) {
+  
+/*popupContainer*/
+
     #popupContent {
         display: flex;
         flex-wrap: wrap;
-        overflow: scroll;
+        overflow: auto;
         position: relative;
         height: 100%;
+        overflow-x: hidden;
     }
     #popupContent > .leftColumn {
-        width: 100%;
+        width: 90%;
         min-width: 300px;
     }
       #popupContent > .rightColumn {
-        width: 100%;       
+        width: 90%;  
+    }
+    #commentsBox {
+        height:100%;
     }
     #comment{
-        /*margin-top: 25px;*/
+        margin-top: 25px;
         margin-bottom: 25px;
     }
     #popupContainer {
@@ -518,7 +511,62 @@ body{
     #closePopup{
         display: none;
     }
+
+/*end of popupContainer*/
+
 }
 
+@media only screen and (max-width: 579px) {
 
-/* END popupContainter */
+    .dashcontent {
+        width: 90% !important;
+            }
+
+    .dashboard-post-row {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 450px) {
+
+    .dashcontent {
+        width: 90% !important;
+            }    
+
+    .dashbottominsert {
+        flex-wrap: wrap;
+    }
+
+    .dashinsertpost {
+       flex-wrap: wrap;
+       min-width: 200px;
+    }
+    .dashinputform {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    .dashbrowsebtn {
+        width: 100%;
+        
+    
+    }
+
+    .dashbtn {
+        width: 100%;
+        
+    }
+    #pubselect {
+        width: 100%;
+        margin: 10px 0 10px 0;
+    }
+    .dashinsertpostuserimg {
+        margin-bottom: 10px;
+    }
+    .dashonyourmind {
+        width: 100%;
+        
+    }
+    #post_printText {
+        min-width: 200px;
+    }
+}
