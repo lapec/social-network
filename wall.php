@@ -67,7 +67,7 @@
             if($result->num_rows > 0 ){
                 while($x = $result->fetch_assoc()): ?>
                     <?php if($x['JavnaPrivatna'] == 0): ?>
-
+                    <?php if(!empty($x['LinkIzvoraSlike'])): ?>
                     <div class="timelinePost">
                         <div class="timelineVertLine"></div>
                         <div class="timelineDateRow">
@@ -79,12 +79,11 @@
                             </div>
                         </div>
                         <div class="timelineText">
-                            <img src="<?php 
-                                echo $x['LinkIzvoraSlike'];?>" alt="">
+                            <img src="<?php echo $x['LinkIzvoraSlike'];?>" alt="">
                         </div>
                     </div>
-            
             <?php
+            endif;
             endif;
             endwhile;}
         ?>
@@ -99,7 +98,7 @@
                 $result1 = $conn->query($sql1);
                 if($result1->num_rows > 0){
                     while($x = $result1->fetch_assoc()): ?>
-
+                    <?php if (!empty(trim($x['TekstStatusa'], " "))): ?>
                     <div class="timelinePost">
 
                         <div class="timelineVertLine"></div>
@@ -115,8 +114,9 @@
                             <?php echo $x['TekstStatusa'] ?>
                         </div>
                     </div>
-
-                    <?php    
+                    
+                    <?php 
+                    endif;  
                     endwhile;}
             ?>
      </div>
