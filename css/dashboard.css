@@ -159,11 +159,11 @@ body{
     width:99%;
 }
 
-#postTxt {
+/*#postTxt {
     width:100%;
     padding:5px;
     text-align: left;
-}
+}*/
 
 /* VAZNO: ovaj kod pravi koliziju sa kodom za popupContainer
    uskladiti sve media queries, i pisati ih sve zajedno npr na kraju stranice
@@ -204,16 +204,17 @@ body{
 #printText .row {
     background: #FFFFFF;
 }
-#printText .row img {
+/*#printText .row img {
     width: 35px;
     border-radius: 50px;
     vertical-align: text-top;  
-}
+}*/
 #fullName {
-    margin-left: 50px;
     font-family: 'Merriweather Sans', sans-serif;
-    display: block;
-    margin-top: -35px;
+    display: inline-block;
+    left: 50px;
+    position: relative;
+    bottom: 30px;
 }
 #insertPost {
     text-align: left;
@@ -234,8 +235,8 @@ body{
 .postTxt {
     font-family: 'Quattrocento', serif;
     position: relative;
-    top: 10px;
-    right: -5px;
+    top: -10px;
+    word-break: break-word;
 }
 #postTxt > img {
     min-width: 100%;
@@ -344,14 +345,28 @@ body{
     flex-direction: row;
     align-items: stretch;
     width: 90%;
+    height: 80%;
 }
 #popupContent > .leftColumn {
     width: 70%;
     min-height: 300px;
 }
-#imgComm{
-    width: inherit;
+#imgComm {
+    width: 85%;
 }
+
+.imgBox {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    text-align: center;
+    position: relative;
+    right: 0px;
+    overflow: hidden;
+}
+
+
+
 .clickableImage{
     cursor: pointer;
 }
@@ -454,24 +469,25 @@ body{
 
 .usrImg {
     width: 47px;
+    height: 47px;
+    overflow: hidden;
     position: relative;
     bottom: 0;
-    margin-right: 8px;
     float: left;
-    top: 67px;
-    padding-left: 10px;
+    top: 58px;
+    margin-left: 20px;
+    border: 1px solid red;
+   -webkit-clip-path: circle(20px at center);
+    clip-path: circle(20px at center);
+    right: 10px;
 }
 
 .usrImg1 {
-  -webkit-clip-path: circle(20px at center);
-  clip-path: circle(20px at center);
-    width: inherit;
+  width: 100%;
 }
 
 #imgComm img{
-    -webkit-clip-path: circle(18px at center);
-    clip-path: circle(18px at center);
-    width: inherit;
+    height: 100%;
 }
 
 #imgComm #fullName a:link {
@@ -497,16 +513,20 @@ body{
     #popupContent {
         display: flex;
         flex-wrap: wrap;
-        overflow: scroll;
+        overflow: auto;
         position: relative;
         height: 100%;
+        overflow-x: hidden;
     }
     #popupContent > .leftColumn {
-        width: 100%;
+        width: 90%;
         min-width: 300px;
     }
       #popupContent > .rightColumn {
-        width: 100%;       
+        width: 90%;  
+    }
+    #commentsBox {
+        height:100%;
     }
     #comment{
         /*margin-top: 25px;*/
