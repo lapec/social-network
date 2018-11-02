@@ -9,6 +9,10 @@ $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
+
+// Change character set to utf8
+mysqli_set_charset($conn,"utf8");
+
 		$ok = true;
 		$posttext = mysqli_real_escape_string($conn, $_POST['postComment']);
 		$slikaID = mysqli_real_escape_string($conn, $_POST['slikaID']); 

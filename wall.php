@@ -66,7 +66,7 @@
         <?php
             if($result->num_rows > 0 ){
                 while($x = $result->fetch_assoc()): ?>
-                    <?php if($x['JavnaPrivatna'] == 0): ?>
+                    <?php if($x['JavnaPrivatna'] == 0 && $x['JavnaPrivatna'] != null ): ?>
 
                     <div class="timelinePost">
                         <div class="timelineVertLine"></div>
@@ -99,7 +99,7 @@
                 $result1 = $conn->query($sql1);
                 if($result1->num_rows > 0){
                     while($x = $result1->fetch_assoc()): ?>
-
+                    <?php if($x['TekstStatusa'] != null ): ?>
                     <div class="timelinePost">
 
                         <div class="timelineVertLine"></div>
@@ -116,7 +116,8 @@
                         </div>
                     </div>
 
-                    <?php    
+                    <?php   
+                    endif; 
                     endwhile;}
             ?>
      </div>

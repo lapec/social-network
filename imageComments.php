@@ -1,6 +1,5 @@
 <?php require "config/db_config.php"; ?>
 
-
 <?php
 
 $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
@@ -9,6 +8,10 @@ $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
+
+// Change character set to utf8
+mysqli_set_charset($conn,"utf8");
+
 $limit = $_GET['limit'];
 $offset = $_GET['offset'];
 $slikaID = $_GET['slikaID'];

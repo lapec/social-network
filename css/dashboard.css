@@ -114,6 +114,10 @@ a:link, a:visited {
     top: 1px;
 }
 
+.printText {
+    margin-bottom: 20px;
+}
+
 #post_printText {
     width:100%;
     min-width: 435px;
@@ -208,6 +212,9 @@ a:link, a:visited {
     position: relative;
     top: -10px;
     word-break: break-word;
+}
+#postTxt {
+    text-align: left;
 }
 #postTxt > img {
     min-width: 100%;
