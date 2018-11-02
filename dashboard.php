@@ -81,9 +81,9 @@ var_error_log($_SESSION);
     // output data of each row
     ?>
     <?php while($row = $result->fetch_assoc()): ?>
-    <?php if(!empty(trim($row['TekstStatusa'], " ")) || !empty($row['LinkIzvoraSlike'])): ?>
-    <?php if($row['JavnaPrivatna'] == 0 || $row['KID'] == $_SESSION['KID']) :?>
-       <div align="center" id="post_printText">
+    
+    <?php  if ($row['JavnaPrivatna'] == 0  || $row['KID'] == $_SESSION['KID']) : ?>
+       <div align="center" id="printText">
          <div class="dashboard-post-row">
             <div class="dashboard-usr-pict">
               <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
@@ -95,7 +95,8 @@ var_error_log($_SESSION);
             <span class="timePost"><?php echo $row['v2'] ?></span>
             </div>
           </div>
-                <?php if(!empty($row['LinkIzvoraSlike'])): ?>
+          <?php if(!empty($row['LinkIzvoraSlike'])): ?>
+
           <div class="outPict">
             <img class="postImg clickableImage" id="<?php echo $row['SID']?>" src="<?php echo $row['LinkIzvoraSlike']?>">
           </div>
@@ -110,8 +111,8 @@ var_error_log($_SESSION);
 
     
   <?php 
-    endif;
-    endif;
+          endif;
+
         endwhile; 
         
     } 
