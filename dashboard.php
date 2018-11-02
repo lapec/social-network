@@ -81,7 +81,8 @@ var_error_log($_SESSION);
     // output data of each row
     ?>
     <?php while($row = $result->fetch_assoc()): ?>
-    <?php if (!empty(trim($row['TekstStatusa'], " ")) || !empty($row['LinkIzvoraSlike'])): ?>
+    <?php if(!empty(trim($row['TekstStatusa'], " ")) || !empty($row['LinkIzvoraSlike'])): ?>
+    <?php if($row['JavnaPrivatna'] == 0 || $row['KID'] == $_SESSION['KID']) :?>
        <div align="center" id="printText">
          <div class="dashboard-post-row">
             <div class="dashboard-usr-pict">
@@ -94,29 +95,22 @@ var_error_log($_SESSION);
             <span class="timePost"><?php echo $row['v2'] ?></span>
             </div>
           </div>
-            <?php
-              if (($row['JavnaPrivatna'] === 1) || $row['KID'] === $_SESSION['KID']  && $row['JavnaPrivatna'] != null) {
-                  echo '<div class="outPict">';
-                  echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">'; 
-                  echo '</div>';
-            } elseif ($row['JavnaPrivatna'] === 0 && $row['JavnaPrivatna'] != null) {
-                echo '<div class="outPict">';
-                echo '<img class="postImg clickableImage" id="'.$row['SID'].'" src="'.$row['LinkIzvoraSlike'].'">';
-                echo '</div>';
-              } else {
-                  echo " ";
-              } 
-            ?>
-            <div id="postTxt">
-             <?php 
-              echo $row["TekstStatusa"];
-              ?>
-           </div>
+                <?php if(!empty($row['LinkIzvoraSlike'])): ?>
+          <div class="outPict">
+            <img class="postImg clickableImage" id="<?php echo $row['SID']?>" src="<?php echo $row['LinkIzvoraSlike']?>">
+          </div>
+          <?php endif;
+          if (!empty(trim($row['TekstStatusa'], " "))): ?>
+          <div id="postTxt">
+             <?php echo $row["TekstStatusa"];?>
+          </div>
+          <?php endif; ?>
         </div>
       </div>
 
     
   <?php 
+    endif;
     endif;
         endwhile; 
         

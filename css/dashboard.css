@@ -2,17 +2,22 @@
 @import url('https://fonts.googleapis.com/css?family=Quattrocento');
 
 body{
+    margin: 0;
+    padding: 0;
     background: #F0F3F8;
     font-family: arial;
-    margin: 0;
 }
 
-/* dashboard posts */
+a:link, a:visited {
+    text-decoration: none;
+    color: #fff;
+}
 
 .dashcontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 /*post box*/
@@ -106,11 +111,11 @@ body{
     top: 1px;
 }
 
-#printText {
+#post_printText {
     width:100%;
 }
 
-#printText .dashboard-post-row a:link, #printText .dashboard-post-row a:visited {
+#post_printText .dashboard-post-row a:link, #post_printText .dashboard-post-row a:visited {
     text-decoration: none;
     color: #0000ff;
 }
@@ -142,7 +147,7 @@ body{
     flex-flow:column;
 }
 
-#post_fullName {
+#fullName {
     margin-left: 11px;
 }
 
@@ -162,159 +167,25 @@ body{
 #postTxt {
     width:100%;
     padding:5px;
-    text-align: left;
 }
 
-/* VAZNO: ovaj kod pravi koliziju sa kodom za popupContainer
-   uskladiti sve media queries, i pisati ih sve zajedno npr na kraju stranice
-;
-@media only screen and (min-width: 1030px) {
-    
-    .dashcontent {
-        max-width: 530px ;
-    }
 
-    .dashboard-post-row {
-        max-width: 500px;
-        
-    }
+/*end post box*/
 
-@media only screen and (min-width: 530px) and (max-width: 1029px) {
-  
-    .dashcontent {
-        min-width: 530px;
-    }
 
-    .dashboard-post-row {
-        min-width: 500px;
-    }
+/* START popupContainter */
 
-}
-*/
-/* ends css for dashboard posts */
-
-.row {
-    text-align: left;
-    color: auto;
-    width: 30%;
-    vertical-align: middle;
-    margin: 10px;
-    padding: 10px;
-}
 #printText .row {
     background: #FFFFFF;
+    width: 100%;
+   
+
 }
 #printText .row img {
     width: 35px;
     border-radius: 50px;
     vertical-align: text-top;  
 }
-#fullName {
-    margin-left: 50px;
-    font-family: 'Merriweather Sans', sans-serif;
-    display: block;
-    margin-top: -35px;
-}
-#insertPost {
-    text-align: left;
-    padding: 5px;
-    background: #fff;
-    width: 31%;
-    height: 90px;
-    margin-left: 50%;
-    margin-bottom: 40px;
-    transform: translate(-50%, -0%);
-    position: static;   
-}
-#insertPost img {
-    margin-left: 10px;
-    width: 30px;
-    vertical-align: middle;
-}
-.postTxt {
-    font-family: 'Quattrocento', serif;
-    position: relative;
-    top: 10px;
-    right: -5px;
-}
-#postTxt > img {
-    min-width: 100%;
-    border-radius: 0;
-}
-#insertPost input[type="text"] {
-    border: 1px solid #DFE0E1;
-    padding: 5px;
-    margin-top: 10px;
-    margin-left: 12px;
-    width: 330px;
-    height: 35px;
-}
-#like {
-    height: 20px;
-    margin-top: 15px;
-    font-size: 9px;
-    color: blue;
-    display: inline-block;
-}
-#uploadImage {
-    padding: 3px;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-}
-#uploadImage:hover {
-    background-color: grey;
-}
-#pubSelect {
-    padding: 3px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-#pubSelect:hover {
-    border: 1px solid grey;
-}
-#kreirajPost {
-    padding: 3px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-#kreirajPost:hover {
-    background-color: grey;
-}
-#onYourMind {
-    margin: 5px;
-}
-.dgm:hover {
-    border: 1px solid grey;
-    background-color: grey;
-}
-.btnUpload {
-    width: 120px;
-    height: 50px;
-    float: left;
-    position: relative;
-    bottom: -4px; 
-}
-.dgm {
-    width: 200px;
-    padding: 3px;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 0.8em;
-    background-color: #F0F0F0;
-}
-.rightSide{
-    float: left;
-    position: relative;
-    top: -20px;
-    left: -7px;
-}
-.allBtn {
-    position: relative;
-    top: -20px;
-}
-/* START popupContainter */
-
-
 
 #forma {
     height: 40px;
@@ -344,6 +215,7 @@ body{
     flex-direction: row;
     align-items: stretch;
     width: 90%;
+    height: 80%;
 }
 #popupContent > .leftColumn {
     width: 70%;
