@@ -415,14 +415,18 @@ a:link, a:visited {
     }
 }
 @media only screen and (max-width: 450px) {
-    
+
+    .dashcontent {
+        width: 90% !important;
+            }    
 
     .dashbottominsert {
         flex-wrap: wrap;
     }
 
     .dashinsertpost {
-        flex-wrap: wrap;
+       flex-wrap: wrap;
+       min-width: 200px;
     }
     .dashinputform {
         display:flex;
@@ -431,12 +435,26 @@ a:link, a:visited {
 
     .dashbrowsebtn {
         width: 100%;
+        
+    
     }
 
     .dashbtn {
         width: 100%;
+        
     }
     #pubselect {
         width: 100%;
+        margin: 10px 0 10px 0;
+    }
+    .dashinsertpostuserimg {
+        margin-bottom: 10px;
+    }
+    .dashonyourmind {
+        width: 100%;
+        
+    }
+    #post_printText {
+        min-width: 200px;
     }
 }

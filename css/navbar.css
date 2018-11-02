@@ -70,4 +70,10 @@
 	.navbtn {
 		margin-left: 0;
 	}
+	.navbarcontainer {
+		width: 100%;
+	}
+	#post_printText {
+		min-width: 200px;
+	}
 }
