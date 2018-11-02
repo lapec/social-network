@@ -23,7 +23,8 @@ $hideupdatebutton = "";
 if(isset($_FILES['image'])){
     $file_size = $_FILES['image']['size'];
     $file_tmp = $_FILES['image']['tmp_name'];
-    $file_ext = strtolower(end(explode('.',$_FILES['image']['name'])));
+    $fext = (explode('.',$_FILES['image']['name']));
+  	$file_ext = strtolower(end($fext));
     $extensions= array("jpeg","jpg","png","gif");
     $file_name = "userimg_" . sprintf('%08d', $userID) . "." . $file_ext;
 
