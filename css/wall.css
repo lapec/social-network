@@ -1,167 +1,128 @@
-.pageContainer{
+body {
+    margin: 0;
+    padding: 0;
+    background: #F0F3F8;
+    font-family: arial;
+}
+
+
+.timelineContainer {
     display:flex;
-    flex-direction:row;
-    /* border: 10px solid goldenrod; */
-    min-height:100vh;
-    padding: 3% 8% 0 8%;
+    justify-content: center;
+    padding: 40px 0 20px 0;
 }
-.column{
-    min-height:100vh;
-    flex-direction:column;
-    padding-left:5%;
-    padding-right:5%;
+.timelineCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
 }
-
-/* ***********************************left side ********************************* */
-.left{
-    /* background-color:gold; */
-    width:45%;
-    margin: 0 6% 0 0;
+.timelineSeparator {
+    width: 5%;
 }
-
-.profile-image{
-    margin:5%;
-    /* background-color:green; */
-    
-    
+.timelinePost {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.profilePic{
-    width:90%;
-    height:90%;
-}
-
-.personal-info{
-    padding:5px;
-    display:flex;
-    width:100%;
-    flex-direction:row;
-    background-color:white;
-    margin-bottom:35px;
-}
-.leftInfo{
-    width:50%
-}
-.rightInfo{
-    width:50%;
-}
-
-.pictureAndDate{
-    width:100%;
-    margin:10px 0 50px 10px;
-    
-    
-}
-.pictureAndDate img{
-background-color:white
-}
-.pictureAndDate p{
-    background-color:none;
-    text-align:center;
-}
-
-.image-post{
-width:100%;
-
-/* height:150px; */
-
-}
-
-/* *********************************right side*********************************** */
-
-.right{
-    width:35%;
-    /* background-color:brown; */
-    margin: 0 0 0 6%;
-    padding-top:18%;
-}
-.timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* The actual timeline (the vertical ruler) */
-.timeline::after {
-    z-index:-1;
-    content: '';
+.timelineVertLine {
+    background: white;
+    width: 5px;
+    height: 45px;
     position: absolute;
-    width: 6px;
-    background-color: white;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3px;
+    z-index: -1;
+}
+.timelineHorLine {
+    background: white;
+    width: 100%;
+    height: 5px;
+    margin-top: 40px;
+}
+.timelineDateRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+}
+.timelineDateSlot {
+    padding-left: 10px;
+    width: 100%;
+    height: 0;
+    font-size: 0.6em;
+    line-height: 25px;
+}
+.timelineBall {
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+}
+.timelineText {
+    padding: 2%;
+    width: 96%;
+    min-height: 40px;
+    background: white;
+}
+.timelineText > img {
+    width: 100%;
+    object-fit: cover;
+}
+.timelineProfilePic {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.timelineProfilePic > img {
+    width: 80%;
+    object-fit: cover;
+}
+.timelineProfileBtn {
+    background-color: #39B54A;
+    width: 120px;
+    color: #eee;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    margin-bottom: 20px;
+    color: white;
+}
+.timelinePersonalInfo {
+    background: white;
+    width: 96%;
+    padding: 2%;
+}
+.timelineInfoRow {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+.timelineLeftInfo {
+    color: grey;
+    font-style: italic;
 }
 
-.commentBlock{
-    margin-top:4%;
-    margin-bottom:50px;
-}
-.commentBlock p{
-    margin-top:50px;
-}
-.comment{
-    background-color:white;
-}
-.comment p{
-   
-    
-    padding:7px 45px 30px 7px;
-    text-align:center;
-}
-.centered-date{
-    font-size:70%;
-    padding-left:2px;
-    text-align:left;
-    position:relative;
-    clear:both;
-    left: 0;
-    box-sizing: border-box;
-    display: block;
-    top:-7px;
-}
 
-
-.pola-pola{
-    display:flex;
-    width:100%;
-}
-.line{
-    margin:auto;
-    min-height:vh;
-    width:1px;
-    border:2px solid white;
-}
-
-.ball{
-    
-    position: relative;
-    background-color: inherit;
-    width:50%;
-}
-.ball::after {
-
-        content: '';
-        position: absolute;
-        margin:auto;
-        width: 25px;
-        height: 25px;
-        right: -17px;
-        background-color: white;
-        border: 4px solid white;
-        top: 20px;
-        border-radius: 50%;
-        z-index: 1;
-        clear:left;
+@media screen and (max-width: 1200px) {
+    .timelineCol {
+        width: 46%;
+        padding: 0 2%;
     }
+    .timelineSeparator {
+        width: 4%;
+    }
+}
 
-
-    /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
-   
-   .centered-date{
-       box-sizing:30px;
-       font-size:9px;
-       width:20px;
-   }
-  }
+    .timelineCol {
+        width: 96%;
+    }
+    .timelineSeparator {
+        display: none;
+    }
+    .timelineContainer {
+        flex-direction: column;
+    }
+}
