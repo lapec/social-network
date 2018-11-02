@@ -34,10 +34,11 @@
 	font-family: 'Montserrat', sans-serif;
 }
 .navuserimg {
-	height: 40px;
+	height: 100%;
 	width: 40px;
 	margin-right: 10px;
-	clip-path: circle(50% at center);
+	-webkit-clip-path: circle(45% at 50% 50%);
+	clip-path: circle(45% at 50% 50%);
 }
 .navbtn {
 	margin-left: 20px;

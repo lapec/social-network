@@ -28,96 +28,96 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/wall.css">
+    <link href="css/wall.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-    
 </head>
 <body>
     <?php include "sections/navbar.php"?>
-<!-- Main Container -->
-<div class="pageContainer"> 
-    <!-- Left column container-->
-    <div class="left column">
-        <div class="profile-image">
-            <img class="profilePic" src="img/<?php echo $row["SlikaKorisnika"] ?>" alt="">
+
+<div class="timelineContainer"> 
+
+    <div class="timelineCol">
+        <div class="timelineProfilePic">
+            <img src="img/<?php echo $row["SlikaKorisnika"] ?>" alt="">
         </div>
-        <div class="personal-info">
-            <div class="leftInfo">
-                Full Name<br>
-                Username<br>
-                Email
+        <?php 
+            if ($_SESSION["KID"] === $n) {
+                echo "<a href='profile.php'><button class='timelineProfileBtn'>Edit Profile</button></a>";
+            }
+        ?>
+        
+
+        <div class="timelinePersonalInfo">
+            <div class="timelineInfoRow">
+                <span class="timelineLeftInfo">Ime i Prezime:</span>
+                <span><?php echo $row['Ime']. ' ' . $row['Prezime'] ?></span>
             </div>
-            <div class="rightInfo">
-                <?php echo $row['Ime']. ' ' . $row['Prezime'] ?><br>
-                <?php echo $row['KorisnickoIme'] ?><br>
-                <?php echo $row['Email'] ?>
+            <div class="timelineInfoRow">
+                <span class="timelineLeftInfo">Korisničko Ime:</span>
+                <span><?php echo $row['KorisnickoIme'] ?></span>
+            </div>
+            <div class="timelineInfoRow">
+                <span class="timelineLeftInfo">E-mail:</span>
+                <span><?php echo $row['Email'] ?></span>
             </div>
         </div>
+        
         <?php
             if($result->num_rows > 0 ){
                 while($x = $result->fetch_assoc()): ?>
-                        <?php if($x['JavnaPrivatna'] == 0): ?>
-                        <div class="pictureAndDate">
-                            <p><?php echo $x['VremePostavljanja'] ?></p>
-                            <img class="image-post" src="<?php 
+                    <?php if($x['JavnaPrivatna'] == 0): ?>
+
+                    <div class="timelinePost">
+                        <div class="timelineVertLine"></div>
+                        <div class="timelineDateRow">
+
+                            <div class="timelineDateSlot">
+                            <span><?php echo $x['VremePostavljanja'] ?></span>
+                            </div>
+                            <div class="timelineBall">
+                            </div>
+                        </div>
+                        <div class="timelineText">
+                            <img src="<?php 
                                 echo $x['LinkIzvoraSlike'];?>" alt="">
                         </div>
+                    </div>
             
             <?php
             endif;
             endwhile;}
         ?>
-    </div>
-    <!--right column container-->
-    <div class="right column">
-        <div class="timeline">
 
+    </div>
+    
+    <div class="timelineSeparator"></div>
+
+    <div class="timelineCol">
+        <div class="timelineHorLine"></div>
             <?php
                 $result1 = $conn->query($sql1);
                 if($result1->num_rows > 0){
                     while($x = $result1->fetch_assoc()): ?>
 
-                    <div class="commentBlock">
-                
-                        <div class="comment">
-                            <p><?php echo $x['TekstStatusa'] ?></p>
+                    <div class="timelinePost">
+
+                        <div class="timelineVertLine"></div>
+
+                        <div class="timelineDateRow">
+                            <div class="timelineDateSlot">
+                            <span><?php echo $x['VremePostavljanja'] ?></span>
+                            </div>
+                            <div class="timelineBall">
+                            </div>
                         </div>
-                        <div class="ball">
+                        <div class="timelineText">
+                            <?php echo $x['TekstStatusa'] ?>
                         </div>
-                            <p class="centered-date"><?php echo $x['VremePostavljanja'] ?></p>
-            
                     </div>
 
                     <?php    
                     endwhile;}
             ?>
-
-
-            <div class="commentBlock">
-                
-                <div class="comment">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
-                </div>
-                
-                <div class="ball">
-                </div>
-                <p class="centered-date">20.20.2020</p>
-                
-            </div>
-            <div class="commentBlock">
-                
-                <div class="comment">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio sint vero consequatur quae incidunt adipisci nobis! Molestias beatae consequatur, tempore odit facilis ut dolores cupiditate? Dolorem, perferendis suscipit! Esse, labore.</p>
-                </div>
-                <div class="line"></div>
-                <div class="ball">
-                </div>
-                <p class="centered-date">20.20.2020</p>
-            
-            </div>
-         </div>
      </div>
  </div>
