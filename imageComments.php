@@ -21,7 +21,7 @@ $result = $conn->query($data);
 			<div id="printText" class="printText">
 				<div class="row" id= "imgComm">
 					<a href="wall.php?n=<?php echo $row["KID"] ?>">
-						<img src="img/<?php echo $row["SlikaKorisnika"] ?>">
+						<div class="imgBox"><img src="img/<?php echo $row["SlikaKorisnika"] ?>"></div>
 					</a>
 					<span id="fullName"><a href="wall.php?n=<?php echo $row["KID"] ?>"><?php echo htmlspecialchars($row["Ime"]." ".$row["Prezime"]) ?></a></span><br>
 					<span class="postTxt" id="postTxt"><?php echo htmlspecialchars($row["Komentar"]) ?></span><br>

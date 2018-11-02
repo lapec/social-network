@@ -130,7 +130,7 @@ var_error_log($_SESSION);
 <div id="popupContainer">
   <div id="popupContent">
     <div class="leftColumn" id="photoContainer" name=""></div>
-    <div class="rightColumn">
+    <div class="rightColumn" id="commentsBox">
       <div id="popupTopBar">
         <span id="closePopup">X</span>
       </div>
