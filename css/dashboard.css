@@ -25,6 +25,8 @@ a:link, a:visited {
 .dashcontent {
     width: 50%;
     margin-top: 20px;
+    max-width: 530px;
+
       
 }
 
@@ -35,6 +37,7 @@ a:link, a:visited {
     background: #FFF;
     padding: 2%;
     margin: 0 2% 20px 2%;
+    min-width: 405px;
 }
 
 .dashinsertpostuserimg {
@@ -113,6 +116,7 @@ a:link, a:visited {
 
 #post_printText {
     width:100%;
+    min-width: 435px;
 }
 
 #post_printText .dashboard-post-row a:link, #post_printText .dashboard-post-row a:visited {
@@ -128,7 +132,7 @@ a:link, a:visited {
     padding: 5px;
     margin-bottom: 3%;
     width: 95%;
-   
+    max-width: 500px;
     
 }
 
@@ -222,7 +226,7 @@ a:link, a:visited {
     min-height: 300px;
 }
 #imgComm{
-    width: inherit;
+    width: 85%;
 }
 .clickableImage{
     cursor: pointer;
@@ -364,8 +368,13 @@ a:link, a:visited {
 #imgComm #fullName a:visited {
     color: #365899;
 }
+/* END popupContainter */
+
 
 @media only screen and (max-width: 780px) {
+  
+/*popupContainer*/
+
     #popupContent {
         display: flex;
         flex-wrap: wrap;
@@ -381,7 +390,7 @@ a:link, a:visited {
         width: 100%;       
     }
     #comment{
-        /*margin-top: 25px;*/
+        margin-top: 25px;
         margin-bottom: 25px;
     }
     #popupContainer {
@@ -390,7 +399,44 @@ a:link, a:visited {
     #closePopup{
         display: none;
     }
+
+/*end of popupContainer*/
+
 }
 
+@media only screen and (max-width: 579px) {
 
-/* END popupContainter */
+    .dashcontent {
+        width: 90% !important;
+            }
+
+    .dashboard-post-row {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 450px) {
+    
+
+    .dashbottominsert {
+        flex-wrap: wrap;
+    }
+
+    .dashinsertpost {
+        flex-wrap: wrap;
+    }
+    .dashinputform {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    .dashbrowsebtn {
+        width: 100%;
+    }
+
+    .dashbtn {
+        width: 100%;
+    }
+    #pubselect {
+        width: 100%;
+    }
+}

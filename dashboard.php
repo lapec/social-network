@@ -83,7 +83,7 @@ var_error_log($_SESSION);
     <?php while($row = $result->fetch_assoc()): ?>
     <?php if(!empty(trim($row['TekstStatusa'], " ")) || !empty($row['LinkIzvoraSlike'])): ?>
     <?php if($row['JavnaPrivatna'] == 0 || $row['KID'] == $_SESSION['KID']) :?>
-       <div align="center" id="printText">
+       <div align="center" id="post_printText">
          <div class="dashboard-post-row">
             <div class="dashboard-usr-pict">
               <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
