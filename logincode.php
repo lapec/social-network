@@ -4,7 +4,7 @@ if (isset($_POST['usernamelg']) && isset($_POST['passwordlg'])) {
     $db = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME);
     // Change character set to utf8
     mysqli_set_charset($db,"utf8");
-    $sql = sprintf("SELECT * FROM Korisnici WHERE KorisnickoIme='%s'",
+    $sql = sprintf("SELECT * FROM korisnici WHERE KorisnickoIme='%s'",
         mysqli_real_escape_string($db, $_POST['usernamelg'])
     );
     $result = mysqli_query($db, $sql);

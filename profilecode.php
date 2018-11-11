@@ -5,7 +5,7 @@ if ($conn->connect_error) {
 }
 mysqli_set_charset($conn,"utf8");
 $userID = $_SESSION['KID'];
-$sql = "SELECT * FROM Korisnici WHERE KID='$userID'";
+$sql = "SELECT * FROM korisnici WHERE KID='$userID'";
 $result = mysqli_query($conn, $sql);
 $userrow = mysqli_fetch_assoc($result);
 $name = $userrow['Ime'];

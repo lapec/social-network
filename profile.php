@@ -7,6 +7,7 @@
 <html>
 <head>
 	<title>social-network</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="css/normalize.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/profile.css" rel="stylesheet">

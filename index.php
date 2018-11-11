@@ -8,6 +8,7 @@ require_once('logincode.php');
 <html>
 <head>
   <title>Social Network</title>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

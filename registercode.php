@@ -41,9 +41,9 @@ function var_error_log( $object=null ){
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
         // add database code here
-        $conn = mysqli_connect('localhost', 'root', '', 'soc_net');
+        $conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME);
         /*
-        $sql = sprintf("INSERT INTO Korisnici (Ime, Prezime, Email, KorisnickoIme, Lozinka) VALUES (
+        $sql = sprintf("INSERT INTO korisnici (Ime, Prezime, Email, KorisnickoIme, Lozinka) VALUES (
           '%s', '%s', '%s', '%s', '%s'
         )", mysqli_real_escape_string($conn, $name),
             mysqli_real_escape_string($conn, $lastname),
@@ -64,7 +64,7 @@ function var_error_log( $object=null ){
         $result2 = mysqli_query($conn, $checkQuery2);
         
         if($result1->num_rows == 0 && $result2->num_rows == 0){
-        $sql = "INSERT INTO Korisnici (Ime, Prezime, Email, KorisnickoIme, Lozinka) VALUES ('".$escapeName."',
+        $sql = "INSERT INTO korisnici (Ime, Prezime, Email, KorisnickoIme, Lozinka) VALUES ('".$escapeName."',
         '".$escapeLastname."',
         '".$escapeEmail."',
         '".$escapeUsername."',
