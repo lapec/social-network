@@ -24,12 +24,12 @@ if ($conn->connect_error) {
 // Change character set to utf8
 mysqli_set_charset($conn,"utf8");
 $sql = "
-        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika,korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.SID,slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
-        ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
-        LEFT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) UNION 
-        SELECT korisnici.Ime, korisnici.Prezime, korisnici.SlikaKorisnika, korisnici.KID, statusi.KID, slike.LinkIzvoraSlike, slike.VremePostavljanja AS v1, slike.JavnaPrivatna, slike.SID, slike.KID, statusi.TekstStatusa, statusi.VremePostavljanja AS v2 FROM 
-        ( (statusi INNER JOIN korisnici ON statusi.KID = korisnici.KID) 
-        RIGHT JOIN slike ON statusi.VremePostavljanja = slike.VremePostavljanja) ORDER BY v2 DESC;";
+        SELECT korisnici.ime, korisnici.prezime, korisnici.slikakorisnika,korisnici.kid, statusi.kid, slike.linkizvoraslike, slike.vremepostavljanja AS v1, slike.javnaprivatna, slike.sid,slike.kid, statusi.tekststatusa, statusi.vremepostavljanja AS v2 FROM 
+        ( (statusi INNER JOIN korisnici ON statusi.kid = korisnici.kid) 
+        LEFT JOIN slike ON statusi.vremepostavljanja = slike.vremepostavljanja) UNION 
+        SELECT korisnici.ime, korisnici.prezime, korisnici.slikakorisnika, korisnici.kid, statusi.kid, slike.linkizvoraslike, slike.vremepostavljanja AS v1, slike.javnaprivatna, slike.sid, slike.kid, statusi.tekststatusa, statusi.vremepostavljanja AS v2 FROM 
+        ( (statusi INNER JOIN korisnici ON statusi.kid = korisnici.kid) 
+        RIGHT JOIN slike ON statusi.vremepostavljanja = slike.vremepostavljanja) ORDER BY v2 DESC;";
 $result = $conn->query($sql);
 var_error_log($_SESSION);
 ?>
@@ -37,7 +37,6 @@ var_error_log($_SESSION);
 <html>
 <head>
   <title>social network</title>
-  <meta charset="utf-8">
   <link href="css/dashboard.css" rel="stylesheet">
   <link href="css/navbar.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -82,28 +81,28 @@ var_error_log($_SESSION);
     // output data of each row
     ?>
     <?php while($row = $result->fetch_assoc()): ?>
-    <?php if(!empty(trim($row['TekstStatusa'], " ")) || !empty($row['LinkIzvoraSlike'])): ?>
-    <?php if($row['JavnaPrivatna'] == 0 || $row['KID'] == $_SESSION['KID']) :?>
+    <?php if(!empty(trim($row['tekststatusa'], " ")) || !empty($row['linkizvoraslike'])): ?>
+    <?php if($row['javnaprivatna'] == 0 || $row['kid'] == $_SESSION['KID']) :?>
        <div align="center" id="post_printText">
          <div class="dashboard-post-row">
             <div class="dashboard-usr-pict">
-              <img src="img/<?php echo $row["SlikaKorisnika"] ?>">
+              <img src="img/<?php echo $row["slikakorisnika"] ?>">
             <div class="userNameDiv">
-              <a href="wall.php?n=<?php echo $row["KID"] ?>">
-                <span id="post_fullName"> <?php echo $row["Ime"]." ".$row["Prezime"];?>
+              <a href="wall.php?n=<?php echo $row["kid"] ?>">
+                <span id="post_fullName"> <?php echo $row["ime"]." ".$row["prezime"];?>
                 </span>
               </a><br>
             <span class="timePost"><?php echo $row['v2'] ?></span>
             </div>
           </div>
-                <?php if(!empty($row['LinkIzvoraSlike'])): ?>
+                <?php if(!empty($row['linkizvoraslike'])): ?>
           <div class="outPict">
-            <img class="postImg clickableImage" id="<?php echo $row['SID']?>" src="<?php echo $row['LinkIzvoraSlike']?>">
+            <img class="postImg clickableImage" id="<?php echo $row['sid']?>" src="<?php echo $row['linkizvoraslike']?>">
           </div>
           <?php endif;
-          if (!empty(trim($row['TekstStatusa'], " "))): ?>
+          if (!empty(trim($row['tekststatusa'], " "))): ?>
           <div id="postTxt">
-             <?php echo $row["TekstStatusa"];?>
+             <?php echo $row["tekststatusa"];?>
           </div>
           <?php endif; ?>
         </div>

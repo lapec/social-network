@@ -10,12 +10,14 @@ function var_error_log( $object=null ){
   };
 
 $conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME);
-// Change character set to utf8
-mysqli_set_charset($conn,"utf8");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+// Change character set to utf8
+mysqli_set_charset($conn,"utf8");
+
 $timestamp = time();
 $date = date("d/m/y H:i:s");
 
@@ -26,9 +28,9 @@ if(isset($_POST['insertPost'])){
     $image = $_FILES['fileToUpload']['name'];
     $pubStat = $_POST['pubSelect'];
     $imageFileType = strtolower(pathinfo($target_dir,PATHINFO_EXTENSION));
-    $query1 = "INSERT INTO statusi(TID, KID, TekstStatusa, VremePostavljanja, SortID) 
+    $query1 = "INSERT INTO statusi(tid, kid, tekststatusa, vremepostavljanja, sortid) 
         VALUES (null, ".$_SESSION['KID'].", '".$statusContent."','".$date."','".$timestamp."');";
-    $query2 = "INSERT INTO slike(KID, LinkIzvoraSlike, ImeSlike, VremePostavljanja, JavnaPrivatna, SortID) 
+    $query2 = "INSERT INTO slike(kid, linkizvoraslike, imeslike, vremepostavljanja, javnaprivatna, sortid) 
         VALUES (".$_SESSION['KID'].",'".$target_dir."','".$image."','".$date."','".$pubStat."','".$timestamp."');";
     
 
@@ -38,7 +40,7 @@ if(isset($_POST['insertPost'])){
         echo "New record created successfully";
     } else {
         echo "Error: " . $sqlInsert . "<br>" . $conn->error."<br>";
-        $emptyStatus = "INSERT INTO statusi(TID, KID, VremePostavljanja, SortID) VALUES
+        $emptyStatus = "INSERT INTO statusi(tid, kid, vremepostavljanja, sortid) VALUES
         (null, ".$_SESSION['KID'].",'".$date."','".$timestamp."')";
         $esquery = mysqli_query($conn, $emptyStatus);
     }
@@ -58,7 +60,7 @@ if(isset($_POST['insertPost'])){
         }
 
     if ($_FILES['fileToUpload']['name'] == "") {
-        $query2 = "INSERT INTO slike(KID, LinkIzvoraSlike, ImeSlike, VremePostavljanja, SortID) 
+        $query2 = "INSERT INTO slike(kid, linkizvoraslike, imeslike, vremepostavljanja, sortid) 
         VALUES (".$_SESSION['KID'].",'','','".$date."','".$timestamp."')";
         $sqlInsert2 = mysqli_query($conn, $query2); 
     }

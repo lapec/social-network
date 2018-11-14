@@ -41,30 +41,23 @@ function var_error_log( $object=null ){
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
         // add database code here
-        $conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME);
-        /*
-        $sql = sprintf("INSERT INTO korisnici (Ime, Prezime, Email, KorisnickoIme, Lozinka) VALUES (
-          '%s', '%s', '%s', '%s', '%s'
-        )", mysqli_real_escape_string($conn, $name),
-            mysqli_real_escape_string($conn, $lastname),
-            mysqli_real_escape_string($conn, $email),
-            mysqli_real_escape_string($conn, $username),
-            mysqli_real_escape_string($conn, $hash));
-            */
-
+        $conn = mysqli_connect('localhost', 'root', '', 'soc_net');
+        // Change character set to utf8
+        mysqli_set_charset($conn,"utf8");
+      
         $escapeName = mysqli_real_escape_string($conn, $name);
         $escapeLastname = mysqli_real_escape_string($conn, $lastname);
         $escapeEmail = mysqli_real_escape_string($conn, $email);
         $escapeUsername = mysqli_real_escape_string($conn, $username);
         $escapeHash = mysqli_real_escape_string($conn, $hash);
         
-        $checkQuery1 = "SELECT * FROM korisnici WHERE Email = '$escapeEmail'";
-        $checkQuery2 = "SELECT * FROM korisnici WHERE KorisnickoIme = '$escapeUsername'";
+        $checkQuery1 = "SELECT * FROM korisnici WHERE email = '$escapeEmail'";
+        $checkQuery2 = "SELECT * FROM korisnici WHERE korisnickoime = '$escapeUsername'";
         $result1 = mysqli_query($conn, $checkQuery1);
         $result2 = mysqli_query($conn, $checkQuery2);
         
         if($result1->num_rows == 0 && $result2->num_rows == 0){
-        $sql = "INSERT INTO korisnici (Ime, Prezime, Email, KorisnickoIme, Lozinka) VALUES ('".$escapeName."',
+        $sql = "INSERT INTO korisnici (ime, prezime, email, korisnickoime, lozinka) VALUES ('".$escapeName."',
         '".$escapeLastname."',
         '".$escapeEmail."',
         '".$escapeUsername."',
@@ -75,15 +68,8 @@ function var_error_log( $object=null ){
         $cookieMsg = 'Username or email already in use!';
         setcookie('invalidUN', $cookieMsg, time()+86400*30);
         };
-
-        
-
-        // if($test === true){
-        //     $registerMessage = "User ".$username." added to db";
-        // } else {
-        //     $registerMessage ="Error description: " . mysqli_error($conn);
-        // }
-        header('Location: index.php');
+      
+       header('Location: index.php');
 
         mysqli_close($conn);
     }

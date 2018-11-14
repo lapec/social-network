@@ -5,14 +5,14 @@ if ($conn->connect_error) {
 }
 mysqli_set_charset($conn,"utf8");
 $userID = $_SESSION['KID'];
-$sql = "SELECT * FROM korisnici WHERE KID='$userID'";
+$sql = "SELECT * FROM korisnici WHERE kid='$userID'";
 $result = mysqli_query($conn, $sql);
 $userrow = mysqli_fetch_assoc($result);
-$name = $userrow['Ime'];
-$lastname = $userrow['Prezime'];
-$userpic = $userrow['SlikaKorisnika'];
-$username = $userrow['KorisnickoIme'];
-$passhash = $userrow['Lozinka'];
+$name = $userrow['ime'];
+$lastname = $userrow['prezime'];
+$userpic = $userrow['slikakorisnika'];
+$username = $userrow['korisnickoime'];
+$passhash = $userrow['lozinka'];
 
 $imgerror = "";
 $infoerror = "";
@@ -56,7 +56,7 @@ if(isset($_FILES['image'])){
 	}
     if($imgerror === "") {
     	move_uploaded_file($file_tmp,"img/" . $file_name);
-    	$sql = "UPDATE korisnici SET SlikaKorisnika = '$file_name' WHERE KID = $userID;";
+    	$sql = "UPDATE korisnici SET slikakorisnika = '$file_name' WHERE kid = $userID;";
 
     	$test = mysqli_query($conn, $sql);
 	    if($test === false){
@@ -92,7 +92,7 @@ if (isset($_POST['updateuserinfo'])) {
         $infoerror .= "<span class='textfail'>Korisničko ime može da sadrži samo latinična slova i brojeve</span><br>";
         $ok = false;
 	} else {
-		$checkuser = $conn->query("SELECT KorisnickoIme FROM korisnici WHERE korisnici.KorisnickoIme = '".$_POST['username']."';");
+		$checkuser = $conn->query("SELECT korisnickoime FROM korisnici WHERE korisnici.korisnickoime = '".$_POST['username']."';");
 	    $row = mysqli_fetch_assoc($checkuser);
 	    if ($row && $username !== $_POST['username']) {
 	        $infoerror .= "<span class='textfail'>Korisničko ime je zauzeto</span><br>";
@@ -103,7 +103,7 @@ if (isset($_POST['updateuserinfo'])) {
 		$name = mysqli_real_escape_string($conn, $_POST['name']);
 		$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
 		$username = mysqli_real_escape_string($conn, $_POST['username']);
-		$sql = "UPDATE korisnici SET Ime = '$name', Prezime = '$lastname', KorisnickoIme = '$username' WHERE KID = '$userID';";
+		$sql = "UPDATE korisnici SET ime = '$name', prezime = '$lastname', korisnickoIme = '$username' WHERE kid = '$userID';";
 		$infoerror .= "<span class='textsuccess'>Korisnički podaci uspešno promenjeni</span><br>";
 		$test = mysqli_query($conn, $sql);
 		if($test === false) {
@@ -118,58 +118,57 @@ if (isset($_POST['updateuserinfo'])) {
 
 
 if (isset($_POST['changepassword'])) {
-	$ok = true;
-	if (!isset($_POST['currpass']) || $_POST['currpass'] === '') {
-		$passerror .= "<span class='textfail'>Unesite sadašnju lozinku</span><br>";
-		$ok = false;
-	}
-	if (!isset($_POST['newpass']) || $_POST['newpass'] === '') {
-		$passerror .= "<span class='textfail'>Unesite novu lozinku</span><br>";
-		$ok = false;
-	} else if (!preg_match("/^[a-zA-Z0-9]*$/",$_POST['newpass'])) {
-        $passerror .= "<span class='textfail'>Lozinka može da sadrži samo latinična slova i brojeve</span><br>";
+    $ok = true;
+    if (!isset($_POST['currpass']) || $_POST['currpass'] === '') {
+        $passerror .= "<span class='textfail'>Unesite sadašnju lozinku</span><br>";
         $ok = false;
-	}
-	if (!isset($_POST['confirmpass']) || $_POST['confirmpass'] === '') {
-		$passerror .= "<span class='textfail'>Unesite ponovo novu lozinku</span><br>";
-		$ok = false;
-	}
-	if ($_POST['newpass'] !== $_POST['confirmpass']) {
-		$passerror = "<span class='textfail'>Nova lozinka se ne slaže</span><br>";
-		$ok = false;
-	}
-	if (password_verify($_POST['currpass'], $passhash)) {
-		$passerror = "<span class='textfail'>Važeća lozinka je neispravna</span><br>";
-		$ok = false;
-	}
+    }
+    if (!isset($_POST['newpass']) || $_POST['newpass'] === '') {
+        $passerror .= "<span class='textfail'>Unesite novu lozinku</span><br>";
+        $ok = false;
+    } else if (!preg_match("/^[a-zA-Z0-9]*$/",$_POST['newpass'])) {
+       $passerror .= "<span class='textfail'>Lozinka može da sadrži samo latinična slova i brojeve</span><br>";
+       $ok = false;
+    }
+    if (!isset($_POST['confirmpass']) || $_POST['confirmpass'] === '') {
+        $passerror .= "<span class='textfail'>Unesite ponovo novu lozinku</span><br>";
+        $ok = false;
+    }
+    if ($_POST['newpass'] !== $_POST['confirmpass']) {
+        $passerror = "<span class='textfail'>Nova lozinka se ne slaže</span><br>";
+        $ok = false;
+    }
+    if (!password_verify($_POST['currpass'], $passhash)) {
+        $passerror = "<span class='textfail'>Važeća lozinka je neispravna</span><br>";
+        $ok = false;
+    }
 
-	if ($ok) {
-		$currpass = mysqli_real_escape_string($conn, $_POST['currpass']);
-		$newpass = mysqli_real_escape_string($conn, $_POST['newpass']);
-		$confirmpass = mysqli_real_escape_string($conn, $_POST['confirmpass']);
+    if ($ok) {
+        $currpass = mysqli_real_escape_string($conn, $_POST['currpass']);
+        $newpass = mysqli_real_escape_string($conn, $_POST['newpass']);
+        $confirmpass = mysqli_real_escape_string($conn, $_POST['confirmpass']);
+        $passhash = password_hash($newpass, PASSWORD_DEFAULT);
+        $sql = "UPDATE korisnici SET Lozinka = '$passhash' WHERE KID = '$userID';";
+        $passerror .= "<span class='textsuccess'>Lozinka uspešno promenjena</span><br>";
 
-		$sql = "UPDATE korisnici SET Lozinka = '$passhash' WHERE KID = '$userID';";
-		$passerror .= "<span class='textsuccess'>Lozinka uspešno promenjena</span><br>";
-
-		$test = mysqli_query($conn, $sql);
-		if($test === false) {
-			$passerror .= "Error description: " . mysqli_error($conn);
-		}
-	}
+        $test = mysqli_query($conn, $sql);
+        if($test === false) {
+            $passerror .= "Error description: " . mysqli_error($conn);
+        }
+    }
 }
-
 
 
 function writePosts() {
 	global $userID, $postindex, $passerror;
 	$conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME);
-	$sql = "SELECT * FROM statusi WHERE KID = $userID ORDER BY VremePostavljanja DESC";
+	$sql = "SELECT * FROM statusi WHERE kid = $userID ORDER BY vremepostavljanja DESC";
 	$result = $conn->query($sql) or die($mysqli->error);
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) { 
-			if ($row["TekstStatusa"] !== "") {
-				?> <textarea name="post<?php echo htmlspecialchars($row["TID"]) ?>" autocomplete="off" maxlength="140"><?php echo htmlspecialchars($row["TekstStatusa"]) ?></textarea> <?php
-				$postindex[] = $row["TID"];
+			if ($row["tekststatusa"] !== "") {
+				?> <textarea name="post<?php echo htmlspecialchars($row["tid"]) ?>" autocomplete="off" maxlength="140"><?php echo htmlspecialchars($row["tekststatusa"]) ?></textarea> <?php
+				$postindex[] = $row["tid"];
 			}
 		}
 	} else {
@@ -178,10 +177,10 @@ function writePosts() {
 	}
 	if (isset($_POST['changeposts'])) {
 		foreach ($postindex as $postid) {
-			$dbpost = mysqli_query($conn, "SELECT 'TekstStatusa' FROM Users WHERE TID='$postid'");
+			$dbpost = mysqli_query($conn, "SELECT 'tekststatusa' FROM users WHERE tid='$postid'");
 			if ($dbpost != $_POST['post'.$postid]) {
 				$post = mysqli_real_escape_string($conn, $_POST['post'.$postid]);
-				mysqli_query($conn,"UPDATE statusi SET TekstStatusa = '$post' WHERE TID='".$postid."';");
+				mysqli_query($conn,"UPDATE statusi SET tekststatusa = '$post' WHERE tid='".$postid."';");
 			}
 		}
 		echo '<script language="javascript"> alert("Statusi uspešno promenjeni") </script>';

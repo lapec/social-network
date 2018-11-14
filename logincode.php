@@ -4,22 +4,22 @@ if (isset($_POST['usernamelg']) && isset($_POST['passwordlg'])) {
     $db = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME);
     // Change character set to utf8
     mysqli_set_charset($db,"utf8");
-    $sql = sprintf("SELECT * FROM korisnici WHERE KorisnickoIme='%s'",
+    $sql = sprintf("SELECT * FROM korisnici WHERE korisnickoime='%s'",
         mysqli_real_escape_string($db, $_POST['usernamelg'])
     );
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_assoc($result);
     if ($row) {
-        $hash = $row['Lozinka'];
+        $hash = $row['lozinka'];
 
         if (password_verify($_POST['passwordlg'], $hash)) {
             $message = 'Login successful.';
 
-            $_SESSION['user'] = $row['KorisnickoIme'];
-            $_SESSION['KID'] = $row['KID'];
-            $_SESSION['SlikaKorisnika'] = $row['SlikaKorisnika'];
-            $_SESSION['name'] = $row['Ime'];
-            $_SESSION['lastname'] = $row['Prezime'];
+            $_SESSION['user'] = $row['korisnickoime'];
+            $_SESSION['KID'] = $row['kid'];
+            $_SESSION['SlikaKorisnika'] = $row['slikakorisnika'];
+            $_SESSION['name'] = $row['ime'];
+            $_SESSION['lastname'] = $row['prezime'];
             
 
             header('Location: dashboard.php');
