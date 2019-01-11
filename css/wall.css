@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #F0F3F8;
+    font-family: arial;
+}
+
+
+.timelineContainer {
+    display:flex;
+    justify-content: center;
+    padding: 40px 0 20px 0;
+}
+.timelineCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+}
+.timelineSeparator {
+    width: 5%;
+}
+.timelinePost {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timelineVertLine {
+    background: white;
+    width: 5px;
+    height: 45px;
+    position: absolute;
+    z-index: -1;
+}
+.timelineHorLine {
+    background: white;
+    width: 100%;
+    height: 5px;
+    margin-top: 40px;
+}
+.timelineDateRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+}
+.timelineDateSlot {
+    padding-left: 10px;
+    width: 100%;
+    height: 0;
+    font-size: 0.6em;
+    line-height: 25px;
+}
+.timelineBall {
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+}
+.timelineText {
+    padding: 2%;
+    width: 96%;
+    min-height: 40px;
+    background: white;
+}
+.timelineText > img {
+    width: 100%;
+    object-fit: cover;
+}
+.timelineProfilePic {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.timelineProfilePic > img {
+    width: 80%;
+    object-fit: cover;
+}
+.timelineProfileBtn {
+    background-color: #39B54A;
+    width: 120px;
+    color: #eee;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    margin-bottom: 20px;
+    color: white;
+}
+.timelinePersonalInfo {
+    background: white;
+    width: 96%;
+    padding: 2%;
+}
+.timelineInfoRow {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+.timelineLeftInfo {
+    color: grey;
+    font-style: italic;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .timelineCol {
+        width: 46%;
+        padding: 0 2%;
+    }
+    .timelineSeparator {
+        width: 4%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .timelineCol {
+        width: 96%;
+    }
+    .timelineSeparator {
+        display: none;
+    }
+    .timelineContainer {
+        flex-direction: column;
+    }
+}

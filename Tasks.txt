@@ -1,0 +1,35 @@
+!Taskovi se izvrsavaju jedan za drugim pri pisanju koda.
+
+1. Na stranici logincode.php unutar: if (password_verify($_POST['password'], $hash)) {}
+petlje kreirati sesije za sledece podatke :
+
+	$_SESSION['user'] = $row['KorisnickoIme'];
+	$_SESSION['KID'] = $row['KID'];
+	$_SESSION['SlikaKorisnika'] = $row['SlikaKorisnika'];
+	$_SESSION['name'] = $row['Ime'];
+	$_SESSION['lastname'] = $row['Prezime'];
+/*
+$_SESSION[''] cuva podatak na nivou servera, tako 
+da podatke mozemo preneti na druge stranice
+*/
+
+2. unutar dashboard.php stranice na pocetku stranice startovati sesiju komandom: session_start();
+zatim dodati sledeci uslov za proveru sesije user:
+if (!isset($_SESSION['user']) || !$_SESSION['user']) {
+	//riderektovati na index stranicu 
+	//header('Location: stranicaPrimer.php');
+}
+
+
+3. Editovati SQL kod za INSERT podataka u STATUSI tabelu
+tako da vrednost za kolonu KID bude zamenjena sa $_SESSION[KID]
+
+4. Kreirati novi fajl logout.php, na pocetku fajla pozvati sesiju komandom:
+session_start();
+// unistiti sesiju komandom session_destroy:
+session_destroy(); 
+// odraditi riderekt sa logout.php-a na pocetnu stranicu
+header('Location: index.php');
+?>
+
+5. Testirati dashboard.php stranicu

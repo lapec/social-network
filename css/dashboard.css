@@ -1,67 +1,220 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
+@import url('https://fonts.googleapis.com/css?family=Quattrocento');
+
 body{
-	margin: 0;
+    margin: 0;
+    padding: 0;
+    background: #F0F3F8;
+    font-family: arial;
 }
+
 a:link, a:visited {
     text-decoration: none;
     color: #fff;
 }
-nav {
-	background: #4267B2;
-	min-height: 50px;
-    color: #e0d9d9;
-    padding-top:5px;
+
+.dashcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-nav a img {
-    width: 25px;
-    border-radius: 30px;
-    margin-top: 5px;
+/*post box*/
+
+.dashcontent {
+    width: 50%;
+    margin-top: 20px;
+    max-width: 530px;
+
+      
 }
 
-.brand {
-    font-family: 'Comfortaa', cursive;
-    font-size: 1.5em;
+.dashinsertpost {
+    display: flex;
+    align-items: flex-start;
+    width: 92%;
+    background: #FFF;
+    padding: 2%;
+    margin: 0 2% 20px 2%;
+    min-width: 405px;
 }
 
-/* Feeds */
-
-body{
-    background: #F0F3F8;
-    font-family: arial;
+.dashinsertpostuserimg {
+    width: 80px;
 }
-.row {
-    text-align: left;
+
+.dashinsertpostuserimg > img {
+    width: 60px;
+    height: auto;
+    object-fit: contain;
+}
+
+.dashbottominsert {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashinputform {
+    width: 100%;
+}
+
+.dashonyourmind {
+    padding: 1%;
+    width: 98%;
+    min-height: 40px;
+    font-family: inherit;
+    margin-bottom: 5px;
+}
+
+.dashbtn {
+    background-color: #39B54A;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 120px;
+}
+
+.dashbrowsebtn {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.dashbrowsebtn + label {
+    width: 120px;
+    color: #fff;
+    background-color: #4267B2;
+    display: inline-block;
+    font-size: .75em;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.dashbrowsebtn:focus + label,
+.dashbrowsebtn + label:hover {
+    background-color: #51bac8;
+}
+
+.dashbtn:focus,
+.dashbtn:hover {
+    background-color: #51c860;
+}
+
+#pubselect {
+    height: 40px;
+    border: 2px solid #4267B2;
+    position: relative;
+    top: 1px;
+}
+
+.printText {
+    margin-bottom: 20px;
+}
+
+#post_printText {
+    width:100%;
+    min-width: 435px;
+}
+
+#post_printText .dashboard-post-row a:link, #post_printText .dashboard-post-row a:visited {
+    text-decoration: none;
+    color: #0000ff;
+}
+
+.dashboard-post-row {
+    display: flex;
+    flex-flow: column;
     color: auto;
-    width: 30%;
-    vertical-align: middle;
-    margin: 10px;
-    padding: 10px;
+    background: white;
+    padding: 5px;
+    margin-bottom: 3%;
+    width: 95%;
+    max-width: 500px;
+    
 }
+
+.dashboard-usr-pict {
+    display: flex;
+}
+
+.dashboard-usr-pict img {
+    width: 30px;
+    height: 40px;
+    object-fit: cover;
+    padding: 2px;
+}
+
+.userNameDiv {
+    flex-flow:column;
+}
+
+#fullName {
+    margin-left: 11px;
+}
+
+.timePost {
+    margin-left: 10px;
+    font-size: 0.7em;
+}
+
+.outPict {
+    width: 100%;
+    padding: 5px;
+}
+.outPict img {
+    width:99%;
+}
+
+/*end post box*/
+
+
+/* START popupContainter */
+
 #printText .row {
     background: #FFFFFF;
+    width: 100%;
+   
+
 }
-#printText .row img {
-    width: 35px;
-    border-radius: 50px;
-    vertical-align: text-top;
-}
+
 #fullName {
-    margin-left: 10px;
+    font-family: 'Merriweather Sans', sans-serif;
+    display: inline-block;
+    left: 50px;
+    position: relative;
+    bottom: 30px;
 }
 #insertPost {
     text-align: left;
     padding: 5px;
     background: #fff;
     width: 31%;
-    height: 80px;
+    height: 90px;
     margin-left: 50%;
     margin-bottom: 40px;
     transform: translate(-50%, -0%);
+    position: static;   
 }
 #insertPost img {
     margin-left: 10px;
     width: 30px;
     vertical-align: middle;
+}
+.postTxt {
+    font-family: 'Quattrocento', serif;
+    position: relative;
+    top: -10px;
+    word-break: break-word;
+}
+#postTxt {
+    text-align: left;
 }
 #postTxt > img {
     min-width: 100%;
@@ -80,4 +233,347 @@ body{
     margin-top: 15px;
     font-size: 9px;
     color: blue;
+    display: inline-block;
+}
+#uploadImage {
+    padding: 3px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+#uploadImage:hover {
+    background-color: grey;
+}
+#pubSelect {
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+#pubSelect:hover {
+    border: 1px solid grey;
+}
+#kreirajPost {
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+#kreirajPost:hover {
+    background-color: grey;
+}
+#onYourMind {
+    margin: 5px;
+}
+.dgm:hover {
+    border: 1px solid grey;
+    background-color: grey;
+}
+.btnUpload {
+    width: 120px;
+    height: 50px;
+    float: left;
+    position: relative;
+    bottom: -4px; 
+}
+.dgm {
+    width: 200px;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 0.8em;
+    background-color: #F0F0F0;
+}
+.rightSide{
+    float: left;
+    position: relative;
+    top: -20px;
+    left: -7px;
+}
+.allBtn {
+    position: relative;
+    top: -20px;
+}
+/* START popupContainter */
+
+#forma {
+    height: 40px;
+    width: 80%;
+    border-radius: 8px;
+    margin: 10px;
+    float: right;
+    resize: none;
+    font-size: 14px;
+}
+#popupContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    overflow-y: scroll;
+}
+#popupContent {
+    background-color: silver;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 90%;
+    height: 80%;
+}
+#popupContent > .leftColumn {
+    width: 70%;
+    min-height: 300px;
+}
+
+#imgComm {
+    width: 85%;
+}
+
+.imgBox {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    text-align: center;
+    position: relative;
+    right: 0px;
+    overflow: hidden;
+}
+
+.clickableImage{
+    cursor: pointer;
+}
+.postImg{
+    width: 100%;
+    height: auto;
+}
+#popupContent > .rightColumn {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f6fa;
+    padding: 15px;
+    width: 30%;
+    position: relative;
+}
+.rightColumn > #popupTopBar {
+    display: flex;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+#closePopup {
+    font-size: 25px;
+    cursor: pointer;
+    color: silver;
+    padding: 0 6px;
+}
+#closePopup:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+#comment {
+    margin-bottom: 10px;
+    font-size: 12px;
+    width: 100%;
+}
+#photoContainer {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.load-more{
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 12px;
+    color: #0000ff;
+    cursor: pointer;
+}
+#submitComment {
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 0px;
+    background-color: #0f75bc;
+    border: none;
+    color: white;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2em;
+    width: 30%;
+    border-radius: 5px;
+    float: right;
+    margin-left: 80px;
+    margin-right: 10px;
+    
+
+}
+#imgComment{
+    overflow-y: auto;
+    height: 550px;
+}
+
+#komentar {
+    flex-grow: 1;
+}
+.usrComm {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#forma::placeholder {
+    font-size: 1.3em;
+    padding: 6px;
+}
+
+.dateTime {
+    font-size: 10px;
+    position: relative;
+    left: 20px;
+    color: lightgrey;
+}
+
+.usrImg, .usrCom {
+    display: inline-block;
+    width: 100%;
+}
+
+.usrImg {
+    width: 47px;
+    height: 47px;
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+    float: left;
+    top: 58px;
+    margin-left: 20px;
+    border: 1px solid red;
+   -webkit-clip-path: circle(20px at center);
+    clip-path: circle(20px at center);
+    right: 10px;
+}
+
+.usrImg1 {
+  width: 100%;
+}
+
+#imgComm img{
+    height: 100%;
+}
+
+#imgComm #fullName a:link {
+    color: #365899;
+    font-weight: bold;
+}
+
+#imgComm #fullName a:hover {
+    color: #365899;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#imgComm #fullName a:active {
+    color: #365899;
+}
+
+#imgComm #fullName a:visited {
+    color: #365899;
+}
+/* END popupContainter */
+
+
+@media only screen and (max-width: 780px) {
+  
+/*popupContainer*/
+
+    #popupContent {
+        display: flex;
+        flex-wrap: wrap;
+        overflow: auto;
+        position: relative;
+        height: 100%;
+        overflow-x: hidden;
+    }
+    #popupContent > .leftColumn {
+        width: 90%;
+        min-width: 300px;
+    }
+      #popupContent > .rightColumn {
+        width: 90%;  
+    }
+    #commentsBox {
+        height:100%;
+    }
+    #comment{
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    #popupContainer {
+        overflow-y: scroll;
+    }
+    #closePopup{
+        display: none;
+    }
+
+/*end of popupContainer*/
+
+}
+
+@media only screen and (max-width: 579px) {
+
+    .dashcontent {
+        width: 90% !important;
+            }
+
+    .dashboard-post-row {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 450px) {
+
+    .dashcontent {
+        width: 90% !important;
+            }    
+
+    .dashbottominsert {
+        flex-wrap: wrap;
+    }
+
+    .dashinsertpost {
+       flex-wrap: wrap;
+       min-width: 200px;
+    }
+    .dashinputform {
+        display:flex;
+        flex-wrap: wrap;
+    }
+
+    .dashbrowsebtn {
+        width: 100%;
+        
+    
+    }
+
+    .dashbtn {
+        width: 100%;
+        
+    }
+    #pubselect {
+        width: 100%;
+        margin: 10px 0 10px 0;
+    }
+    .dashinsertpostuserimg {
+        margin-bottom: 10px;
+    }
+    .dashonyourmind {
+        width: 100%;
+        
+    }
+    #post_printText {
+        min-width: 200px;
+    }
 }

@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main-container {
+	width: 100%;
+}
+
+.navigation {
+	display: flex;
+	background-color: #4267B2;
+	height: 60px;
+}
+
+.logo {
+	flex: 1;
+	display: flex;
+  overflow: hidden !important;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo a h1 {
+  margin-left: 10px;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	/* width: 250px;
+	height: 40px; */
+}
+
+.login {
+	flex: 1;
+  overflow: hidden !important;
+}
+
+.username {
+	width: 40%;
+	height: 30px;
+	margin: 15px 2px;
+	padding-left: 10px;
+}
+
+.password {
+	width: 40%;
+	height: 30px;
+	margin: 15px 2px;
+	padding-left: 10px;
+}
+
+.btn {
+	width: 16%;
+	min-height: 30px;
+	background-color: #365899;
+	color: #fff;
+	border: 0;
+}
+
+.btn:hover {
+	background-color: hsl(219, 48%, 50%);
+}
+
+.container {
+	display: flex;
+	background-color: #fff;
+	height: auto;
+	position: absolute;
+	z-index: -2;
+}
+
+.box1 {
+	flex: 1;
+}
+
+.box2 {
+  flex: 1;
+  overflow: hidden !important;
+}
+
+
+img {
+	width: 100%;
+	border-radius: 50%;
+}
+
+.img1 {
+	width: 500px;
+	height: 500px;
+	margin-top: 90px;
+	margin-left: 90px;
+}
+
+.img2 {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	margin-top: 43px;
+	z-index: -1;
+}
+
+.card {
+	margin-top: 200px;
+}
+
+.name {
+	width: 40%;
+	height: 30px;
+	margin: 15px 2px;
+	padding-left: 10px;
+}
+
+.lastname {
+	width: 40%;
+	height: 30px;
+	margin: 10px 2px;
+	padding-left: 10px;
+}
+
+.email {
+	width: 81.5%;
+	height: 30px;
+	margin: 10px 2px;
+	padding-left: 10px;
+}
+
+.username2 {
+	width: 40%;
+	height: 30px;
+	margin: 10px 2px;
+	padding-left: 10px;
+}
+
+.password2 {
+	width: 40%;
+	height: 30px;
+	margin: 10px 2px;
+	padding-left: 10px;
+}
+
+.btn2 {
+	width: 81.5%;
+	min-height: 40px;
+	margin: 10px 2px;
+	background-color: #39B54A;
+	color: #fff;
+	border: 0;
+}
+
+.btn2:hover {
+	background-color: hsl(128, 52%, 57%)
+}
+
+h3 {
+	font-family: 'Montserrat', sans-serif;
+	color: #00AEEF;
+	font-size: 110px;
+}
+
+p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 24px;
+	padding: 0px;
+}
+
+.wlcm p {
+  font-size: 1em;
+  margin-left:20px;
+}
+
+
+@media only screen and (max-width: 1150px) {
+    
+  .container {
+  	flex-direction: column;
+  }
+
+  .box1, .box2 {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: scroll;
+      position: relative;
+  }
+
+  .box1 {
+      width: 100%;
+      min-width: 10px;
+  	  display: none;
+  }
+  
+  .box2 {
+      width: 100%; 
+      min-width: 10px;      
+  }
+
+  .img1 {
+  	position: relative;
+  	top: 15px;
+  }
+
+  .card {
+  	 width: 100%;
+  	 display: flex;
+  	 flex-direction: column;
+  	 font-size: 20px;
+  }
+
+  .card input {
+  	 font-size: 23px;
+  	 padding:10px;
+  	 margin-left: 10px;
+  	 min-height: 40px;
+  }
+
+   .name {
+  	 width: 90%;
+  }
+
+   .lastname {
+  	 width: 90%;
+  }
+
+  .email {
+  	 width: 90%;
+  }
+
+  .username2 {
+  	 width: 90%;
+  }
+
+  .password2 {
+  	 width: 90%;
+  }
+
+	.btn2 {
+		  width: 90%;
+	}
+
+	.wlcm {
+		  width: 90%;
+	}
+
+	.hello h3 {
+		  font-size: 55px;
+		  padding-left: 10px;
+	}
+
+	.navigation {
+		  flex-direction: column;
+      height: auto;
+	}
+
+	.logo, .login {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: scroll;
+      position: relative;
+   }
+
+	.logo h1 {
+  		font-size: 25px;
+  		text-align: center;
+  		padding-top: 8px;
+  	}
+
+  .login {
+  		width: 100%;
+		  display: flex;
+    	flex-direction: column;
+  	}
+
+  .login input {
+    	font-size: 23px;
+    	padding: 10px;
+    	margin-left: 10px;
+    	min-height: 40px;
+   }
+   
+   .username, .password {
+  		width: 90%;
+   }
+
+   .btn {
+  		width: 90%;
+  		margin-bottom: 10px;
+  		margin-left: 10px;
+  	}
+ } 	
